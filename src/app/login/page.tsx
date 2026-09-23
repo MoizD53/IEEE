@@ -37,7 +37,8 @@ export default function LoginPage() {
         <div className="absolute inset-0 bg-[#0F172A]/5 mix-blend-multiply" />
         
         {/* Gradient blend on the left edge to seamlessly merge with the bg-slate-50 of the left panel */}
-        <div className="absolute inset-y-0 left-0 w-24 lg:w-48 bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-full md:w-[60%] lg:w-[75%] bg-gradient-to-r from-slate-50 via-slate-50/80 to-transparent" />
+        <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-slate-50 [mask-image:linear-gradient(to_right,black,transparent)]" />
       </div>
     </div>
   );
