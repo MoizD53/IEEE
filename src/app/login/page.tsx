@@ -13,8 +13,8 @@ export default function LoginPage() {
       </div>
 
       {/* Left Side: Authentication Panel */}
-      <div className="w-full md:w-1/2 lg:w-[45%] flex flex-col items-center justify-center min-h-screen relative bg-slate-50">
-        <main className="w-full flex-1 flex items-center justify-center px-4 sm:px-8 z-10 pt-[100px] md:pt-0">
+      <div className="w-full md:w-1/2 lg:w-[45%] flex flex-col items-center justify-center min-h-screen relative bg-slate-50 pt-[120px] pb-4">
+        <main className="w-full flex-1 flex items-center justify-center px-4 sm:px-8 z-10">
           <LoginForm />
         </main>
 
