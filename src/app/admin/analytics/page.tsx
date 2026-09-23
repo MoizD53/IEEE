@@ -41,8 +41,14 @@ export default async function AnalyticsPage() {
     { name: '41-50 Marks', count: d41_50 },
   ];
 
+  const recommendedEvaluations = await prisma.evaluation.findMany({
+    where: { status: "SUBMITTED", recommended: true },
+    include: { paper: true, chair: { select: { name: true } } },
+    orderBy: { totalScore: 'desc' }
+  });
+
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
+    <div className="space-y-6 max-w-7xl mx-auto pb-10">
       <div>
         <h1 className="text-2xl font-bold text-slate-900">Presentation Scoring Analytics</h1>
         <p className="mt-1 text-sm text-slate-500">Real-time statistics across all 5 parameters on the 50-mark scale ({total} evaluations).</p>
@@ -85,6 +91,38 @@ export default async function AnalyticsPage() {
           <h2 className="text-base font-bold text-slate-900 mb-6">Best Paper Recommendation Ratio</h2>
           <RecommendationPieChart data={recData} />
         </div>
+      </div>
+
+      {/* Recommended Papers List */}
+      <div className="bg-white p-6 rounded-3xl shadow-sm border border-emerald-200">
+        <h2 className="text-base font-bold text-slate-900 mb-4 flex items-center gap-2">
+          <span className="w-8 h-8 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">★</span>
+          Best Paper Recommendations ({recCount})
+        </h2>
+        {recommendedEvaluations.length === 0 ? (
+          <p className="text-sm text-slate-500 py-4 text-center">No papers have been recommended yet.</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {recommendedEvaluations.map((evalRecord) => (
+              <a 
+                key={evalRecord.id}
+                href={`/admin/papers/${evalRecord.paper.id}`} 
+                className="block p-4 rounded-xl border border-slate-200 bg-slate-50 hover:bg-emerald-50 hover:border-emerald-300 transition-colors group"
+              >
+                <div className="flex justify-between items-start gap-4">
+                  <div>
+                    <div className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider mb-1">{evalRecord.paper.paperId}</div>
+                    <div className="text-sm font-bold text-slate-900 line-clamp-2 group-hover:text-emerald-900">{evalRecord.paper.title}</div>
+                    <div className="text-xs text-slate-500 mt-2">Recommended by {evalRecord.chair.name}</div>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <div className="text-xl font-black text-slate-800 group-hover:text-emerald-700">{evalRecord.totalScore}<span className="text-xs text-slate-400">/50</span></div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

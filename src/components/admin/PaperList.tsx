@@ -19,7 +19,7 @@ export default function PaperList({ papers }: { papers: Paper[] }) {
   }
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden relative">
+    <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-x-auto relative">
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>

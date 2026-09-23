@@ -23,6 +23,15 @@ export const assignPaper = withAdminAuth(async (user, paperId: string, chairId: 
   });
   if (!chair) throw new Error("Target chair not found or is not an active session chair.");
 
+  // Check if paper already has an active assignment
+  const existingActiveAssignment = await prisma.paperAssignment.findFirst({
+    where: { paperId: parsed.data.paperId, status: "ACTIVE" }
+  });
+  
+  if (existingActiveAssignment && existingActiveAssignment.chairId !== parsed.data.chairId) {
+    throw new Error("This paper is already assigned to a session chair. Only one chair per paper is allowed.");
+  }
+
   const existing = await prisma.paperAssignment.findUnique({
     where: { paperId_chairId: { paperId: parsed.data.paperId, chairId: parsed.data.chairId } }
   });

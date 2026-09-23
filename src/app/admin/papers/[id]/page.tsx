@@ -106,7 +106,13 @@ export default async function PaperDetailPage({ params }: { params: Promise<{ id
         <div className="lg:col-span-1 space-y-6">
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
             <h2 className="text-lg font-semibold mb-4 border-b pb-2">Assignments</h2>
-            <AssignChairForm paperId={paper.id} chairs={availableChairs} />
+            {activeAssignmentChairIds.length === 0 ? (
+              <AssignChairForm paperId={paper.id} chairs={availableChairs} />
+            ) : (
+              <div className="mb-4 p-3 bg-blue-50 text-blue-700 text-sm rounded-md border border-blue-200">
+                This paper is already assigned. A paper can only have one session chair.
+              </div>
+            )}
             <AssignmentList paperId={paper.id} assignments={paper.assignments} />
           </div>
         </div>

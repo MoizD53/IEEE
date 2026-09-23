@@ -29,6 +29,15 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
   const existingEval = paper.evaluations[0];
   const isSubmitted = existingEval?.status === "SUBMITTED";
 
+  const allAssignments = await prisma.paperAssignment.findMany({
+    where: { chairId: session.user.id, status: "ACTIVE" },
+    orderBy: { assignedAt: "desc" },
+    include: { paper: { select: { id: true, paperId: true } } }
+  });
+  
+  const currentIndex = allAssignments.findIndex(a => a.paperId === paper.id);
+  const nextAssignment = currentIndex !== -1 && currentIndex + 1 < allAssignments.length ? allAssignments[currentIndex + 1] : null;
+
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-10">
       <div>
@@ -67,11 +76,6 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
               </div>
             </div>
             
-            <div className="pt-2 border-t border-slate-100">
-              <button className="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs rounded-xl transition-colors flex items-center justify-center gap-2">
-                <FileText size={16} /> View Presentation Manuscript / PDF
-              </button>
-            </div>
           </div>
         </div>
 
@@ -147,6 +151,24 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
               </div>
             ) : (
               <EvaluationForm paperId={paper.id} />
+            )}
+          </div>
+
+          <div className="mt-6 flex justify-end">
+            {nextAssignment ? (
+              <Link 
+                href={`/chair/evaluate/${nextAssignment.paper.id}`}
+                className="w-full sm:w-auto px-6 py-3 bg-slate-900 text-white font-bold text-sm rounded-xl shadow hover:bg-slate-800 transition-colors text-center"
+              >
+                Next Assigned Paper &rarr;
+              </Link>
+            ) : (
+              <button 
+                disabled 
+                className="w-full sm:w-auto px-6 py-3 bg-slate-200 text-slate-500 font-bold text-sm rounded-xl text-center cursor-not-allowed border border-slate-300"
+              >
+                All Done (No More Papers)
+              </button>
             )}
           </div>
         </div>

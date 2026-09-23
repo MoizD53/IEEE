@@ -48,9 +48,9 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                   <circle cx="24" cy="24" r="18" stroke="white" strokeWidth="0.75" />
                 </svg>
 
-                {/* CSM Lettermark */}
-                <span className="relative z-10 text-white font-black text-[15px] tracking-tight leading-none">
-                  CSM
+                {/* CICON Lettermark */}
+                <span className="relative z-10 text-white font-black text-[12px] tracking-tight leading-none">
+                  CICON
                 </span>
               </div>
             </div>
@@ -62,7 +62,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               </span>
               <h1 className="text-[18px] leading-tight font-bold tracking-tight text-white flex items-center gap-1.5">
                 <span className="font-semibold text-slate-300">IEEE</span>
-                <span className="font-extrabold text-white">CSM</span>
+                <span className="font-extrabold text-white">CICON</span>
               </h1>
               <p className="text-[12px] font-medium text-slate-400 tracking-wide mt-0.5">
                 Administrator Portal

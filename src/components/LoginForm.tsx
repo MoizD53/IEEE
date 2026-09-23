@@ -44,7 +44,7 @@ export default function LoginForm() {
       {/* COMPACT CARD TOP BRANDING                                 */}
       {/* ========================================================= */}
       <div className="text-center flex flex-col items-center mb-5">
-        {/* Compact Precision CSM Logo Mark (38px x 38px) */}
+        {/* Compact Precision CICON Logo Mark (38px x 38px) */}
         <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[12px] bg-gradient-to-br from-[#1E40AF] via-[#1D4ED8] to-[#1E3A8A] flex items-center justify-center shadow-[0_3px_12px_rgba(29,78,216,0.30)] ring-1 ring-inset ring-white/20 mb-2 relative overflow-hidden select-none">
           <svg
             className="absolute inset-0 w-full h-full opacity-15 pointer-events-none"

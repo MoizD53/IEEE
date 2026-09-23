@@ -86,7 +86,7 @@ export default function EvaluationForm({ paperId }: { paperId: string }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-6 sm:grid-cols-11 gap-1.5 pt-1">
+      <div className="flex flex-nowrap justify-between gap-1 sm:gap-1.5 pt-2 w-full">
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
           const isSelected = val === num;
           return (
@@ -94,7 +94,7 @@ export default function EvaluationForm({ paperId }: { paperId: string }) {
               key={num}
               type="button"
               onClick={() => setVal(num)}
-              className={`h-9 rounded-lg font-bold text-xs transition-all flex items-center justify-center
+              className={`flex-1 h-9 sm:h-10 min-w-0 rounded-lg font-bold text-xs sm:text-sm transition-all flex items-center justify-center
                 ${isSelected 
                   ? 'bg-blue-600 text-white shadow-md ring-2 ring-blue-400 ring-offset-1' 
                   : 'bg-white text-slate-700 border border-slate-300 hover:bg-blue-50 hover:border-blue-400'}`}
