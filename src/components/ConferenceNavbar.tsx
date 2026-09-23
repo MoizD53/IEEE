@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, LogOut, ShieldCheck } from "lucide-react";
+import { ChevronDown, ShieldCheck } from "lucide-react";
+import SignOutButton from "./SignOutButton";
 
 interface ConferenceNavbarProps {
   variant?: "floating" | "portal";
@@ -238,13 +239,7 @@ export default function ConferenceNavbar({
                 </div>
 
                 <div className="border-t border-slate-100 pt-1">
-                  <Link
-                    href="/api/auth/signout"
-                    className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-red-600 hover:bg-red-50/80 transition-colors"
-                  >
-                    <LogOut size={14} />
-                    <span>Sign Out</span>
-                  </Link>
+                  <SignOutButton className="flex items-center gap-2.5 px-4 py-2 text-xs font-semibold text-red-600 hover:bg-red-50/80 transition-colors w-full text-left" />
                 </div>
               </div>
             )}

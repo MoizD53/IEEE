@@ -12,6 +12,7 @@ import {
   MessageSquareText 
 } from "lucide-react";
 import ConferenceNavbar from "@/components/ConferenceNavbar";
+import SignOutButton from "@/components/SignOutButton";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
@@ -120,15 +121,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           </Link>
         </nav>
 
-        {/* Sidebar Footer */}
         <div className="border-t border-white/[0.07] pt-4 mt-auto">
-          <Link
-            href="/api/auth/signout"
-            className="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors"
-          >
-            <LogOut size={18} />
-            Sign Out
-          </Link>
+          <SignOutButton className="gap-3 px-3 py-2 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors" />
         </div>
       </aside>
 

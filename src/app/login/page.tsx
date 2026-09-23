@@ -4,34 +4,38 @@ import BackgroundSlideshow from "@/components/BackgroundSlideshow";
 
 export default function LoginPage() {
   return (
-    <div className="min-h-screen md:h-screen md:max-h-screen md:overflow-hidden flex flex-col justify-between relative bg-slate-950 font-sans">
-      {/* ========================================================= */}
-      {/* CLEAR DYNAMIC CAMPUS BACKGROUND SLIDESHOW (2.5s INTERVAL) */}
-      {/* ========================================================= */}
-      <BackgroundSlideshow intervalMs={2500} />
-
-      {/* ========================================================= */}
-      {/* TOP FLOATING INSTITUTIONAL NAVBAR                         */}
-      {/* ========================================================= */}
-      <div className="w-full z-20 flex justify-center shrink-0 pt-2 sm:pt-4">
-        <ConferenceNavbar variant="floating" />
+    <div className="min-h-screen flex flex-col md:flex-row bg-slate-50 font-sans relative">
+      {/* Top Floating Navbar - Absolutely positioned to span across the whole layout */}
+      <div className="absolute top-0 left-0 w-full z-20 flex justify-center pointer-events-none">
+        <div className="pointer-events-auto w-full max-w-[1320px]">
+          <ConferenceNavbar variant="floating" />
+        </div>
       </div>
 
-      {/* ========================================================= */}
-      {/* CENTER AUTHENTICATION PANEL (FITS IN SINGLE SCREEN)       */}
-      {/* ========================================================= */}
-      <main className="z-10 w-full flex-1 flex items-center justify-center px-4 py-2 sm:py-3 min-h-0">
-        <LoginForm />
-      </main>
+      {/* Left Side: Conference Promo Image */}
+      {/* Hidden on mobile, takes 55% width on large screens */}
+      <div className="hidden md:block md:w-1/2 lg:w-[55%] relative">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/login-bg.png')" }}
+        />
+        {/* Subtle overlay if needed to match branding */}
+        <div className="absolute inset-0 bg-[#0F172A]/5 mix-blend-multiply" />
+      </div>
 
-      {/* ========================================================= */}
-      {/* COMPACT INSTITUTIONAL FOOTER                              */}
-      {/* ========================================================= */}
-      <footer className="z-10 w-full py-2.5 px-4 text-center border-t border-white/10 bg-slate-950/60 backdrop-blur-md shrink-0">
-        <p className="text-[11.5px] sm:text-xs text-white/80 tracking-normal drop-shadow-sm font-medium">
-          &copy; 2026 &ldquo;CICON&rdquo; IEEE Conference Session Portal &bull; Karnavati University &bull; All Rights Reserved.
-        </p>
-      </footer>
+      {/* Right Side: Authentication Panel */}
+      <div className="w-full md:w-1/2 lg:w-[45%] flex flex-col items-center justify-center min-h-screen relative bg-slate-50">
+        <main className="w-full flex-1 flex items-center justify-center px-4 sm:px-8 z-10 pt-[100px] md:pt-0">
+          <LoginForm />
+        </main>
+
+        {/* Compact Footer */}
+        <footer className="w-full py-4 px-4 text-center z-10 shrink-0">
+          <p className="text-xs text-slate-500 font-medium">
+            &copy; 2026 &ldquo;CICON&rdquo; IEEE Conference Session Portal &bull; Karnavati University &bull; All Rights Reserved.
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }

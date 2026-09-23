@@ -39,7 +39,7 @@ export default function LoginForm() {
   };
 
   return (
-    <div className="w-full max-w-[500px] bg-white/[0.96] backdrop-blur-xl px-7 sm:px-9 py-6 sm:py-7 rounded-[26px] shadow-[0_25px_70px_rgba(0,0,0,0.30)] border border-white/80 relative z-10 transition-all animate-in fade-in duration-500">
+    <div className="w-full max-w-[500px] bg-white px-7 sm:px-9 py-8 sm:py-9 rounded-[26px] shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-slate-200 relative z-10 transition-all animate-in fade-in duration-500">
       {/* ========================================================= */}
       {/* COMPACT CARD TOP BRANDING                                 */}
       {/* ========================================================= */}

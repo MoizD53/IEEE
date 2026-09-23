@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { LogOut, FileText, Home, MessageSquareHeart } from "lucide-react";
 import ConferenceNavbar from "@/components/ConferenceNavbar";
+import SignOutButton from "@/components/SignOutButton";
 
 export default async function ChairLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
@@ -50,13 +51,7 @@ export default async function ChairLayout({ children }: { children: React.ReactN
         </nav>
 
         <div className="border-t border-slate-800 pt-4 mt-auto">
-          <Link
-            href="/api/auth/signout"
-            className="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors"
-          >
-            <LogOut size={18} />
-            Sign Out
-          </Link>
+          <SignOutButton className="flex items-center gap-3 px-3 py-2 rounded-xl text-sm font-medium text-red-400 hover:bg-red-500/10 hover:text-red-300 transition-colors w-full text-left" />
         </div>
       </aside>
 
@@ -74,10 +69,10 @@ export default async function ChairLayout({ children }: { children: React.ReactN
           <MessageSquareHeart size={20} />
           <span className="text-[10px] mt-1">Feedback</span>
         </Link>
-        <Link href="/api/auth/signout" className="flex flex-col items-center text-red-400">
+        <SignOutButton className="flex flex-col items-center text-red-400">
           <LogOut size={20} />
           <span className="text-[10px] mt-1">Logout</span>
-        </Link>
+        </SignOutButton>
       </div>
 
       {/* Main Content Area */}
