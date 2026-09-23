@@ -8,11 +8,7 @@ import { z } from "zod";
 const createPaperSchema = z.object({
   paperId: z.string().min(1, "Paper ID is required").max(100),
   title: z.string().min(1, "Title is required").max(500),
-  authors: z.string().min(1, "Authors are required"),
-  abstract: z.string().optional().default(""),
-  keywords: z.string().optional().default(""),
-  track: z.string().optional().default(""),
-  session: z.string().optional().default("")
+  authors: z.string().min(1, "Authors are required")
 });
 
 export const getPapers = withAdminAuth(async (user) => {
@@ -30,11 +26,7 @@ export const createPaper = withAdminAuth(async (user, formData: FormData) => {
   const parsed = createPaperSchema.safeParse({
     paperId: formData.get("paperId") as string,
     title: formData.get("title") as string,
-    authors: formData.get("authors") as string,
-    abstract: formData.get("abstract") as string,
-    keywords: formData.get("keywords") as string,
-    track: formData.get("track") as string,
-    session: formData.get("session") as string,
+    authors: formData.get("authors") as string
   });
 
   if (!parsed.success) {
@@ -54,6 +46,10 @@ export const createPaper = withAdminAuth(async (user, formData: FormData) => {
   const newPaper = await prisma.paper.create({
     data: {
       ...data,
+      abstract: "",
+      keywords: "",
+      track: "",
+      session: "",
       status: "UNASSIGNED"
     }
   });

@@ -24,7 +24,6 @@ export default function PaperList({ papers }: { papers: Paper[] }) {
         <thead className="bg-gray-50">
           <tr>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paper Info</th>
-            <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Track / Session</th>
             <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
             <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
           </tr>
@@ -35,10 +34,6 @@ export default function PaperList({ papers }: { papers: Paper[] }) {
               <td className="px-6 py-4">
                 <div className="font-medium text-gray-900 text-sm truncate max-w-xs" title={paper.title}>{paper.title}</div>
                 <div className="text-xs text-gray-500">{paper.paperId} &bull; {paper.authors}</div>
-              </td>
-              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                <div>{paper.track || "-"}</div>
-                <div className="text-xs">{paper.session || "-"}</div>
               </td>
               <td className="px-6 py-4 whitespace-nowrap">
                 <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full 

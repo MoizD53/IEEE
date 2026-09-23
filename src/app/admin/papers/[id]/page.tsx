@@ -45,29 +45,7 @@ export default async function PaperDetailPage({ params }: { params: Promise<{ id
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 space-y-6">
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-            <h2 className="text-lg font-semibold mb-4 border-b pb-2">Paper Information</h2>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-sm font-medium text-gray-500">Abstract</h3>
-                <p className="mt-1 text-sm text-gray-900">{paper.abstract || "No abstract provided."}</p>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Track</h3>
-                  <p className="mt-1 text-sm text-gray-900">{paper.track || "-"}</p>
-                </div>
-                <div>
-                  <h3 className="text-sm font-medium text-gray-500">Session</h3>
-                  <p className="mt-1 text-sm text-gray-900">{paper.session || "-"}</p>
-                </div>
-                <div className="col-span-2">
-                  <h3 className="text-sm font-medium text-gray-500">Keywords</h3>
-                  <p className="mt-1 text-sm text-gray-900">{paper.keywords || "-"}</p>
-                </div>
-              </div>
-            </div>
-          </div>
+
 
           <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
             <h2 className="text-lg font-semibold mb-4 border-b pb-2">Evaluations</h2>

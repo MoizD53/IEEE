@@ -59,22 +59,7 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
               <div className="text-xs text-slate-500 mt-1">Authors: {paper.authors}</div>
             </div>
             
-            <div className="space-y-4 text-xs">
-              <div>
-                <h3 className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Abstract</h3>
-                <p className="mt-1 text-slate-600 leading-relaxed">{paper.abstract || "No abstract provided."}</p>
-              </div>
-              <div className="grid grid-cols-2 gap-3 pt-2 border-t border-slate-100">
-                <div>
-                  <h3 className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Track</h3>
-                  <p className="text-slate-600 font-medium mt-0.5">{paper.track || "-"}</p>
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Session</h3>
-                  <p className="text-slate-600 font-medium mt-0.5">{paper.session || "-"}</p>
-                </div>
-              </div>
-            </div>
+
             
           </div>
         </div>

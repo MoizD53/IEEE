@@ -78,50 +78,6 @@ export default function AddPaperForm() {
             className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
           />
         </div>
-        <div className="md:col-span-2">
-          <label className="block text-xs font-bold uppercase tracking-wide text-slate-700 mb-1">
-            Abstract
-          </label>
-          <textarea
-            name="abstract"
-            rows={3}
-            placeholder="Brief abstract..."
-            className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
-          ></textarea>
-        </div>
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wide text-slate-700 mb-1">
-            Track
-          </label>
-          <input
-            type="text"
-            name="track"
-            placeholder="e.g. AI / ML"
-            className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
-          />
-        </div>
-        <div>
-          <label className="block text-xs font-bold uppercase tracking-wide text-slate-700 mb-1">
-            Session
-          </label>
-          <input
-            type="text"
-            name="session"
-            placeholder="e.g. Session 1A"
-            className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
-          />
-        </div>
-        <div className="md:col-span-2">
-          <label className="block text-xs font-bold uppercase tracking-wide text-slate-700 mb-1">
-            Keywords
-          </label>
-          <input
-            type="text"
-            name="keywords"
-            placeholder="AI, Machine Learning, Robotics"
-            className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
-          />
-        </div>
       </div>
       
       <div className="pt-2">
