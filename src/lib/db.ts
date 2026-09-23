@@ -1,6 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaLibSQL } from "@prisma/adapter-libsql";
 import { createClient } from "@libsql/client";
+import { validateEnv } from "./env.server";
+
+// Validate strict backend secrets instantly
+validateEnv();
 
 function createPrismaClient() {
   const url = process.env.DATABASE_URL || process.env.TURSO_DATABASE_URL || "file:./dev.db";

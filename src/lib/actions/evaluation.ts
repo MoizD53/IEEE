@@ -2,50 +2,76 @@
 
 import { prisma } from "@/lib/db";
 import { revalidatePath } from "next/cache";
-import { auth } from "@/lib/auth";
+import { withChairAuth, withAdminAuth } from "@/lib/safe-action";
+import { z } from "zod";
 
-export async function submitEvaluation(formData: FormData) {
-  const session = await auth();
-  if (session?.user?.role !== "SESSION_CHAIR") throw new Error("Unauthorized");
-  
-  const paperId = formData.get("paperId") as string;
-  const technicalScore = parseInt(formData.get("technicalScore") as string);
-  const originalityScore = parseInt(formData.get("originalityScore") as string);
-  const relevanceScore = parseInt(formData.get("relevanceScore") as string);
-  const presentationScore = parseInt(formData.get("presentationScore") as string);
-  
-  const recommended = formData.get("recommended") === "true";
-  const feedbackRating = parseInt(formData.get("feedbackRating") as string) || 0;
-  const feedbackText = formData.get("feedbackText") as string;
+const evaluationSchema = z.object({
+  paperId: z.string().min(1, "Paper ID is required"),
+  technicalScore: z.number().int().min(0).max(5),
+  originalityScore: z.number().int().min(0).max(5),
+  relevanceScore: z.number().int().min(0).max(5),
+  presentationScore: z.number().int().min(0).max(5),
+  recommended: z.boolean(),
+  feedbackRating: z.number().int().min(0).max(5).optional().default(0),
+  feedbackText: z.string().max(2000, "Feedback text is too long").optional().default("")
+});
 
-  // Validate authorization to evaluate this paper
+export const submitEvaluation = withChairAuth(async (user, formData: FormData) => {
+  const parsed = evaluationSchema.safeParse({
+    paperId: formData.get("paperId") as string,
+    technicalScore: parseInt(formData.get("technicalScore") as string) || 0,
+    originalityScore: parseInt(formData.get("originalityScore") as string) || 0,
+    relevanceScore: parseInt(formData.get("relevanceScore") as string) || 0,
+    presentationScore: parseInt(formData.get("presentationScore") as string) || 0,
+    recommended: formData.get("recommended") === "true",
+    feedbackRating: parseInt(formData.get("feedbackRating") as string) || 0,
+    feedbackText: formData.get("feedbackText") as string || "",
+  });
+
+  if (!parsed.success) {
+    throw new Error(`Validation failed: ${parsed.error.errors.map(e => e.message).join(", ")}`);
+  }
+
+  const {
+    paperId,
+    technicalScore,
+    originalityScore,
+    relevanceScore,
+    presentationScore,
+    recommended,
+    feedbackRating,
+    feedbackText
+  } = parsed.data;
+
+  // Verify ownership via assignment. Use user.id from session!
   const assignment = await prisma.paperAssignment.findUnique({
     where: {
       paperId_chairId: {
         paperId,
-        chairId: session.user.id
+        chairId: user.id
       }
     }
   });
 
   if (!assignment || assignment.status !== "ACTIVE") {
-    throw new Error("You are not assigned to evaluate this paper.");
+    throw new Error("Forbidden: You are not assigned to evaluate this paper.");
   }
 
-  // Check if already submitted
+  // Verify existing status (Prevent modification of SUBMITTED evaluation)
   const existingEval = await prisma.evaluation.findUnique({
     where: {
       paperId_chairId: {
         paperId,
-        chairId: session.user.id
+        chairId: user.id
       }
     }
   });
 
   if (existingEval?.status === "SUBMITTED") {
-    throw new Error("Evaluation already submitted.");
+    throw new Error("Forbidden: Evaluation has already been submitted and is locked.");
   }
 
+  // Calculate scores securely on server
   const totalScore = technicalScore + originalityScore + relevanceScore + presentationScore;
   const averageScore = totalScore / 4;
 
@@ -53,7 +79,7 @@ export async function submitEvaluation(formData: FormData) {
     where: {
       paperId_chairId: {
         paperId,
-        chairId: session.user.id
+        chairId: user.id
       }
     },
     update: {
@@ -71,7 +97,7 @@ export async function submitEvaluation(formData: FormData) {
     },
     create: {
       paperId,
-      chairId: session.user.id,
+      chairId: user.id,
       technicalScore,
       originalityScore,
       relevanceScore,
@@ -94,7 +120,7 @@ export async function submitEvaluation(formData: FormData) {
 
   await prisma.auditLog.create({
     data: {
-      userId: session.user.id,
+      userId: user.id,
       action: "SUBMIT_EVALUATION",
       entityType: "EVALUATION",
       entityId: evaluation.id,
@@ -102,36 +128,51 @@ export async function submitEvaluation(formData: FormData) {
     }
   });
 
+  revalidatePath("/chair/dashboard");
+  revalidatePath("/chair/papers");
   revalidatePath(`/chair/evaluate/${paperId}`);
-  revalidatePath(`/chair/dashboard`);
-}
+});
 
-export async function reopenEvaluation(evaluationId: string) {
-  const session = await auth();
-  if (session?.user?.role !== "ADMIN") throw new Error("Unauthorized");
+export const reopenEvaluation = withAdminAuth(async (user, evaluationId: string) => {
+  // Validate evaluationId
+  if (!evaluationId || typeof evaluationId !== "string") {
+    throw new Error("Invalid evaluation ID");
+  }
 
-  const ev = await prisma.evaluation.update({
+  const evaluation = await prisma.evaluation.update({
     where: { id: evaluationId },
-    data: {
+    data: { 
       status: "DRAFT",
+      submittedAt: null 
     },
-    include: { paper: true, chair: true }
+    include: { paper: true }
   });
 
-  await prisma.auditLog.create({
-    data: {
-      userId: session.user.id,
-      action: "REOPEN_EVALUATION",
-      entityType: "EVALUATION",
-      entityId: evaluationId,
-      metadata: `Admin reopened evaluation for paper ${ev.paper?.paperId} submitted by ${ev.chair?.username}`
+  // Re-evaluate paper status if it was EVALUATED and this was the only evaluation
+  const remainingSubmittedEvals = await prisma.evaluation.count({
+    where: {
+      paperId: evaluation.paperId,
+      status: "SUBMITTED"
     }
   });
 
-  revalidatePath(`/admin/feedback`);
-  revalidatePath(`/admin/papers`);
-  revalidatePath(`/chair/dashboard`);
-  if (ev.paperId) {
-    revalidatePath(`/chair/evaluate/${ev.paperId}`);
+  if (remainingSubmittedEvals === 0) {
+    await prisma.paper.update({
+      where: { id: evaluation.paperId },
+      data: { status: "IN_REVIEW" }
+    });
   }
-}
+
+  await prisma.auditLog.create({
+    data: {
+      userId: user.id,
+      action: "REOPEN_EVALUATION",
+      entityType: "EVALUATION",
+      entityId: evaluation.id,
+      metadata: `Reopened for Paper: ${evaluation.paper.paperId}`
+    }
+  });
+
+  revalidatePath("/admin/dashboard");
+  revalidatePath("/admin/feedback");
+});

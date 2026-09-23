@@ -2,62 +2,72 @@
 
 import { prisma } from "@/lib/db";
 import { revalidatePath } from "next/cache";
-import { auth } from "@/lib/auth";
+import { withAdminAuth } from "@/lib/safe-action";
+import { z } from "zod";
 
-export async function getPapers() {
-  const session = await auth();
-  if (session?.user?.role !== "ADMIN") throw new Error("Unauthorized");
-  
-  return prisma.paper.findMany({
-    orderBy: { createdAt: "desc" }
+const createPaperSchema = z.object({
+  paperId: z.string().min(1, "Paper ID is required").max(100),
+  title: z.string().min(1, "Title is required").max(500),
+  authors: z.string().min(1, "Authors are required"),
+  abstract: z.string().optional().default(""),
+  keywords: z.string().optional().default(""),
+  track: z.string().optional().default(""),
+  session: z.string().optional().default("")
+});
+
+export const getPapers = withAdminAuth(async (user) => {
+  return await prisma.paper.findMany({
+    orderBy: { createdAt: "desc" },
+    include: {
+      _count: {
+        select: { assignments: true, evaluations: true }
+      }
+    }
   });
-}
+});
 
-export async function createPaper(formData: FormData) {
-  const session = await auth();
-  if (session?.user?.role !== "ADMIN") throw new Error("Unauthorized");
+export const createPaper = withAdminAuth(async (user, formData: FormData) => {
+  const parsed = createPaperSchema.safeParse({
+    paperId: formData.get("paperId") as string,
+    title: formData.get("title") as string,
+    authors: formData.get("authors") as string,
+    abstract: formData.get("abstract") as string,
+    keywords: formData.get("keywords") as string,
+    track: formData.get("track") as string,
+    session: formData.get("session") as string,
+  });
 
-  const paperId = formData.get("paperId") as string;
-  const title = formData.get("title") as string;
-  const authors = formData.get("authors") as string;
-  const abstract = formData.get("abstract") as string;
-  const track = formData.get("track") as string;
-  const sessionName = formData.get("session") as string;
-  const keywords = formData.get("keywords") as string;
-
-  if (!paperId || !title || !authors) {
-    throw new Error("Missing required fields");
+  if (!parsed.success) {
+    throw new Error(`Validation failed: ${parsed.error.errors.map(e => e.message).join(", ")}`);
   }
 
-  const existing = await prisma.paper.findUnique({ where: { paperId } });
-  if (existing) {
+  const data = parsed.data;
+
+  const existingPaper = await prisma.paper.findUnique({
+    where: { paperId: data.paperId }
+  });
+
+  if (existingPaper) {
     throw new Error("Paper ID already exists");
   }
 
-  // Normally we would handle PDF upload here, but for this iteration we'll just save metadata
-  
   const newPaper = await prisma.paper.create({
     data: {
-      paperId,
-      title,
-      authors,
-      abstract,
-      track,
-      session: sessionName,
-      keywords,
+      ...data,
       status: "UNASSIGNED"
     }
   });
 
   await prisma.auditLog.create({
     data: {
-      userId: session.user.id,
+      userId: user.id,
       action: "CREATE_PAPER",
       entityType: "PAPER",
       entityId: newPaper.id,
-      metadata: `Created paper ${paperId}`
+      metadata: `Created paper: ${data.paperId}`
     }
   });
 
   revalidatePath("/admin/papers");
-}
+  revalidatePath("/admin/dashboard");
+});

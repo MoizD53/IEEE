@@ -11,7 +11,8 @@
     "db:verify:local": "tsx scripts/verify-local.ts",
     "db:turso:migrate": "tsx scripts/turso-migrate.ts",
     "db:turso:seed": "tsx scripts/turso-seed.ts",
-    "db:turso:verify": "tsx scripts/verify-turso.ts"
+    "db:turso:verify": "tsx scripts/verify-turso.ts",
+    "security:test": "tsx scripts/security-tests.ts"
   },
   "dependencies": {
     "@libsql/client": "^0.8.1",
@@ -25,7 +26,8 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "recharts": "^3.10.1",
-    "tailwind-merge": "^3.7.0"
+    "tailwind-merge": "^3.7.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

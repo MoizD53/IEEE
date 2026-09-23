@@ -78,12 +78,12 @@ model Evaluation {
 }
 
 model EvaluationCriterion {
-  id          String   @id @default(cuid())
+  id          String  @id @default(cuid())
   name        String
   description String?
-  maxScore    Int      @default(5)
+  maxScore    Int     @default(5)
   order       Int
-  active      Boolean  @default(true)
+  active      Boolean @default(true)
 }
 
 model AuditLog {
