@@ -103,7 +103,7 @@ export default function LoginForm() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className="w-full h-[46px] px-3.5 rounded-xl bg-[#F8FAFC] border border-[#D9E2EC] text-[#0F172A] placeholder:text-slate-400 text-sm font-medium shadow-2xs focus:border-[#2563EB] focus:ring-4 focus:ring-blue-600/10 focus:bg-white focus:outline-none transition-all duration-150"
-            placeholder="e.g. admin or pooja"
+            placeholder="Enter Username"
           />
         </div>
 
