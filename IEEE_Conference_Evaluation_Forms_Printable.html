@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IEEE Conference — Session Chair Evaluation & Feedback Forms</title>
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 15mm;
+    }
+    @page landscape-page {
+      size: A4 landscape;
+      margin: 12mm;
+    }
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: #f8fafc;
+      color: #0f172a;
+      margin: 0;
+      padding: 20px;
+    }
+    .page {
+      background: white;
+      max-width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto 30px auto;
+      padding: 24px 30px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      border: 1px solid #e2e8f0;
+    }
+    .page.landscape {
+      max-width: 297mm;
+      min-height: 210mm;
+      page: landscape-page;
+    }
+    .no-print-bar {
+      max-width: 210mm;
+      margin: 0 auto 15px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #002855;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+    }
+    .print-btn {
+      background: #00629b;
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .print-btn:hover {
+      background: #004b77;
+    }
+    @media print {
+      body {
+        background: white;
+        padding: 0;
+      }
+      .no-print-bar {
+        display: none !important;
+      }
+      .page {
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        page-break-after: always;
+      }
+      .page.landscape {
+        page-break-after: always;
+      }
+    }
+    
+    /* Headers */
+    .ieee-header {
+      border-bottom: 3px solid #002855;
+      padding-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .ieee-badge {
+      background: #002855;
+      color: white;
+      font-weight: 900;
+      font-size: 20px;
+      padding: 6px 14px;
+      border-radius: 4px;
+      letter-spacing: 1px;
+    }
+    .header-text {
+      text-align: right;
+    }
+    .header-text h1 {
+      margin: 0;
+      font-size: 17px;
+      color: #002855;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    .header-text p {
+      margin: 2px 0 0 0;
+      font-size: 12px;
+      color: #475569;
+      font-weight: 600;
+    }
+    .form-title {
+      background: #f1f5f9;
+      border-left: 5px solid #00629b;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+    }
+    .form-title h2 {
+      margin: 0;
+      font-size: 15px;
+      color: #002855;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .form-title p {
+      margin: 3px 0 0 0;
+      font-size: 11px;
+      color: #64748b;
+    }
+    
+    /* Metadata Grids */
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 16px;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    .meta-grid.cols-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px dashed #cbd5e1;
+      padding-bottom: 4px;
+    }
+    .meta-label {
+      font-weight: 700;
+      color: #1e293b;
+      min-width: 120px;
+    }
+    .meta-val {
+      color: #334155;
+      flex: 1;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 16px;
+      font-size: 12px;
+    }
+    th {
+      background-color: #002855;
+      color: white;
+      text-align: left;
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      border: 1px solid #cbd5e1;
+    }
+    td {
+      padding: 8px 10px;
+      border: 1px solid #cbd5e1;
+      vertical-align: middle;
+    }
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+    .font-bold { font-weight: 700; }
+    
+    .total-row {
+      background-color: #e6f0fa !important;
+      font-weight: 800;
+      font-size: 13px;
+      color: #002855;
+    }
+    .total-row td {
+      border-top: 2px solid #002855;
+      border-bottom: 2px solid #002855;
+    }
+
+    /* Recommendation Box */
+    .recommendation-box {
+      border: 2px solid #00629b;
+      background: #f0f7ff;
+      padding: 12px 16px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+    }
+    .rec-options {
+      display: flex;
+      gap: 30px;
+      margin-top: 8px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .checkbox-box {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #002855;
+      margin-right: 6px;
+      vertical-align: text-bottom;
+      background: white;
+    }
+
+    /* Comments & Signature */
+    .field-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      min-height: 50px;
+      padding: 8px;
+      margin-bottom: 14px;
+      background: white;
+      font-size: 11px;
+      color: #475569;
+    }
+    .signature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+      margin-top: 24px;
+      font-size: 12px;
+    }
+    .sig-line {
+      border-top: 1px solid #0f172a;
+      padding-top: 4px;
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    /* Rubrics styling */
+    .rubric-table th {
+      background-color: #1e293b;
+      font-size: 10px;
+    }
+    .rubric-table td {
+      font-size: 10px;
+      line-height: 1.3;
+      vertical-align: top;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Toolbar -->
+  <div class="no-print-bar">
+    <div>
+      <strong>IEEE Evaluation Forms Package</strong> &bull; Print-ready templates for Session Chairs
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      🖨️ Print / Save as PDF (Ctrl + P)
+    </button>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 1: PAPER PRESENTATION EVALUATION FORM (SINGLE PAPER) -->
+  <!-- ========================================================================= -->
+  <div class="page">
+    <div class="ieee-header">
+      <div class="ieee-badge">IEEE</div>
+      <div class="header-text">
+        <h1>IEEE International Conference</h1>
+        <p>Technical Session Paper Presentation Evaluation Sheet</p>
+      </div>
+    </div>
+
+    <div class="form-title">
+      <h2>Presentation Evaluation Form (By Session Chair)</h2>
+      <p>Assess paper presentation rigor, contribution, and delivery on a 50-mark scale.</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="meta-item"><span class="meta-label">Conference Track:</span><span class="meta-val">Track 1 — AI & Intelligent Systems</span></div>
+      <div class="meta-item"><span class="meta-label">Date & Time:</span><span class="meta-val">October 15, 2026 | 10:00 AM – 1:00 PM</span></div>
+      <div class="meta-item"><span class="meta-label">Session Name/No:</span><span class="meta-val">Technical Session 2A</span></div>
+      <div class="meta-item"><span class="meta-label">Venue / Room:</span><span class="meta-val">Hall B (Audi 2) / Hybrid</span></div>
+      <div class="meta-item"><span class="meta-label">Paper ID:</span><span class="meta-val font-bold">IEEE-2026-104</span></div>
+      <div class="meta-item"><span class="meta-label">Presenter Name:</span><span class="meta-val">Dr. Rajesh Sharma</span></div>
+      <div class="meta-item" style="grid-column: span 2;"><span class="meta-label">Paper Title:</span><span class="meta-val font-bold">Edge-Assisted Federated Learning for Real-Time Threat Detection in IoT Networks</span></div>
+      <div class="meta-item"><span class="meta-label">Session Chair Name:</span><span class="meta-val">Dr. Ananya Verma</span></div>
+      <div class="meta-item"><span class="meta-label">Chair Affiliation:</span><span class="meta-val">National Institute of Technology</span></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 40px;" class="text-center">No.</th>
+          <th>Evaluation Parameter</th>
+          <th style="width: 110px;" class="text-center">Max Marks</th>
+          <th style="width: 110px;" class="text-center">Marks Awarded</th>
+          <th style="width: 180px;">Session Chair Observations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center font-bold">1</td>
+          <td><strong>Relevance, Significance & Novelty</strong><br><small style="color: #64748b;">Significance of problem, originality, and advancement over state-of-the-art.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">9</td>
+          <td>High industrial relevance & novel edge aggregation.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">2</td>
+          <td><strong>Technical Quality & Methodology</strong><br><small style="color: #64748b;">Mathematical rigor, research design, algorithms, models, and analytical depth.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">8</td>
+          <td>Rigorous methodology and proofs included.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">3</td>
+          <td><strong>Results & Research Contribution</strong><br><small style="color: #64748b;">Experimental validation, comparative benchmarks, datasets, and tangible impact.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">9</td>
+          <td>Outperformed baselines by 4.2% on benchmark datasets.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">4</td>
+          <td><strong>Presentation Quality & Clarity</strong><br><small style="color: #64748b;">Slide design, logical flow, verbal communication, poise, and adherence to time.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">8</td>
+          <td>Well-paced delivery, clear diagrams, exact 12-min time.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">5</td>
+          <td><strong>Q&A / Subject Knowledge</strong><br><small style="color: #64748b;">Clarity, depth, confidence, and theoretical accuracy in handling audience & chair questions.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">9</td>
+          <td>Answered edge constraint questions authoritatively.</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2" class="text-right">TOTAL SCORE:</td>
+          <td class="text-center">50</td>
+          <td class="text-center" style="font-size: 16px; color: #002855;">43</td>
+          <td style="font-size: 11px;">Scored out of 50</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="recommendation-box">
+      <div style="font-weight: 700; color: #002855; font-size: 12px; text-transform: uppercase;">
+        Recommendation for Best Paper Award:
+      </div>
+      <div class="rec-options">
+        <div><span class="checkbox-box" style="background:#002855; color:white; text-align:center; line-height:14px;">&#10003;</span> YES (Recommended)</div>
+        <div><span class="checkbox-box"></span> NO (Not Recommended)</div>
+      </div>
+    </div>
+
+    <div style="font-size: 11px; font-weight: 700; color: #1e293b; margin-bottom: 4px;">
+      Session Chair Feedback / Remarks for Authors:
+    </div>
+    <div class="field-box">
+      Exceptional quality paper presentation. The mathematical formulation of the decentralized loss function is rigorous, and the live demonstration on Raspberry Pi edge nodes was impressive. Highly recommended for the Best Paper Award track.
+    </div>
+
+    <div class="signature-grid">
+      <div>
+        <div class="sig-line">Session Chair Signature: Dr. Ananya Verma</div>
+        <small style="color: #64748b;">National Institute of Technology</small>
+      </div>
+      <div>
+        <div class="sig-line">Date: October 15, 2026</div>
+        <small style="color: #64748b;">Verified and Submitted</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 2: SESSION CONSOLIDATED EVALUATION SHEET -->
+  <!-- ========================================================================= -->
+  <div class="page landscape">
+    <div class="ieee-header">
+      <div class="ieee-badge">IEEE</div>
+      <div class="header-text">
+        <h1>IEEE International Conference</h1>
+        <p>Technical Session Consolidated Evaluation Sheet</p>
+      </div>
+    </div>
+
+    <div class="form-title">
+      <h2>Master Session Scoring Ledger (All Papers in Session)</h2>
+      <p>Summary tabulation of all paper presentations evaluated in this session (Total: 50 Marks each).</p>
+    </div>
+
+    <div class="meta-grid cols-3">
+      <div class="meta-item"><span class="meta-label">Track:</span><span class="meta-val">Track 1 — AI & Intelligent Systems</span></div>
+      <div class="meta-item"><span class="meta-label">Session:</span><span class="meta-val">Session 2A (Hall B)</span></div>
+      <div class="meta-item"><span class="meta-label">Date & Time:</span><span class="meta-val">Oct 15, 2026 | 10:00 AM – 1:00 PM</span></div>
+      <div class="meta-item"><span class="meta-label">Session Chair:</span><span class="meta-val">Dr. Ananya Verma</span></div>
+      <div class="meta-item"><span class="meta-label">Affiliation:</span><span class="meta-val">National Institute of Technology</span></div>
+      <div class="meta-item"><span class="meta-label">Total Papers:</span><span class="meta-val">6 Scheduled</span></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 35px;" class="text-center">Sl</th>
+          <th style="width: 80px;" class="text-center">Paper ID</th>
+          <th style="width: 220px;">Paper Title</th>
+          <th style="width: 130px;">Presenter</th>
+          <th style="width: 60px;" class="text-center">P1 (10)<br><small>Novelty</small></th>
+          <th style="width: 60px;" class="text-center">P2 (10)<br><small>Method</small></th>
+          <th style="width: 60px;" class="text-center">P3 (10)<br><small>Results</small></th>
+          <th style="width: 60px;" class="text-center">P4 (10)<br><small>Clarity</small></th>
+          <th style="width: 60px;" class="text-center">P5 (10)<br><small>Q&A</small></th>
+          <th style="width: 70px;" class="text-center">Total<br>(/50)</th>
+          <th style="width: 80px;" class="text-center">Best Paper?</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center">1</td>
+          <td class="text-center font-bold">IEEE-101</td>
+          <td>Edge Federated Learning for Threat Detection</td>
+          <td>Dr. Rajesh Sharma</td>
+          <td class="text-center">9</td>
+          <td class="text-center">8</td>
+          <td class="text-center">9</td>
+          <td class="text-center">8</td>
+          <td class="text-center">9</td>
+          <td class="text-center font-bold total-row">43</td>
+          <td class="text-center font-bold" style="color: #16a34a;">YES</td>
+          <td>Outstanding candidate</td>
+        </tr>
+        <tr>
+          <td class="text-center">2</td>
+          <td class="text-center font-bold">IEEE-102</td>
+          <td>Adaptive Vision Transformers for Medical Imaging</td>
+          <td>Sneha Roy</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+          <td class="text-center">7</td>
+          <td class="text-center">9</td>
+          <td class="text-center">8</td>
+          <td class="text-center font-bold total-row">40</td>
+          <td class="text-center font-bold" style="color: #dc2626;">NO</td>
+          <td>Very clear presentation</td>
+        </tr>
+        <tr>
+          <td class="text-center">3</td>
+          <td class="text-center font-bold">IEEE-103</td>
+          <td>Zero-Shot Anomaly Detection in Rail Transit</td>
+          <td>Vikram Patel</td>
+          <td class="text-center">7</td>
+          <td class="text-center">7</td>
+          <td class="text-center">8</td>
+          <td class="text-center">7</td>
+          <td class="text-center">7</td>
+          <td class="text-center font-bold total-row">36</td>
+          <td class="text-center font-bold" style="color: #dc2626;">NO</td>
+          <td>Good experimental rigor</td>
+        </tr>
+        <tr>
+          <td class="text-center">4</td>
+          <td class="text-center font-bold">IEEE-104</td>
+          <td>Self-Supervised Graph Defense for Cyber Attacks</td>
+          <td>Dr. Meera Iyer</td>
+          <td class="text-center">9</td>
+          <td class="text-center">9</td>
+          <td class="text-center">9</td>
+          <td class="text-center">8</td>
+          <td class="text-center">9</td>
+          <td class="text-center font-bold total-row">44</td>
+          <td class="text-center font-bold" style="color: #16a34a;">YES</td>
+          <td>Top session score</td>
+        </tr>
+        <tr>
+          <td class="text-center">5</td>
+          <td class="text-center font-bold">IEEE-105</td>
+          <td>Energy-Efficient Scheduling in Cloud Centers</td>
+          <td>Amitabh Das</td>
+          <td class="text-center">7</td>
+          <td class="text-center">6</td>
+          <td class="text-center">6</td>
+          <td class="text-center">7</td>
+          <td class="text-center">6</td>
+          <td class="text-center font-bold total-row">32</td>
+          <td class="text-center font-bold" style="color: #dc2626;">NO</td>
+          <td>Practical evaluation</td>
+        </tr>
+        <tr>
+          <td class="text-center">6</td>
+          <td class="text-center font-bold">IEEE-106</td>
+          <td>Formal Verification of Smart Contracts</td>
+          <td>Pooja Hegde</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+          <td class="text-center">7</td>
+          <td class="text-center">8</td>
+          <td class="text-center">7</td>
+          <td class="text-center font-bold total-row">38</td>
+          <td class="text-center font-bold" style="color: #dc2626;">NO</td>
+          <td>Clear exposition</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="signature-grid" style="margin-top: 40px;">
+      <div>
+        <div class="sig-line">Session Chair Signature: ____________________________</div>
+        <small style="color: #64748b;">Dr. Ananya Verma &bull; NIT</small>
+      </div>
+      <div>
+        <div class="sig-line">Date of Submission: October 15, 2026</div>
+        <small style="color: #64748b;">IEEE Technical Program Committee Office</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 3: FEEDBACK BY SESSION CHAIR FOR CONFERENCE -->
+  <!-- ========================================================================= -->
+  <div class="page">
+    <div class="ieee-header">
+      <div class="ieee-badge">IEEE</div>
+      <div class="header-text">
+        <h1>IEEE International Conference</h1>
+        <p>Conference Organization & Logistics Feedback</p>
+      </div>
+    </div>
+
+    <div class="form-title">
+      <h2>Feedback by Session Chair for Conference</h2>
+      <p>Confidential evaluation of conference planning, infrastructure, and volunteer support (50 Marks).</p>
+    </div>
+
+    <div class="meta-grid">
+      <div class="meta-item"><span class="meta-label">Session Chair Name:</span><span class="meta-val font-bold">Dr. Ananya Verma</span></div>
+      <div class="meta-item"><span class="meta-label">Date:</span><span class="meta-val">October 15, 2026</span></div>
+      <div class="meta-item"><span class="meta-label">Institution:</span><span class="meta-val">National Institute of Technology</span></div>
+      <div class="meta-item"><span class="meta-label">Email / Phone:</span><span class="meta-val">ananya.verma@nit.edu</span></div>
+      <div class="meta-item"><span class="meta-label">Track Chaired:</span><span class="meta-val">Track 1 — AI & Intelligent Systems</span></div>
+      <div class="meta-item"><span class="meta-label">Session Code/Room:</span><span class="meta-val">Session 2A (Hall B)</span></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 40px;" class="text-center">No.</th>
+          <th>Conference Organization Parameter</th>
+          <th style="width: 110px;" class="text-center">Max Marks</th>
+          <th style="width: 110px;" class="text-center">Marks Awarded</th>
+          <th style="width: 180px;">Session Chair Observations</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center font-bold">1</td>
+          <td><strong>Session Planning & Coordination</strong><br><small style="color: #64748b;">Clarity of schedule, timeliness of notifications, chair briefing, and overall preparedness.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">9</td>
+          <td>Schedule and author sequence were well planned.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">2</td>
+          <td><strong>Presentation & Time Management</strong><br><small style="color: #64748b;">Adherence to time slots, presentation bell reminders, schedule buffers, and pacing.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">9</td>
+          <td>Timekeeper alerts worked smoothly; session finished on time.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">3</td>
+          <td><strong>Technical/AV & Infrastructure Support</strong><br><small style="color: #64748b;">Projector clarity, audio/microphones, hybrid video streaming, and rapid IT assistance.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">8</td>
+          <td>AV and projection crisp. Minor delay connecting 1 remote speaker.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">4</td>
+          <td><strong>Participant & Presenter Management</strong><br><small style="color: #64748b;">Presenter attendance verification, certificate distribution, audience engagement, and decorum.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">9</td>
+          <td>All presenters attended; lively audience questions.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">5</td>
+          <td><strong>Overall Conference Organization & Support</strong><br><small style="color: #64748b;">Student volunteer responsiveness, registration desk support, hospitality, and secretariat coordination.</small></td>
+          <td class="text-center font-bold">10</td>
+          <td class="text-center font-bold" style="font-size: 14px;">9</td>
+          <td>Student coordinators were exceptionally attentive and helpful.</td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2" class="text-right">TOTAL CONFERENCE RATING:</td>
+          <td class="text-center">50</td>
+          <td class="text-center" style="font-size: 16px; color: #002855;">44</td>
+          <td style="font-size: 11px;">Scored out of 50</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="font-size: 11px; font-weight: 700; color: #1e293b; margin-bottom: 4px;">
+      1. What aspects of the conference went exceptionally well?
+    </div>
+    <div class="field-box" style="min-height: 40px;">
+      The student volunteers assigned to the hall were proactive in queuing up slides and managing hybrid attendee audio. The session started exactly on schedule.
+    </div>
+
+    <div style="font-size: 11px; font-weight: 700; color: #1e293b; margin-bottom: 4px;">
+      2. Suggestions or areas for improvement for future conference editions:
+    </div>
+    <div class="field-box" style="min-height: 40px;">
+      Provide an explicit 5-minute buffer between parallel tracks to allow attendees to switch halls without missing the beginning of subsequent papers.
+    </div>
+
+    <div class="signature-grid">
+      <div>
+        <div class="sig-line">Session Chair Signature: ____________________________</div>
+        <small style="color: #64748b;">Dr. Ananya Verma</small>
+      </div>
+      <div>
+        <div class="sig-line">Date of Submission: October 15, 2026</div>
+        <small style="color: #64748b;">Submitted to Conference Organizing Committee</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PAGE 4: SCORING RUBRICS & BENCHMARK GUIDELINES -->
+  <!-- ========================================================================= -->
+  <div class="page landscape">
+    <div class="ieee-header">
+      <div class="ieee-badge">IEEE</div>
+      <div class="header-text">
+        <h1>IEEE International Conference</h1>
+        <p>Evaluation Rubrics & Scoring Benchmark Guidelines</p>
+      </div>
+    </div>
+
+    <div class="form-title">
+      <h2>Standard 10-Mark Scoring Rubric Reference</h2>
+      <p>Benchmark criteria for Session Chairs to ensure objective and standardized evaluation across technical sessions.</p>
+    </div>
+
+    <table class="rubric-table">
+      <thead>
+        <tr>
+          <th style="width: 30px;" class="text-center">No.</th>
+          <th style="width: 130px;">Evaluation Parameter</th>
+          <th>Outstanding (9 – 10)</th>
+          <th>Good (7 – 8)</th>
+          <th>Average (5 – 6)</th>
+          <th>Below Average (3 – 4)</th>
+          <th>Inadequate (0 – 2)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="text-center font-bold">1</td>
+          <td><strong>Relevance, Significance & Novelty</strong></td>
+          <td>Breakthrough problem formulation; original approach with profound scholarly impact.</td>
+          <td>Clear novel contribution with proven industrial or academic value.</td>
+          <td>Incremental modification of existing methods; modest originality.</td>
+          <td>Routine application of known techniques with little novelty.</td>
+          <td>Trivial or plagiarized ideas; no scholarly contribution.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">2</td>
+          <td><strong>Technical Quality & Methodology</strong></td>
+          <td>Mathematically rigorous, robust algorithmic pipeline, comprehensive ablation & proof.</td>
+          <td>Sound technical basis, appropriate test controls, valid assumptions.</td>
+          <td>Basic methodology adequate, but lacks stress testing or deep analysis.</td>
+          <td>Questionable assumptions, noticeable flaws in formulation.</td>
+          <td>Fundamentally flawed methodology, broken equations, unproven claims.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">3</td>
+          <td><strong>Results & Research Contribution</strong></td>
+          <td>Exhaustive benchmarks against state-of-the-art; statistically validated gains.</td>
+          <td>Strong empirical data, good baseline comparisons, clear insights.</td>
+          <td>Results present but baselines are weak or metrics poorly justified.</td>
+          <td>Sparse data, inconclusive metrics, unverified performance.</td>
+          <td>Unsubstantiated claims, fabricated or non-reproducible outcomes.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">4</td>
+          <td><strong>Presentation Quality & Clarity</strong></td>
+          <td>Exemplary slides, masterclass storytelling, flawless timing & articulation.</td>
+          <td>Clear visuals, well-structured narrative, adheres to time budget.</td>
+          <td>Legible slides, reasonable delivery, occasional pacing drift.</td>
+          <td>Cluttered text, rushed or sluggish pacing, exceeds time limit.</td>
+          <td>Incomprehensible slides, inaudible speech, severe time breach.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">5</td>
+          <td><strong>Q&A / Subject Knowledge</strong></td>
+          <td>Authoritative mastery; addresses complex questions with depth and poise.</td>
+          <td>Solid domain knowledge; answers questions convincingly and politely.</td>
+          <td>Answers standard questions adequately; struggles with deeper concepts.</td>
+          <td>Evasive or superficial replies; limited grasp of foundational literature.</td>
+          <td>Unable to answer fundamental questions or defend work.</td>
+        </tr>
+        <tr style="background: #f1f5f9; font-weight: 700; text-transform: uppercase;">
+          <td colspan="7" style="padding: 8px 10px; color: #002855;">Session Chair Feedback for Conference Organization Rubrics</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">1</td>
+          <td><strong>Session Planning & Coordination</strong></td>
+          <td>Impeccable coordination, punctual start, proactive secretariat support.</td>
+          <td>Smooth session flow, minor delays handled efficiently.</td>
+          <td>Adequate coordination, slight delays in author notifications.</td>
+          <td>Disorganized agenda, significant delays, lack of direction.</td>
+          <td>Session schedule breakdown, missing chair materials.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">2</td>
+          <td><strong>Presentation & Time Management</strong></td>
+          <td>Exact time allocation, precise visual reminders, optimal flow.</td>
+          <td>Good time enforcement with gentle alerts to authors.</td>
+          <td>Acceptable time control; some presentations ran slightly over.</td>
+          <td>Poor time enforcement; session ran severely overtime.</td>
+          <td>No timekeeping; session disrupted by unchecked overruns.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">3</td>
+          <td><strong>Technical/AV & Infrastructure Support</strong></td>
+          <td>State-of-the-art AV, crystal-clear microphones, seamless hybrid stream.</td>
+          <td>Reliable projection and audio; prompt technician assistance.</td>
+          <td>Working AV with minor audio hum or projector adjustment needed.</td>
+          <td>Frequent AV glitches, dropped video calls, delayed technician help.</td>
+          <td>Complete AV failure, inoperable displays, no technical support.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">4</td>
+          <td><strong>Participant & Presenter Management</strong></td>
+          <td>100% presenter turnout, verified registrations, enthusiastic audience.</td>
+          <td>Good attendance, engaged audience, smooth speaker transitions.</td>
+          <td>Moderate attendance, minor delays in finding registered authors.</td>
+          <td>Multiple no-show authors without notice, low participant engagement.</td>
+          <td>Severe attendee disruption, unmanaged room occupancy.</td>
+        </tr>
+        <tr>
+          <td class="text-center font-bold">5</td>
+          <td><strong>Overall Conference Organization & Support</strong></td>
+          <td>World-class hospitality, prompt desk support, excellent amenities.</td>
+          <td>Professional organization, polite volunteers, well-arranged venue.</td>
+          <td>Satisfactory arrangements meeting basic conference requirements.</td>
+          <td>Understaffed desk, unhelpful assistance, inadequate amenities.</td>
+          <td>Gross mismanagement, complete absence of organizational support.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

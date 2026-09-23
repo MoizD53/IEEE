@@ -9,20 +9,21 @@ datasource db {
 }
 
 model User {
-  id           String            @id @default(cuid())
-  name         String
-  username     String            @unique
-  passwordHash String
-  role         String            @default("SESSION_CHAIR") // "ADMIN" or "SESSION_CHAIR"
-  email        String?
-  phone        String?
-  institution  String?
-  status       String            @default("ACTIVE") // "ACTIVE" or "INACTIVE"
-  createdAt    DateTime          @default(now())
-  updatedAt    DateTime          @updatedAt
-  assignments  PaperAssignment[]
-  evaluations  Evaluation[]
-  auditLogs    AuditLog[]
+  id                  String               @id @default(cuid())
+  name                String
+  username            String               @unique
+  passwordHash        String
+  role                String               @default("SESSION_CHAIR") // "ADMIN" or "SESSION_CHAIR"
+  email               String?
+  phone               String?
+  institution         String?
+  status              String               @default("ACTIVE") // "ACTIVE" or "INACTIVE"
+  createdAt           DateTime             @default(now())
+  updatedAt           DateTime             @updatedAt
+  assignments         PaperAssignment[]
+  evaluations         Evaluation[]
+  conferenceFeedbacks ConferenceFeedback[]
+  auditLogs           AuditLog[]
 }
 
 model Paper {
@@ -55,33 +56,57 @@ model PaperAssignment {
 }
 
 model Evaluation {
-  id                String    @id @default(cuid())
-  paperId           String
-  chairId           String
-  technicalScore    Int
-  originalityScore  Int
-  relevanceScore    Int
-  presentationScore Int
-  totalScore        Int
-  averageScore      Float
-  recommended       Boolean
-  feedbackRating    Int?
-  feedbackText      String?
-  status            String    @default("DRAFT") // "DRAFT" or "SUBMITTED"
-  createdAt         DateTime  @default(now())
-  updatedAt         DateTime  @updatedAt
-  submittedAt       DateTime?
-  paper             Paper     @relation(fields: [paperId], references: [id])
-  chair             User      @relation(fields: [chairId], references: [id])
+  id                        String    @id @default(cuid())
+  paperId                   String
+  chairId                   String
+  // 5 Parameters for reviewing presentation by session chair (Max 10 each, Total 50)
+  relevanceNoveltyScore     Int       @default(0) // 1. Relevance, Significance & Novelty (10)
+  technicalMethodologyScore Int       @default(0) // 2. Technical Quality & Methodology (10)
+  resultsContributionScore  Int       @default(0) // 3. Results & Research Contribution (10)
+  presentationClarityScore  Int       @default(0) // 4. Presentation Quality & Clarity (10)
+  qaKnowledgeScore          Int       @default(0) // 5. Q&A / Subject Knowledge (10)
+  totalScore                Int       // Max 50
+  averageScore              Float     // Max 10.0
+  recommended               Boolean   // Recommendation for best paper or not? Yes / No
+  feedbackRating            Int?      // Star rating (1-5)
+  feedbackText              String?   // Remarks/Constructive feedback for authors
+  status                    String    @default("DRAFT") // "DRAFT" or "SUBMITTED"
+  createdAt                 DateTime  @default(now())
+  updatedAt                 DateTime  @updatedAt
+  submittedAt               DateTime?
+  paper                     Paper     @relation(fields: [paperId], references: [id])
+  chair                     User      @relation(fields: [chairId], references: [id])
 
   @@unique([paperId, chairId])
+}
+
+model ConferenceFeedback {
+  id                         String   @id @default(cuid())
+  chairId                    String
+  sessionTrack               String?
+  sessionName                String?
+  // 5 Parameters for feedback by session chair for conference (Max 10 each, Total 50)
+  planningScore              Int      // 1. Session Planning & Coordination (10)
+  timeManagementScore        Int      // 2. Presentation & Time Management (10)
+  infrastructureScore        Int      // 3. Technical/AV & Infrastructure Support (10)
+  participantManagementScore  Int      // 4. Participant & Presenter Management (10)
+  organizationScore          Int      // 5. Overall Conference Organization & Support (10)
+  totalScore                 Int      // Total out of 50
+  averageScore               Float    // Average out of 10.0
+  highlights                 String?  // What went exceptionally well
+  suggestions                String?  // Suggestions for future editions
+  status                     String   @default("SUBMITTED")
+  submittedAt                DateTime @default(now())
+  createdAt                  DateTime @default(now())
+  updatedAt                  DateTime @updatedAt
+  chair                      User     @relation(fields: [chairId], references: [id])
 }
 
 model EvaluationCriterion {
   id          String  @id @default(cuid())
   name        String
   description String?
-  maxScore    Int     @default(5)
+  maxScore    Int     @default(10)
   order       Int
   active      Boolean @default(true)
 }

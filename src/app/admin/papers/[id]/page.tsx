@@ -83,13 +83,14 @@ export default async function PaperDetailPage({ params }: { params: Promise<{ id
                         {ev.recommended ? 'Recommended' : 'Not Recommended'}
                       </div>
                     </div>
-                    <div className="grid grid-cols-2 gap-2 text-sm mb-2 text-gray-600">
-                      <div>Tech: {ev.technicalScore}/5</div>
-                      <div>Orig: {ev.originalityScore}/5</div>
-                      <div>Rel: {ev.relevanceScore}/5</div>
-                      <div>Pres: {ev.presentationScore}/5</div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs mb-3 text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                      <div>Novelty: <span className="font-bold text-slate-900">{ev.relevanceNoveltyScore}/10</span></div>
+                      <div>Methodology: <span className="font-bold text-slate-900">{ev.technicalMethodologyScore}/10</span></div>
+                      <div>Results: <span className="font-bold text-slate-900">{ev.resultsContributionScore}/10</span></div>
+                      <div>Clarity: <span className="font-bold text-slate-900">{ev.presentationClarityScore}/10</span></div>
+                      <div>Q&A: <span className="font-bold text-slate-900">{ev.qaKnowledgeScore}/10</span></div>
                     </div>
-                    <div className="font-bold text-sm mb-2">Total: {ev.totalScore}/20</div>
+                    <div className="font-bold text-sm mb-2 text-blue-700">Total Score: {ev.totalScore}/50</div>
                     {ev.feedbackText && (
                       <div className="text-sm bg-gray-50 p-2 rounded text-gray-700 italic border-l-2 border-gray-300">
                         "{ev.feedbackText}"

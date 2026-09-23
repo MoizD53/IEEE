@@ -1,7 +1,7 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
-import { LogOut, FileText, Home } from "lucide-react";
+import { LogOut, FileText, Home, MessageSquareHeart } from "lucide-react";
 import ConferenceNavbar from "@/components/ConferenceNavbar";
 
 export default async function ChairLayout({ children }: { children: React.ReactNode }) {
@@ -40,6 +40,13 @@ export default async function ChairLayout({ children }: { children: React.ReactN
             <FileText size={18} className="text-blue-400" />
             My Assigned Papers
           </Link>
+          <Link
+            href="/chair/feedback"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-slate-800/80 transition-colors text-slate-300 hover:text-white"
+          >
+            <MessageSquareHeart size={18} className="text-amber-400" />
+            Conference Feedback
+          </Link>
         </nav>
 
         <div className="border-t border-slate-800 pt-4 mt-auto">
@@ -56,15 +63,19 @@ export default async function ChairLayout({ children }: { children: React.ReactN
       {/* Mobile Bottom Navigation */}
       <div className="md:hidden fixed bottom-0 left-0 right-0 bg-slate-900/95 backdrop-blur-md text-white flex justify-around p-3 z-50 border-t border-slate-800 shadow-xl">
         <Link href="/chair/dashboard" className="flex flex-col items-center hover:text-emerald-400">
-          <Home size={22} />
+          <Home size={20} />
           <span className="text-[10px] mt-1">Dashboard</span>
         </Link>
         <Link href="/chair/papers" className="flex flex-col items-center hover:text-emerald-400">
-          <FileText size={22} />
+          <FileText size={20} />
           <span className="text-[10px] mt-1">Papers</span>
         </Link>
+        <Link href="/chair/feedback" className="flex flex-col items-center hover:text-amber-400">
+          <MessageSquareHeart size={20} />
+          <span className="text-[10px] mt-1">Feedback</span>
+        </Link>
         <Link href="/api/auth/signout" className="flex flex-col items-center text-red-400">
-          <LogOut size={22} />
+          <LogOut size={20} />
           <span className="text-[10px] mt-1">Logout</span>
         </Link>
       </div>

@@ -7,10 +7,11 @@ import { z } from "zod";
 
 const evaluationSchema = z.object({
   paperId: z.string().min(1, "Paper ID is required"),
-  technicalScore: z.number().int().min(0).max(5),
-  originalityScore: z.number().int().min(0).max(5),
-  relevanceScore: z.number().int().min(0).max(5),
-  presentationScore: z.number().int().min(0).max(5),
+  relevanceNoveltyScore: z.number().int().min(0).max(10),
+  technicalMethodologyScore: z.number().int().min(0).max(10),
+  resultsContributionScore: z.number().int().min(0).max(10),
+  presentationClarityScore: z.number().int().min(0).max(10),
+  qaKnowledgeScore: z.number().int().min(0).max(10),
   recommended: z.boolean(),
   feedbackRating: z.number().int().min(0).max(5).optional().default(0),
   feedbackText: z.string().max(2000, "Feedback text is too long").optional().default("")
@@ -19,13 +20,14 @@ const evaluationSchema = z.object({
 export const submitEvaluation = withChairAuth(async (user, formData: FormData) => {
   const parsed = evaluationSchema.safeParse({
     paperId: formData.get("paperId") as string,
-    technicalScore: parseInt(formData.get("technicalScore") as string) || 0,
-    originalityScore: parseInt(formData.get("originalityScore") as string) || 0,
-    relevanceScore: parseInt(formData.get("relevanceScore") as string) || 0,
-    presentationScore: parseInt(formData.get("presentationScore") as string) || 0,
+    relevanceNoveltyScore: parseInt(formData.get("relevanceNoveltyScore") as string) || 0,
+    technicalMethodologyScore: parseInt(formData.get("technicalMethodologyScore") as string) || 0,
+    resultsContributionScore: parseInt(formData.get("resultsContributionScore") as string) || 0,
+    presentationClarityScore: parseInt(formData.get("presentationClarityScore") as string) || 0,
+    qaKnowledgeScore: parseInt(formData.get("qaKnowledgeScore") as string) || 0,
     recommended: formData.get("recommended") === "true",
     feedbackRating: parseInt(formData.get("feedbackRating") as string) || 0,
-    feedbackText: formData.get("feedbackText") as string || "",
+    feedbackText: (formData.get("feedbackText") as string) || "",
   });
 
   if (!parsed.success) {
@@ -34,10 +36,11 @@ export const submitEvaluation = withChairAuth(async (user, formData: FormData) =
 
   const {
     paperId,
-    technicalScore,
-    originalityScore,
-    relevanceScore,
-    presentationScore,
+    relevanceNoveltyScore,
+    technicalMethodologyScore,
+    resultsContributionScore,
+    presentationClarityScore,
+    qaKnowledgeScore,
     recommended,
     feedbackRating,
     feedbackText
@@ -71,9 +74,9 @@ export const submitEvaluation = withChairAuth(async (user, formData: FormData) =
     throw new Error("Forbidden: Evaluation has already been submitted and is locked.");
   }
 
-  // Calculate scores securely on server
-  const totalScore = technicalScore + originalityScore + relevanceScore + presentationScore;
-  const averageScore = totalScore / 4;
+  // Calculate scores securely on server (Total out of 50, Average out of 10)
+  const totalScore = relevanceNoveltyScore + technicalMethodologyScore + resultsContributionScore + presentationClarityScore + qaKnowledgeScore;
+  const averageScore = totalScore / 5;
 
   const evaluation = await prisma.evaluation.upsert({
     where: {
@@ -83,10 +86,11 @@ export const submitEvaluation = withChairAuth(async (user, formData: FormData) =
       }
     },
     update: {
-      technicalScore,
-      originalityScore,
-      relevanceScore,
-      presentationScore,
+      relevanceNoveltyScore,
+      technicalMethodologyScore,
+      resultsContributionScore,
+      presentationClarityScore,
+      qaKnowledgeScore,
       totalScore,
       averageScore,
       recommended,
@@ -98,10 +102,11 @@ export const submitEvaluation = withChairAuth(async (user, formData: FormData) =
     create: {
       paperId,
       chairId: user.id,
-      technicalScore,
-      originalityScore,
-      relevanceScore,
-      presentationScore,
+      relevanceNoveltyScore,
+      technicalMethodologyScore,
+      resultsContributionScore,
+      presentationClarityScore,
+      qaKnowledgeScore,
       totalScore,
       averageScore,
       recommended,
@@ -124,13 +129,17 @@ export const submitEvaluation = withChairAuth(async (user, formData: FormData) =
       action: "SUBMIT_EVALUATION",
       entityType: "EVALUATION",
       entityId: evaluation.id,
-      metadata: `Score: ${totalScore}, Recommended: ${recommended}`
+      metadata: `Score: ${totalScore}/50, Recommended for Best Paper: ${recommended}`
     }
   });
 
   revalidatePath("/chair/dashboard");
   revalidatePath("/chair/papers");
   revalidatePath(`/chair/evaluate/${paperId}`);
+  revalidatePath("/admin/dashboard");
+  revalidatePath("/admin/feedback");
+  revalidatePath("/admin/analytics");
+  revalidatePath("/admin/reports");
 });
 
 export const reopenEvaluation = withAdminAuth(async (user, evaluationId: string) => {
@@ -175,4 +184,6 @@ export const reopenEvaluation = withAdminAuth(async (user, evaluationId: string)
 
   revalidatePath("/admin/dashboard");
   revalidatePath("/admin/feedback");
+  revalidatePath("/admin/analytics");
+  revalidatePath("/admin/reports");
 });

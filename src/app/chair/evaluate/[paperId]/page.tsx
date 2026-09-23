@@ -3,7 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import EvaluationForm from "@/components/chair/EvaluationForm";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, FileText, CheckCircle2, XCircle, Award } from "lucide-react";
 
 export default async function EvaluatePaperPage({ params }: { params: Promise<{ paperId: string }> }) {
   const { paperId } = await params;
@@ -32,77 +32,117 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-10">
       <div>
-        <Link href="/chair/dashboard" className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 mb-4">
+        <Link href="/chair/dashboard" className="inline-flex items-center text-sm font-semibold text-blue-600 hover:text-blue-800 mb-4 transition-colors">
           <ArrowLeft size={16} className="mr-1" /> Back to Dashboard
         </Link>
-        <h1 className="text-2xl font-bold text-gray-900">Evaluate Paper</h1>
+        <h1 className="text-2xl font-bold text-slate-900">Evaluate Paper Presentation</h1>
+        <p className="text-xs text-slate-500 mt-1">Review presentation quality and submit scoring on the 50-mark scale.</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div className="space-y-6">
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 sticky top-4">
-            <h2 className="text-xl font-semibold mb-2">{paper.title}</h2>
-            <div className="text-sm text-gray-500 mb-4">{paper.paperId} &bull; {paper.authors}</div>
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 sticky top-4 space-y-5">
+            <div>
+              <span className="px-2.5 py-1 rounded-lg text-xs font-bold font-mono bg-blue-50 text-blue-700 border border-blue-200">
+                {paper.paperId}
+              </span>
+              <h2 className="text-xl font-bold text-slate-900 mt-2">{paper.title}</h2>
+              <div className="text-xs text-slate-500 mt-1">Authors: {paper.authors}</div>
+            </div>
             
-            <div className="space-y-4 text-sm">
+            <div className="space-y-4 text-xs">
               <div>
-                <h3 className="font-semibold text-gray-700">Abstract</h3>
-                <p className="mt-1 text-gray-600">{paper.abstract || "No abstract provided."}</p>
+                <h3 className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Abstract</h3>
+                <p className="mt-1 text-slate-600 leading-relaxed">{paper.abstract || "No abstract provided."}</p>
               </div>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-3 pt-2 border-t border-slate-100">
                 <div>
-                  <h3 className="font-semibold text-gray-700">Track</h3>
-                  <p className="text-gray-600">{paper.track || "-"}</p>
+                  <h3 className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Track</h3>
+                  <p className="text-slate-600 font-medium mt-0.5">{paper.track || "-"}</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-700">Session</h3>
-                  <p className="text-gray-600">{paper.session || "-"}</p>
+                  <h3 className="font-bold text-slate-800 uppercase tracking-wider text-[11px]">Session</h3>
+                  <p className="text-slate-600 font-medium mt-0.5">{paper.session || "-"}</p>
                 </div>
               </div>
             </div>
             
-            <div className="mt-6 pt-4 border-t border-gray-100">
-              <button className="w-full py-2 px-4 bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium rounded-md transition-colors flex items-center justify-center gap-2">
-                <FileText size={18} /> View PDF Document
+            <div className="pt-2 border-t border-slate-100">
+              <button className="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold text-xs rounded-xl transition-colors flex items-center justify-center gap-2">
+                <FileText size={16} /> View Presentation Manuscript / PDF
               </button>
             </div>
           </div>
         </div>
 
         <div>
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+          <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
             {isSubmitted ? (
               <div className="space-y-6">
-                <div className="bg-green-50 border border-green-200 text-green-800 p-4 rounded-md">
-                  <h3 className="font-bold text-lg mb-1">Evaluation Submitted</h3>
-                  <p className="text-sm">Submitted on {new Date(existingEval.submittedAt!).toLocaleString()}</p>
+                <div className="bg-emerald-50 border border-emerald-200 text-emerald-900 p-4 rounded-xl flex items-center gap-3">
+                  <CheckCircle2 size={24} className="text-emerald-600 shrink-0" />
+                  <div>
+                    <h3 className="font-bold text-sm">Evaluation Submitted & Locked</h3>
+                    <p className="text-xs text-emerald-700 mt-0.5">Submitted on {new Date(existingEval.submittedAt!).toLocaleString()}</p>
+                  </div>
                 </div>
                 
                 <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4 text-sm bg-gray-50 p-4 rounded-md">
-                    <div>Technical: <span className="font-bold">{existingEval.technicalScore}/5</span></div>
-                    <div>Originality: <span className="font-bold">{existingEval.originalityScore}/5</span></div>
-                    <div>Relevance: <span className="font-bold">{existingEval.relevanceScore}/5</span></div>
-                    <div>Presentation: <span className="font-bold">{existingEval.presentationScore}/5</span></div>
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">5-Parameter Score Breakdown</h4>
+                  <div className="space-y-2 text-xs">
+                    <div className="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                      <span className="font-medium text-slate-700">1. Relevance, Significance & Novelty</span>
+                      <span className="font-bold text-blue-700">{existingEval.relevanceNoveltyScore} / 10</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                      <span className="font-medium text-slate-700">2. Technical Quality & Methodology</span>
+                      <span className="font-bold text-blue-700">{existingEval.technicalMethodologyScore} / 10</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                      <span className="font-medium text-slate-700">3. Results & Research Contribution</span>
+                      <span className="font-bold text-blue-700">{existingEval.resultsContributionScore} / 10</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                      <span className="font-medium text-slate-700">4. Presentation Quality & Clarity</span>
+                      <span className="font-bold text-blue-700">{existingEval.presentationClarityScore} / 10</span>
+                    </div>
+                    <div className="flex justify-between p-3 bg-slate-50 rounded-xl border border-slate-200">
+                      <span className="font-medium text-slate-700">5. Q&A / Subject Knowledge</span>
+                      <span className="font-bold text-blue-700">{existingEval.qaKnowledgeScore} / 10</span>
+                    </div>
                   </div>
                   
-                  <div className="text-lg">
-                    Total Score: <span className="font-bold">{existingEval.totalScore}/20</span>
+                  <div className="p-4 bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-xl flex justify-between items-center">
+                    <div>
+                      <div className="text-xs text-blue-200 font-bold uppercase tracking-wider">Total Evaluated Score</div>
+                      <div className="text-xs text-blue-300">Average: {(existingEval.totalScore / 5).toFixed(1)} / 10</div>
+                    </div>
+                    <div className="text-2xl font-black">
+                      {existingEval.totalScore} / 50
+                    </div>
                   </div>
                   
-                  <div className="text-lg">
-                    Recommendation: <span className={`font-bold ${existingEval.recommended ? 'text-green-600' : 'text-red-600'}`}>{existingEval.recommended ? "YES" : "NO"}</span>
+                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between">
+                    <span className="text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                      <Award size={16} className="text-amber-500" /> Best Paper Recommendation:
+                    </span>
+                    <span className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-bold ${existingEval.recommended ? 'bg-emerald-100 text-emerald-800 border border-emerald-300' : 'bg-rose-100 text-rose-800 border border-rose-300'}`}>
+                      {existingEval.recommended ? <CheckCircle2 size={13} /> : <XCircle size={13} />}
+                      {existingEval.recommended ? "YES — Recommended" : "NO — Not Recommended"}
+                    </span>
                   </div>
 
-                  <div>
-                    <h4 className="font-semibold mb-1">Feedback</h4>
-                    <div className="text-yellow-500 mb-2">{"★".repeat(existingEval.feedbackRating || 0)}</div>
-                    {existingEval.feedbackText && (
-                      <p className="text-sm bg-gray-50 p-3 rounded-md italic border-l-2 border-gray-300">
+                  {existingEval.feedbackText && (
+                    <div className="pt-2">
+                      <h4 className="font-bold text-xs uppercase tracking-wider text-slate-500 mb-1">Chair Remarks</h4>
+                      {existingEval.feedbackRating ? (
+                        <div className="text-amber-400 text-base mb-1">{"★".repeat(existingEval.feedbackRating)}</div>
+                      ) : null}
+                      <p className="text-xs bg-slate-50 p-3 rounded-xl italic text-slate-700 border border-slate-200">
                         "{existingEval.feedbackText}"
                       </p>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </div>
             ) : (
@@ -114,5 +154,3 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
     </div>
   );
 }
-
-import { FileText } from "lucide-react";

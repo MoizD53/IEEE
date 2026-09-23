@@ -10,7 +10,8 @@ import {
   Database, 
   ShieldCheck,
   Calendar,
-  Layers
+  Layers,
+  MessageSquareHeart
 } from "lucide-react";
 
 export default async function ReportsPage() {
@@ -21,11 +22,13 @@ export default async function ReportsPage() {
     evalsCount,
     recommendedCount,
     chairsCount,
+    confCount
   ] = await Promise.all([
     prisma.paper.count(),
     prisma.evaluation.count({ where: { status: "SUBMITTED" } }),
     prisma.evaluation.count({ where: { status: "SUBMITTED", recommended: true } }),
     prisma.user.count({ where: { role: "SESSION_CHAIR" } }),
+    prisma.conferenceFeedback.count({ where: { status: "SUBMITTED" } }),
   ]);
 
   const reportCards = [
@@ -46,24 +49,39 @@ export default async function ReportsPage() {
     },
     {
       id: "evaluations",
-      title: "Evaluations & Scoring Ledger",
+      title: "50-Mark Presentation Scoring Ledger",
       category: "Review Analytics",
-      description: "Full audit of 4-block scores (Technical, Novelty, Relevance, Clarity), total marks out of 20, star ratings, and written comments.",
+      description: "Full audit of 5 parameters (Novelty, Methodology, Results, Clarity, Q&A), total marks out of 50, Best Paper recommendations, and written remarks.",
       count: evalsCount,
       countLabel: "Evaluations",
       href: "/api/export/evaluations",
-      filename: "evaluations_summary.csv",
+      filename: "ieee_evaluations_summary_50marks.csv",
       icon: CheckCircle2,
       accentColor: "border-emerald-500",
       badgeColor: "bg-emerald-50 text-emerald-700 border-emerald-200",
       btnColor: "bg-emerald-600 hover:bg-emerald-700 text-white",
-      fields: ["Chair Name", "4 Block Marks", "Total /20", "Avg /5", "Star Rating", "Feedback"],
+      fields: ["Chair Name", "5 Parameter Scores", "Total /50", "Avg /10", "Best Paper Rec", "Feedback"],
+    },
+    {
+      id: "conference-feedback",
+      title: "Conference Organization Feedback",
+      category: "Operations & Logistics",
+      description: "Ratings from Session Chairs on session planning, time management, AV/tech infrastructure, presenter management, and overall support.",
+      count: confCount,
+      countLabel: "Feedback Forms",
+      href: "/api/export/conference-feedback",
+      filename: "conference_organization_feedback.csv",
+      icon: MessageSquareHeart,
+      accentColor: "border-teal-500",
+      badgeColor: "bg-teal-50 text-teal-700 border-teal-200",
+      btnColor: "bg-teal-600 hover:bg-teal-700 text-white",
+      fields: ["Chair Name", "5 Org Scores (10 each)", "Total /50", "Highlights", "Suggestions"],
     },
     {
       id: "recommended",
       title: "Recommended Papers Dossier",
       category: "Committee Selection",
-      description: "Curated dataset of submissions that received explicit recommendations from Session Chairs for IEEE publication consideration.",
+      description: "Curated dataset of submissions that received explicit recommendations from Session Chairs for IEEE Best Paper awards.",
       count: recommendedCount,
       countLabel: "Recommended",
       href: "/api/export/recommended",
@@ -98,111 +116,76 @@ export default async function ReportsPage() {
         <div className="absolute right-0 top-0 bottom-0 w-80 bg-gradient-to-l from-blue-50/70 to-transparent pointer-events-none hidden md:block"></div>
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-100 mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-blue-800 border border-blue-200 mb-3">
               <Database size={13} className="text-blue-600" />
-              Conference Data Center
+              Official Export Desk
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               Reports & Data Exports
             </h1>
             <p className="mt-1.5 text-sm text-slate-500 max-w-2xl leading-relaxed">
-              Export authenticated datasets for offline deliberations, editorial review, and IEEE archival compliance. Data is streamed in UTF-8 CSV directly from the database.
+              Export verified data extracts for conference reporting, committee review, best paper selection, and logistics auditing.
             </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200">
-              <ShieldCheck size={14} className="text-emerald-600" />
-              Audit Logged
-            </span>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-100 text-slate-700 border border-slate-200">
-              <Calendar size={14} className="text-blue-600" />
-              IEEE 2026 Sync
-            </span>
           </div>
         </div>
       </div>
 
-      {/* Grid of Report Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {reportCards.map((card) => {
-          const Icon = card.icon;
+      {/* Reports Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {reportCards.map((report) => {
+          const Icon = report.icon;
           return (
             <div
-              key={card.id}
-              className="bg-white rounded-3xl p-6 sm:p-7 shadow-sm border border-slate-200/90 hover:shadow-md transition-all flex flex-col justify-between group"
+              key={report.id}
+              className={`bg-white rounded-3xl p-6 shadow-sm border border-slate-200/90 hover:shadow-md transition-all flex flex-col justify-between border-t-4 ${report.accentColor}`}
             >
-              <div>
-                {/* Top Card Bar */}
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-3.5">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-700 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
-                      <Icon size={24} />
-                    </div>
-                    <div>
-                      <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-                        {card.category}
-                      </span>
-                      <h3 className="text-lg font-bold text-slate-900 tracking-tight">
-                        {card.title}
-                      </h3>
-                    </div>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className={`px-2.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider border ${report.badgeColor}`}>
+                    {report.category}
+                  </span>
+                  <div className="w-10 h-10 rounded-2xl bg-slate-50 text-slate-700 flex items-center justify-center font-bold">
+                    <Icon size={20} />
                   </div>
+                </div>
 
-                  <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-bold border ${card.badgeColor}`}>
-                    {card.count} {card.countLabel}
+                <div>
+                  <h3 className="text-base font-bold text-slate-900">{report.title}</h3>
+                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">{report.description}</p>
+                </div>
+
+                <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
+                  <span>Available Records:</span>
+                  <span className="font-black text-slate-900 text-sm">
+                    {report.count} {report.countLabel}
                   </span>
                 </div>
 
-                <p className="text-sm text-slate-600 mb-5 leading-relaxed">
-                  {card.description}
-                </p>
-
-                {/* Included Data Fields Tags */}
-                <div className="mb-6">
-                  <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
-                    Included Columns:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {card.fields.map((f, i) => (
-                      <span
-                        key={i}
-                        className="inline-block text-[11px] font-medium bg-slate-50 border border-slate-200/80 text-slate-700 px-2 py-0.5 rounded-lg"
-                      >
-                        {f}
-                      </span>
-                    ))}
-                  </div>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {report.fields.map((field) => (
+                    <span
+                      key={field}
+                      className="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-slate-100 text-slate-600 border border-slate-200"
+                    >
+                      {field}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              {/* Action Area */}
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between gap-4">
-                <span className="text-xs text-slate-400 font-mono">
-                  {card.filename}
-                </span>
-
+              <div className="pt-6">
                 <a
-                  href={card.href}
-                  download
-                  className={`inline-flex items-center justify-center gap-2 py-2.5 px-5 rounded-xl text-xs sm:text-sm font-bold shadow-sm hover:shadow transition-all ${card.btnColor}`}
+                  href={report.href}
+                  download={report.filename}
+                  className={`w-full py-2.5 px-4 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all ${report.btnColor}`}
                 >
-                  <Download size={15} />
-                  <span>Download CSV</span>
+                  <Download size={14} />
+                  Download CSV Extract
                 </a>
               </div>
             </div>
           );
         })}
-      </div>
-
-      {/* Archival Notes Footer */}
-      <div className="bg-slate-100/70 border border-slate-200 rounded-2xl p-5 text-xs text-slate-600 flex items-start gap-3.5">
-        <Layers size={18} className="text-slate-400 shrink-0 mt-0.5" />
-        <div>
-          <span className="font-bold text-slate-800">IEEE Archival Standard Notice:</span>{" "}
-          All generated CSV files are formatted with RFC 4180 standard quotation escapes and UTF-8 encoding. Export activities are recorded in the internal Audit Log for conference accreditation compliance.
-        </div>
       </div>
     </div>
   );

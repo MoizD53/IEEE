@@ -96,25 +96,26 @@ async function runVerification() {
   });
   console.log(`   ✅ Assigned paper ${testPaper.paperId} to chair ${testChair.username}`);
 
-  console.log("8️⃣ Testing 'Submit Evaluation' (4-Block evaluation & Recommendation)...");
+  console.log("8️⃣ Testing 'Submit Evaluation' (5-Parameter evaluation & Recommendation)...");
   const testEvaluation = await prisma.evaluation.create({
     data: {
       paperId: testPaper.id,
       chairId: testChair.id,
-      technicalScore: 5,
-      originalityScore: 4,
-      relevanceScore: 5,
-      presentationScore: 4,
-      totalScore: 18,
-      averageScore: 4.5,
+      relevanceNoveltyScore: 9,
+      technicalMethodologyScore: 9,
+      resultsContributionScore: 8,
+      presentationClarityScore: 9,
+      qaKnowledgeScore: 8,
+      totalScore: 43,
+      averageScore: 8.6,
       recommended: true,
       feedbackRating: 5,
-      feedbackText: "Flawless verification evaluation submitted via Turso adapter.",
+      feedbackText: "Flawless verification evaluation submitted via Turso adapter on 50-mark scale.",
       status: "SUBMITTED",
       submittedAt: new Date(),
     },
   });
-  console.log(`   ✅ Submitted evaluation with score ${testEvaluation.totalScore}/20, Recommended: ${testEvaluation.recommended}`);
+  console.log(`   ✅ Submitted evaluation with score ${testEvaluation.totalScore}/50, Recommended: ${testEvaluation.recommended}`);
 
   console.log("9️⃣ Testing 'Feedback' query...");
   const feedbackList = await prisma.evaluation.findMany({
