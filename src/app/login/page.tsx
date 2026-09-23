@@ -12,18 +12,7 @@ export default function LoginPage() {
         </div>
       </div>
 
-      {/* Left Side: Conference Promo Image */}
-      {/* Hidden on mobile, takes 55% width on large screens */}
-      <div className="hidden md:block md:w-1/2 lg:w-[55%] relative">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/login-bg.png')" }}
-        />
-        {/* Subtle overlay if needed to match branding */}
-        <div className="absolute inset-0 bg-[#0F172A]/5 mix-blend-multiply" />
-      </div>
-
-      {/* Right Side: Authentication Panel */}
+      {/* Left Side: Authentication Panel */}
       <div className="w-full md:w-1/2 lg:w-[45%] flex flex-col items-center justify-center min-h-screen relative bg-slate-50">
         <main className="w-full flex-1 flex items-center justify-center px-4 sm:px-8 z-10 pt-[100px] md:pt-0">
           <LoginForm />
@@ -35,6 +24,17 @@ export default function LoginPage() {
             &copy; 2026 &ldquo;CICON&rdquo; IEEE Conference Session Portal &bull; Karnavati University &bull; All Rights Reserved.
           </p>
         </footer>
+      </div>
+
+      {/* Right Side: Campus Image */}
+      {/* Hidden on mobile, takes 55% width on large screens */}
+      <div className="hidden md:block md:w-1/2 lg:w-[55%] relative">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/login-bg-right.jpg')" }}
+        />
+        {/* Subtle overlay if needed to match branding */}
+        <div className="absolute inset-0 bg-[#0F172A]/5 mix-blend-multiply" />
       </div>
     </div>
   );
