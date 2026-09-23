@@ -1,0 +1,98 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String            @id @default(cuid())
+  name         String
+  username     String            @unique
+  passwordHash String
+  role         String            @default("SESSION_CHAIR") // "ADMIN" or "SESSION_CHAIR"
+  email        String?
+  phone        String?
+  institution  String?
+  status       String            @default("ACTIVE") // "ACTIVE" or "INACTIVE"
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  assignments  PaperAssignment[]
+  evaluations  Evaluation[]
+  auditLogs    AuditLog[]
+}
+
+model Paper {
+  id          String            @id @default(cuid())
+  paperId     String            @unique
+  title       String
+  authors     String
+  abstract    String
+  keywords    String
+  track       String
+  session     String
+  pdfUrl      String?
+  status      String            @default("UNASSIGNED") // "UNASSIGNED", "ASSIGNED", "IN_REVIEW", "EVALUATED", "RECOMMENDED", "FINALIZED"
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  assignments PaperAssignment[]
+  evaluations Evaluation[]
+}
+
+model PaperAssignment {
+  id         String   @id @default(cuid())
+  paperId    String
+  chairId    String
+  assignedAt DateTime @default(now())
+  status     String   @default("ACTIVE") // "ACTIVE" or "REMOVED"
+  paper      Paper    @relation(fields: [paperId], references: [id])
+  chair      User     @relation(fields: [chairId], references: [id])
+
+  @@unique([paperId, chairId])
+}
+
+model Evaluation {
+  id                String    @id @default(cuid())
+  paperId           String
+  chairId           String
+  technicalScore    Int
+  originalityScore  Int
+  relevanceScore    Int
+  presentationScore Int
+  totalScore        Int
+  averageScore      Float
+  recommended       Boolean
+  feedbackRating    Int?
+  feedbackText      String?
+  status            String    @default("DRAFT") // "DRAFT" or "SUBMITTED"
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  submittedAt       DateTime?
+  paper             Paper     @relation(fields: [paperId], references: [id])
+  chair             User      @relation(fields: [chairId], references: [id])
+
+  @@unique([paperId, chairId])
+}
+
+model EvaluationCriterion {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  maxScore    Int      @default(5)
+  order       Int
+  active      Boolean  @default(true)
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  userId     String
+  action     String
+  entityType String
+  entityId   String
+  metadata   String?
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id])
+}

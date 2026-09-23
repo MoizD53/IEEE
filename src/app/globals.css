@@ -1,26 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8fafc;
+  --foreground: #0f172a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background-color: #f8fafc;
+  color: #0f172a;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Ensure all form inputs, textareas and selects are always crisp dark text */
+input, textarea, select {
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Hide Next.js development indicator "N" button */
+[data-nextjs-dev-indicator],
+[data-nextjs-toast],
+nextjs-portal,
+#next-logo,
+button[aria-label="Next.js Dev Tools"],
+div[data-nextjs-route-announcer] {
+  display: none !important;
 }
