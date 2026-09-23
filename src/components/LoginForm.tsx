@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Eye, EyeOff, Loader2, Lock, AlertCircle, ShieldCheck } from "lucide-react";
 
 export default function LoginForm() {
@@ -44,19 +45,16 @@ export default function LoginForm() {
       {/* COMPACT CARD TOP BRANDING                                 */}
       {/* ========================================================= */}
       <div className="text-center flex flex-col items-center mb-5">
-        {/* Compact Precision CICON Logo Mark (38px x 38px) */}
-        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-[12px] bg-gradient-to-br from-[#1E40AF] via-[#1D4ED8] to-[#1E3A8A] flex items-center justify-center shadow-[0_3px_12px_rgba(29,78,216,0.30)] ring-1 ring-inset ring-white/20 mb-2 relative overflow-hidden select-none">
-          <svg
-            className="absolute inset-0 w-full h-full opacity-15 pointer-events-none"
-            viewBox="0 0 40 40"
-            fill="none"
-          >
-            <line x1="0" y1="40" x2="40" y2="0" stroke="white" strokeWidth="1" strokeDasharray="3 3" />
-            <circle cx="20" cy="20" r="14" stroke="white" strokeWidth="0.75" />
-          </svg>
-          <span className="relative z-10 text-white font-black text-[11px] sm:text-xs tracking-tight leading-none">
-            CICON
-          </span>
+        {/* University Logo */}
+        <div className="mb-3 flex justify-center items-center">
+          <Image
+            src="/logo-ku-login.png"
+            alt="Karnavati University"
+            width={120}
+            height={100}
+            unoptimized
+            className="h-20 w-auto object-contain"
+          />
         </div>
 
         {/* Small Security Indicator Badge */}
