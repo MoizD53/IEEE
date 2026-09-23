@@ -20,7 +20,7 @@ export default async function ChairLayout({ children }: { children: React.ReactN
             CH
           </div>
           <div>
-            <h1 className="text-base font-bold tracking-tight text-white">CSM Portal</h1>
+            <h1 className="text-base font-bold tracking-tight text-white">CICON Portal</h1>
             <p className="text-[11px] text-slate-400 font-medium">Session Chair Desk</p>
           </div>
         </div>

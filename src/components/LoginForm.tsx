@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { Eye, EyeOff, Loader2, ShieldCheck, UserCheck, Lock, AlertCircle } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, AlertCircle, ShieldCheck } from "lucide-react";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -38,12 +38,6 @@ export default function LoginForm() {
     }
   };
 
-  const fillCredentials = (u: string, p: string) => {
-    setUsername(u);
-    setPassword(p);
-    setError("");
-  };
-
   return (
     <div className="w-full max-w-[500px] bg-white/[0.96] backdrop-blur-xl px-7 sm:px-9 py-6 sm:py-7 rounded-[26px] shadow-[0_25px_70px_rgba(0,0,0,0.30)] border border-white/80 relative z-10 transition-all animate-in fade-in duration-500">
       {/* ========================================================= */}
@@ -60,8 +54,8 @@ export default function LoginForm() {
             <line x1="0" y1="40" x2="40" y2="0" stroke="white" strokeWidth="1" strokeDasharray="3 3" />
             <circle cx="20" cy="20" r="14" stroke="white" strokeWidth="0.75" />
           </svg>
-          <span className="relative z-10 text-white font-black text-xs sm:text-sm tracking-tight leading-none">
-            CSM
+          <span className="relative z-10 text-white font-black text-[11px] sm:text-xs tracking-tight leading-none">
+            CICON
           </span>
         </div>
 
@@ -73,7 +67,7 @@ export default function LoginForm() {
 
         {/* Primary Title */}
         <h2 className="text-2xl sm:text-[27px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-tight">
-          CSM Portal Login
+          &ldquo;CICON&rdquo; Session Portal
         </h2>
 
         {/* Subtitle */}
@@ -167,35 +161,9 @@ export default function LoginForm() {
         </div>
       </form>
 
-      {/* Quick Demo Access Utility Area */}
-      <div className="mt-5 pt-4 border-t border-slate-200/80">
-        <span className="text-[10.5px] font-bold uppercase tracking-[0.08em] text-slate-400 text-center block mb-2.5 select-none">
-          Quick Demo Access
-        </span>
-        <div className="grid grid-cols-2 gap-2">
-          <button
-            type="button"
-            onClick={() => fillCredentials("admin", "admin123")}
-            className="h-[38px] flex items-center justify-center gap-1.5 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] hover:bg-slate-100 hover:border-slate-300 text-slate-700 text-xs font-semibold shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
-          >
-            <ShieldCheck size={13} className="text-blue-600" />
-            <span>Admin</span>
-          </button>
-
-          <button
-            type="button"
-            onClick={() => fillCredentials("pooja", "pooja123")}
-            className="h-[38px] flex items-center justify-center gap-1.5 rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] hover:bg-slate-100 hover:border-slate-300 text-slate-700 text-xs font-semibold shadow-2xs hover:shadow-xs transition-all duration-150 cursor-pointer"
-          >
-            <UserCheck size={13} className="text-emerald-600" />
-            <span>Chair (Pooja)</span>
-          </button>
-        </div>
-      </div>
-
       {/* Subtle Trust Indicator */}
-      <div className="mt-3.5 text-center flex items-center justify-center gap-1.5 text-[11px] text-slate-400 select-none">
-        <Lock size={11} className="text-slate-400" />
+      <div className="mt-5 pt-2 text-center flex items-center justify-center gap-1.5 text-[11.5px] text-slate-400 select-none border-t border-slate-100">
+        <Lock size={12} className="text-slate-400" />
         <span>Authorized conference personnel only</span>
       </div>
     </div>

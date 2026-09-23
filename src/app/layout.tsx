@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "IEEE CSM Portal",
-  description: "Conference Session Chair Management Portal",
+  title: "CICON Session Portal — IEEE Conference",
+  description: "CICON Conference Session Chair Management Portal",
 };
 
 export default function RootLayout({

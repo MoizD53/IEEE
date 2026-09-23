@@ -29,7 +29,7 @@ export default function LoginPage() {
       {/* ========================================================= */}
       <footer className="z-10 w-full py-2.5 px-4 text-center border-t border-white/10 bg-slate-950/60 backdrop-blur-md shrink-0">
         <p className="text-[11.5px] sm:text-xs text-white/80 tracking-normal drop-shadow-sm font-medium">
-          &copy; 2026 IEEE Conference Session Chair Management Portal &bull; Karnavati University &bull; All Rights Reserved.
+          &copy; 2026 &ldquo;CICON&rdquo; IEEE Conference Session Portal &bull; Karnavati University &bull; All Rights Reserved.
         </p>
       </footer>
     </div>
