@@ -5,6 +5,7 @@ import { prisma } from "./db";
 import { rateLimit, resetRateLimit } from "./rate-limit";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  secret: process.env.AUTH_SECRET,
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -17,18 +18,15 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         const username = (credentials.username as string).trim().toLowerCase();
 
-        // --- Brute-Force Protection ---
-        // Rate-limit by username (5 attempts per 15 min per username, per server instance)
-        // Note: this is per-instance and NOT globally distributed on serverless.
+        // Brute-Force Protection: 5 attempts per 15 min per username (per server instance)
+        // NOTE: In-memory only — not distributed. On serverless, each instance has its own counter.
         const limiter = rateLimit(`login_${username}`, 5, 15 * 60 * 1000);
         if (!limiter.success) {
-          // Return null — NextAuth surfaces a generic "CredentialsSignin" error to the client.
-          // We never reveal whether the username exists.
           console.warn(`[RATE_LIMIT] Login blocked for username: ${username}`);
           return null;
         }
 
-        // Always look up the user — constant-time to not reveal username existence
+        // Always look up and compare — timing-safe (doesn't reveal username existence)
         const user = await prisma.user.findUnique({
           where: { username },
           select: {
@@ -41,13 +39,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           }
         });
 
-        // Use bcrypt.compare regardless of whether user exists to prevent timing attacks
-        const dummyHash = "$2b$12$invalidhashfortimingprotectiononly..................";
+        const dummyHash = "$2b$12$invalidhashfortimingprotectionxxxxxxxxxxxxxxxxxxxxxxxx";
         const hashToCompare = user?.passwordHash ?? dummyHash;
         const passwordMatch = await bcrypt.compare(credentials.password as string, hashToCompare);
 
         if (!user || !passwordMatch || user.status !== "ACTIVE") {
-          // Audit failed login attempts (never log the actual password)
           if (user) {
             try {
               await prisma.auditLog.create({
@@ -59,14 +55,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
                   metadata: `Failed login attempt for: ${username}`
                 }
               });
-            } catch {
-              // Non-critical — don't block the auth flow
-            }
+            } catch { /* non-critical */ }
           }
           return null;
         }
 
-        // Successful login — reset rate limit counter and audit
+        // Successful login — reset rate limit and audit
         resetRateLimit(`login_${username}`);
         try {
           await prisma.auditLog.create({
@@ -78,9 +72,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
               metadata: `Successful login: ${username}`
             }
           });
-        } catch {
-          // Non-critical
-        }
+        } catch { /* non-critical */ }
 
         return {
           id: user.id,
@@ -116,17 +108,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     strategy: "jwt",
     maxAge: 4 * 60 * 60, // 4 hours
   },
-  cookies: {
-    sessionToken: {
-      name: process.env.NODE_ENV === "production"
-        ? "__Secure-next-auth.session-token"
-        : "next-auth.session-token",
-      options: {
-        httpOnly: true,
-        sameSite: "lax" as const,
-        path: "/",
-        secure: process.env.NODE_ENV === "production",
-      }
-    }
-  }
+  // NOTE: NextAuth v5 beta automatically sets HttpOnly, SameSite=Lax, and Secure
+  // in production based on AUTH_SECRET and NODE_ENV. The `cookies` config block
+  // from v4 is not compatible with v5 beta and was causing the server config error.
 });
