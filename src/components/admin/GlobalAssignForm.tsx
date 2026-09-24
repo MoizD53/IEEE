@@ -25,7 +25,11 @@ export default function GlobalAssignForm({ papers, chairs }: { papers: Paper[], 
     if (!selectedPaper || !selectedChair) return;
     setLoading(true);
     try {
-      await assignPaper(selectedPaper, selectedChair);
+      const res = await assignPaper(selectedPaper, selectedChair);
+      if (res && !res.success) {
+        alert(res.error || "Failed to assign paper");
+        return;
+      }
       setSelectedPaper("");
       setSelectedChair("");
       alert("Paper assigned successfully.");

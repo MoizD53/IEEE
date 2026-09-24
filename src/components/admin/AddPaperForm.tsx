@@ -16,10 +16,16 @@ export default function AddPaperForm() {
     setSuccess(false);
 
     try {
-      const formData = new FormData(e.currentTarget);
-      await createPaper(formData);
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      const res = await createPaper(formData);
+      if (res && !res.success) {
+        setError(res.error || "Failed to create paper");
+        setLoading(false);
+        return;
+      }
       setSuccess(true);
-      (e.target as HTMLFormElement).reset();
+      form.reset();
     } catch (err: any) {
       setError(err.message || "Failed to create paper");
     } finally {

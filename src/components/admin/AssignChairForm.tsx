@@ -18,11 +18,15 @@ export default function AssignChairForm({ paperId, chairs }: { paperId: string, 
     if (!selectedChair) return;
     setLoading(true);
     try {
-      await assignPaper(paperId, selectedChair);
+      const res = await assignPaper(paperId, selectedChair);
+      if (res && !res.success) {
+        alert(res.error || "Failed to assign paper");
+        return;
+      }
       setSelectedChair("");
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      alert("Failed to assign paper");
+      alert(err.message || "Failed to assign paper");
     } finally {
       setLoading(false);
     }

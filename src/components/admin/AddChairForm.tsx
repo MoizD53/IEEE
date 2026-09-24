@@ -16,10 +16,16 @@ export default function AddChairForm() {
     setSuccess(false);
 
     try {
-      const formData = new FormData(e.currentTarget);
-      await createChair(formData);
+      const form = e.currentTarget;
+      const formData = new FormData(form);
+      const res = await createChair(formData);
+      if (res && !res.success) {
+        setError(res.error || "Failed to create chair");
+        setLoading(false);
+        return;
+      }
       setSuccess(true);
-      (e.target as HTMLFormElement).reset();
+      form.reset();
     } catch (err: any) {
       setError(err.message || "Failed to create chair");
     } finally {
@@ -58,17 +64,23 @@ export default function AddChairForm() {
             type="text"
             name="username"
             required
+            minLength={3}
+            pattern="^[a-zA-Z0-9_]+$"
+            title="Username must contain only letters, numbers, and underscores (min 3 chars)"
             placeholder="e.g. jdoe"
             className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
           />
         </div>
         <div>
-          <label className="block text-xs font-bold uppercase tracking-wide text-slate-700 mb-1">Password *</label>
+          <label className="block text-xs font-bold uppercase tracking-wide text-slate-700 mb-1">
+            Password * <span className="text-[10px] text-slate-400 font-normal lowercase">(min 6 chars)</span>
+          </label>
           <input
             type="password"
             name="password"
             required
-            placeholder="Set password"
+            minLength={6}
+            placeholder="At least 6 characters"
             className="w-full rounded-xl border border-slate-300 bg-white p-2.5 text-sm text-slate-900 placeholder:text-slate-400 shadow-2xs focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none transition-all"
           />
         </div>
