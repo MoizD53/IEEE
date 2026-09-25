@@ -52,7 +52,13 @@ export default function EvaluationForm({ paperId }: { paperId: string }) {
     formData.append("feedbackText", feedbackText);
 
     try {
-      await submitEvaluation(formData);
+      const res = await submitEvaluation(formData);
+      if (res && !res.success) {
+        setError(res.error || "Failed to submit evaluation");
+        setLoading(false);
+        setShowConfirm(false);
+        return;
+      }
       router.refresh();
     } catch (err: any) {
       setError(err.message || "Failed to submit evaluation");

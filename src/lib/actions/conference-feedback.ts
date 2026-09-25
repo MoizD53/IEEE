@@ -18,40 +18,24 @@ const conferenceFeedbackSchema = z.object({
 });
 
 export const submitConferenceFeedback = withChairAuth(async (user, formData: FormData) => {
-  const parsed = conferenceFeedbackSchema.safeParse({
-    sessionTrack: (formData.get("sessionTrack") as string) || "",
-    sessionName: (formData.get("sessionName") as string) || "",
-    planningScore: parseInt(formData.get("planningScore") as string) || 0,
-    timeManagementScore: parseInt(formData.get("timeManagementScore") as string) || 0,
-    infrastructureScore: parseInt(formData.get("infrastructureScore") as string) || 0,
-    participantManagementScore: parseInt(formData.get("participantManagementScore") as string) || 0,
-    organizationScore: parseInt(formData.get("organizationScore") as string) || 0,
-    highlights: (formData.get("highlights") as string) || "",
-    suggestions: (formData.get("suggestions") as string) || "",
-  });
+  try {
+    const parsed = conferenceFeedbackSchema.safeParse({
+      sessionTrack: (formData.get("sessionTrack") as string) || "",
+      sessionName: (formData.get("sessionName") as string) || "",
+      planningScore: parseInt(formData.get("planningScore") as string) || 0,
+      timeManagementScore: parseInt(formData.get("timeManagementScore") as string) || 0,
+      infrastructureScore: parseInt(formData.get("infrastructureScore") as string) || 0,
+      participantManagementScore: parseInt(formData.get("participantManagementScore") as string) || 0,
+      organizationScore: parseInt(formData.get("organizationScore") as string) || 0,
+      highlights: (formData.get("highlights") as string) || "",
+      suggestions: (formData.get("suggestions") as string) || "",
+    });
 
-  if (!parsed.success) {
-    throw new Error(`Validation failed: ${parsed.error.errors.map(e => e.message).join(", ")}`);
-  }
+    if (!parsed.success) {
+      return { success: false, error: `Validation failed: ${parsed.error.errors.map(e => e.message).join(", ")}` };
+    }
 
-  const {
-    sessionTrack,
-    sessionName,
-    planningScore,
-    timeManagementScore,
-    infrastructureScore,
-    participantManagementScore,
-    organizationScore,
-    highlights,
-    suggestions
-  } = parsed.data;
-
-  const totalScore = planningScore + timeManagementScore + infrastructureScore + participantManagementScore + organizationScore;
-  const averageScore = totalScore / 5;
-
-  const feedback = await prisma.conferenceFeedback.create({
-    data: {
-      chairId: user.id,
+    const {
       sessionTrack,
       sessionName,
       planningScore,
@@ -59,28 +43,53 @@ export const submitConferenceFeedback = withChairAuth(async (user, formData: For
       infrastructureScore,
       participantManagementScore,
       organizationScore,
-      totalScore,
-      averageScore,
       highlights,
-      suggestions,
-      status: "SUBMITTED"
+      suggestions
+    } = parsed.data;
+
+    const totalScore = planningScore + timeManagementScore + infrastructureScore + participantManagementScore + organizationScore;
+    const averageScore = totalScore / 5;
+
+    const feedback = await prisma.conferenceFeedback.create({
+      data: {
+        chairId: user.id,
+        sessionTrack,
+        sessionName,
+        planningScore,
+        timeManagementScore,
+        infrastructureScore,
+        participantManagementScore,
+        organizationScore,
+        totalScore,
+        averageScore,
+        highlights,
+        suggestions,
+        status: "SUBMITTED"
+      }
+    });
+
+    try {
+      await prisma.auditLog.create({
+        data: {
+          userId: user.id,
+          action: "SUBMIT_CONFERENCE_FEEDBACK",
+          entityType: "CONFERENCE_FEEDBACK",
+          entityId: feedback.id,
+          metadata: `Conference Rating: ${totalScore}/50`
+        }
+      });
+    } catch {
+      // non-critical
     }
-  });
 
-  await prisma.auditLog.create({
-    data: {
-      userId: user.id,
-      action: "SUBMIT_CONFERENCE_FEEDBACK",
-      entityType: "CONFERENCE_FEEDBACK",
-      entityId: feedback.id,
-      metadata: `Conference Rating: ${totalScore}/50`
-    }
-  });
+    revalidatePath("/chair/feedback");
+    revalidatePath("/admin/feedback");
+    revalidatePath("/admin/dashboard");
+    revalidatePath("/admin/reports");
 
-  revalidatePath("/chair/feedback");
-  revalidatePath("/admin/feedback");
-  revalidatePath("/admin/dashboard");
-  revalidatePath("/admin/reports");
-
-  return { success: true, feedbackId: feedback.id };
+    return { success: true, feedbackId: feedback.id };
+  } catch (err: any) {
+    console.error("submitConferenceFeedback error:", err);
+    return { success: false, error: err.message || "Failed to submit feedback" };
+  }
 });
