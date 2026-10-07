@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/db";
 import { revalidatePath } from "next/cache";
-import { withChairAuth } from "@/lib/safe-action";
+import { withChairAuth, withAuth } from "@/lib/safe-action";
 import { z } from "zod";
 
 const conferenceFeedbackSchema = z.object({
@@ -91,5 +91,17 @@ export const submitConferenceFeedback = withChairAuth(async (user, formData: For
   } catch (err: any) {
     console.error("submitConferenceFeedback error:", err);
     return { success: false, error: err.message || "Failed to submit feedback" };
+  }
+});
+
+export const checkFeedbackStatus = withAuth(async (user) => {
+  if (user.role === "ADMIN") return { success: true, hasGivenFeedback: true };
+  try {
+    const feedbackCount = await prisma.conferenceFeedback.count({
+      where: { chairId: user.id }
+    });
+    return { success: true, hasGivenFeedback: feedbackCount > 0 };
+  } catch (err) {
+    return { success: false, hasGivenFeedback: false };
   }
 });

@@ -12,13 +12,18 @@ export default async function ChairLayout({ children }: { children: React.ReactN
     redirect("/login");
   }
 
+  const rawName = session.user.name || "Session Chair";
+  const formattedName = rawName.toLowerCase().startsWith("dr.") || rawName.toLowerCase().startsWith("prof.") 
+    ? rawName 
+    : `Dr. ${rawName}`;
+
   return (
     <div className="min-h-screen bg-slate-50/70 flex flex-col md:flex-row">
       {/* Desktop Sidebar */}
       <aside className="md:w-64 bg-slate-900 text-slate-100 md:min-h-screen p-5 flex flex-col hidden md:flex shrink-0 border-r border-slate-800">
         <div className="mb-8 px-2 flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center font-black text-white text-base shadow-md">
-            CH
+          <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center p-1 shadow-md">
+            <img src="/logo-karnavati.png" alt="KU" className="max-w-full max-h-full object-contain" />
           </div>
           <div>
             <h1 className="text-base font-bold tracking-tight text-white">CICON Portal</h1>
@@ -81,7 +86,7 @@ export default async function ChairLayout({ children }: { children: React.ReactN
         <ConferenceNavbar
           variant="portal"
           roleTitle="Session Chair"
-          userName={`Dr. ${session.user.name || "Chair"}`}
+          userName={formattedName}
         />
 
         <main className="p-4 md:p-8 flex-1 overflow-auto">

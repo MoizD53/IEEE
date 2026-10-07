@@ -4,7 +4,7 @@ import { useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { Eye, EyeOff, Loader2, Lock, AlertCircle, ShieldCheck } from "lucide-react";
+import { Eye, EyeOff, Loader2, Lock, AlertCircle, ShieldCheck, User } from "lucide-react";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -57,15 +57,11 @@ export default function LoginForm() {
           />
         </div>
 
-        {/* Small Security Indicator Badge */}
-        <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10.5px] font-bold uppercase tracking-[0.08em] bg-blue-50 text-blue-700 border border-blue-200/80 mb-2 select-none">
-          <ShieldCheck size={12} className="text-blue-600 shrink-0" />
-          Secure Access
-        </div>
+        {/* Removed Security Indicator Badge */}
 
         {/* Primary Title */}
-        <h2 className="text-2xl sm:text-[27px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-tight">
-          &ldquo;CICON&rdquo; Session Portal
+        <h2 className="text-2xl sm:text-[27px] font-extrabold tracking-[-0.03em] text-[#0F172A] leading-tight mt-2">
+          CICON Session Portal
         </h2>
 
         {/* Subtitle */}
@@ -92,17 +88,22 @@ export default function LoginForm() {
           >
             Username
           </label>
-          <input
-            id="username"
-            name="username"
-            type="text"
-            required
-            autoComplete="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="w-full h-[46px] px-3.5 rounded-xl bg-[#F8FAFC] border border-[#D9E2EC] text-[#0F172A] placeholder:text-slate-400 text-sm font-medium shadow-2xs focus:border-[#2563EB] focus:ring-4 focus:ring-blue-600/10 focus:bg-white focus:outline-none transition-all duration-150"
-            placeholder="Enter Username"
-          />
+          <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <User size={16} />
+            </div>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              required
+              autoComplete="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="w-full h-[46px] pl-10 pr-3.5 rounded-xl bg-[#F8FAFC] border border-[#D9E2EC] text-[#0F172A] placeholder:text-slate-400 text-sm font-medium shadow-2xs focus:border-[#2563EB] focus:ring-4 focus:ring-blue-600/10 focus:bg-white focus:outline-none transition-all duration-150"
+              placeholder="Enter Username"
+            />
+          </div>
         </div>
 
         {/* Password Field */}
@@ -114,6 +115,9 @@ export default function LoginForm() {
             Password
           </label>
           <div className="relative">
+            <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+              <Lock size={16} />
+            </div>
             <input
               id="password"
               name="password"
@@ -122,7 +126,7 @@ export default function LoginForm() {
               autoComplete="current-password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full h-[46px] px-3.5 pr-11 rounded-xl bg-[#F8FAFC] border border-[#D9E2EC] text-[#0F172A] placeholder:text-slate-400 text-sm font-medium shadow-2xs focus:border-[#2563EB] focus:ring-4 focus:ring-blue-600/10 focus:bg-white focus:outline-none transition-all duration-150"
+              className="w-full h-[46px] pl-10 pr-11 rounded-xl bg-[#F8FAFC] border border-[#D9E2EC] text-[#0F172A] placeholder:text-slate-400 text-sm font-medium shadow-2xs focus:border-[#2563EB] focus:ring-4 focus:ring-blue-600/10 focus:bg-white focus:outline-none transition-all duration-150"
               placeholder="Enter your password"
             />
             <button
@@ -145,7 +149,7 @@ export default function LoginForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full h-[46px] flex items-center justify-center gap-2 rounded-xl text-sm font-semibold text-white bg-[#155EEF] hover:bg-[#1251D4] active:bg-[#0F47BC] shadow-[0_4px_14px_rgba(21,94,239,0.28)] hover:shadow-[0_6px_18px_rgba(21,94,239,0.36)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-blue-600/20 disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none transition-all duration-150 cursor-pointer"
+            className="w-full h-[46px] flex items-center justify-center gap-2 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-[#002855] to-[#004A8F] hover:from-[#001f44] hover:to-[#003d7a] shadow-[0_4px_14px_rgba(0,40,85,0.28)] hover:shadow-[0_6px_18px_rgba(0,40,85,0.36)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] focus:outline-none focus:ring-4 focus:ring-[#002855]/20 disabled:opacity-60 disabled:hover:translate-y-0 disabled:hover:shadow-none transition-all duration-150 cursor-pointer"
           >
             {loading ? (
               <>

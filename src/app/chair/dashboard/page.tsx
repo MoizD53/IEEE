@@ -63,20 +63,21 @@ export default async function ChairDashboardPage() {
       <div className="mt-8">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-lg font-semibold text-gray-900">My Assigned Papers</h2>
-          <Link href="/chair/papers" className="text-sm text-blue-600 hover:underline">View all</Link>
         </div>
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           <ul className="divide-y divide-gray-200">
             {assignments.length === 0 ? (
               <li className="p-6 text-center text-gray-500">No papers assigned yet.</li>
             ) : (
-              assignments.slice(0, 5).map(a => {
+              assignments.map(a => {
                 const evalData = a.paper.evaluations[0];
                 return (
                   <li key={a.id} className="p-4 hover:bg-gray-50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
                       <h3 className="font-medium text-gray-900">{a.paper.title}</h3>
-                      <p className="text-xs text-gray-500 mt-1">{a.paper.paperId} &bull; Track: {a.paper.track || '-'}</p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        {a.paper.paperId} &bull; Track: {a.paper.track || '-'} &bull; Session: {a.paper.session || '-'}
+                      </p>
                     </div>
                     <div className="flex items-center gap-4">
                       {evalData?.status === "SUBMITTED" ? (

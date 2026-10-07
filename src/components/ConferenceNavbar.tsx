@@ -41,7 +41,7 @@ export default function ConferenceNavbar({
   if (variant === "floating") {
     return (
       <header className="w-full max-w-[1320px] mx-auto px-4 pt-4 md:pt-6 z-30 animate-in fade-in duration-300">
-        <nav className="min-h-[76px] bg-white/95 backdrop-blur-md rounded-[20px] px-5 sm:px-7 md:px-8 py-3.5 shadow-[0_4px_20px_rgba(15,23,42,0.06)] border border-white/80 flex items-center justify-between gap-4 transition-all">
+        <nav className="min-h-[76px] bg-white/70 backdrop-blur-xl rounded-[24px] px-5 sm:px-7 md:px-8 py-3.5 shadow-[0_8px_32px_rgba(15,23,42,0.08),inset_0_1px_1px_rgba(255,255,255,1)] border border-white/60 flex items-center justify-between gap-4 transition-all ring-1 ring-slate-900/5">
           {/* Institutional Logos Area: [UID/UIT] | [IEEE Gujarat] | [KU] | [NAAC] */}
           <div className="flex items-center gap-3 sm:gap-4 md:gap-6 min-w-0">
             {/* 1. UID / UIT */}
@@ -60,7 +60,7 @@ export default function ConferenceNavbar({
             {/* Divider 1 */}
             <div className="h-8 w-px bg-slate-200 opacity-60 shrink-0"></div>
 
-            {/* 2. IEEE Gujarat Section (Dominant & Breathable) */}
+            {/* 2. IEEE Gujarat Section */}
             <div className="flex items-center shrink-0 px-0.5 sm:px-1">
               <Image
                 src="/logo-ieee-gujarat.png"
@@ -106,15 +106,10 @@ export default function ConferenceNavbar({
             </div>
           </div>
 
-          {/* Right-Side Badges: [ IEEE Conference 2026 ] [ ● Live Portal ] */}
+          {/* Right-Side Badges */}
           <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-            <span className="hidden lg:inline-flex items-center px-3.5 py-1.5 rounded-full text-[13px] font-semibold bg-slate-50 border border-slate-200/90 text-[#0F172A] tracking-tight shadow-2xs select-none">
+            <span className="hidden lg:inline-flex items-center px-5 py-2 rounded-full text-[13px] font-bold bg-gradient-to-br from-[#002855] via-[#004A8F] to-[#00629B] border border-blue-400/30 text-white tracking-widest uppercase shadow-[0_4px_16px_rgba(0,40,85,0.25)] select-none">
               IEEE Conference 2026
-            </span>
-
-            <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200/90 shadow-2xs select-none">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              Live Portal
             </span>
           </div>
         </nav>
@@ -127,7 +122,7 @@ export default function ConferenceNavbar({
   // =========================================================================
   return (
     <header className="w-full px-4 md:px-6 pt-3.5 md:pt-4 pb-2 z-20">
-      <nav className="h-[74px] bg-white/95 backdrop-blur-md rounded-[20px] px-6 border border-slate-200/70 shadow-[0_4px_20px_rgba(15,23,42,0.06)] flex items-center justify-between transition-all">
+      <nav className="h-[74px] bg-white/70 backdrop-blur-xl rounded-[24px] px-6 border border-white/60 shadow-[0_8px_32px_rgba(15,23,42,0.08),inset_0_1px_1px_rgba(255,255,255,1)] flex items-center justify-between transition-all ring-1 ring-slate-900/5">
         {/* Left Brand Area */}
         <div className="flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 min-w-0">
           <div className="flex items-center shrink-0">
@@ -188,7 +183,7 @@ export default function ConferenceNavbar({
         {/* Right User Area */}
         <div className="flex items-center gap-3 sm:gap-4 shrink-0" ref={dropdownRef}>
           {roleTitle && (
-            <span className="hidden md:inline-flex items-center px-3.5 py-1 rounded-full text-[13px] font-semibold bg-slate-50 border border-slate-200/80 text-slate-700 tracking-tight shadow-2xs select-none">
+            <span className="hidden md:inline-flex items-center px-5 py-1.5 rounded-full text-[13px] font-bold bg-gradient-to-r from-slate-800 to-slate-900 border border-slate-700 text-white tracking-wide shadow-md select-none uppercase">
               {roleTitle}
             </span>
           )}

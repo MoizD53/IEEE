@@ -55,7 +55,7 @@ export default async function ChairPapersPage() {
                     <td className="md:px-6 md:py-4 block md:table-cell mb-2 md:mb-0">
                       <div className="font-medium text-gray-900">{a.paper.title}</div>
                       <div className="text-xs text-gray-500 mt-1">
-                        {a.paper.paperId} &bull; Track: {a.paper.track || '-'}
+                        {a.paper.paperId} &bull; Track: {a.paper.track || '-'} &bull; Session: {a.paper.session || '-'}
                       </div>
                     </td>
                     <td className="md:px-6 md:py-4 block md:table-cell mb-2 md:mb-0 whitespace-nowrap">
@@ -69,7 +69,7 @@ export default async function ChairPapersPage() {
                     <td className="md:px-6 md:py-4 block md:table-cell mb-4 md:mb-0 whitespace-nowrap">
                       <span className="md:hidden text-xs font-medium text-gray-500 uppercase mr-2">Score:</span>
                       {isEvaluated ? (
-                        <span className="font-bold text-gray-900">{evalData.totalScore}/20</span>
+                        <span className="font-bold text-gray-900">{evalData.totalScore}/50</span>
                       ) : (
                         <span className="text-gray-400">-</span>
                       )}
