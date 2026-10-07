@@ -459,11 +459,6 @@
         "author": "Aryan Bhanushali"
       },
       {
-        "paperId": "636",
-        "title": "Advanced Twitter Sentiment Analytics Using Transformer-Based Natural Language Processing Models",
-        "author": "Nitesh Kumar"
-      },
-      {
         "paperId": "551",
         "title": "Modified RLWE -Based Automated Mutual Authentication for Lightweight IoT Environment",
         "author": "S. Catherin Sonia"
@@ -522,11 +517,6 @@
         "paperId": "369",
         "title": "AMJLSF (Autonomous Multi-Jurisdictional LLM Security Framework): A Black-Box Approach to Multi-Dimensional Security Auditing and Regulatory Risk Scoring",
         "author": "Sanket Shah"
-      },
-      {
-        "paperId": "651",
-        "title": "Explainable Hybrid ANN-Based Framework for Early Cardiovascular Risk Prediction",
-        "author": "MUSTAFIZUR RAHAMAN"
       },
       {
         "paperId": "649",
@@ -1138,6 +1128,11 @@
         "paperId": "304",
         "title": "Low-Depth and Area-Efficient Optimization of Lightweight S-Boxes Using SAT-Based Circuit Modeling",
         "author": "Madutha Santosh Kumar"
+      },
+      {
+        "paperId": "651",
+        "title": "Explainable Hybrid ANN-Based Framework for Early Cardiovascular Risk Prediction",
+        "author": "MUSTAFIZUR RAHAMAN"
       }
     ]
   },
@@ -1203,6 +1198,11 @@
         "paperId": "299",
         "title": "Evaluating the Impact of Multimodal Agentic AI on Higher-Order Thinking in Engineering Education: From Scaffolding to Cognitive Atrophy",
         "author": "Dr Dayaker P"
+      },
+      {
+        "paperId": "636",
+        "title": "Advanced Twitter Sentiment Analytics Using Transformer-Based Natural Language Processing Models",
+        "author": "Nitesh Kumar"
       }
     ]
   },
