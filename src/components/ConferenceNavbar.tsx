@@ -15,7 +15,7 @@ interface ConferenceNavbarProps {
 export default function ConferenceNavbar({
   variant = "portal",
   roleTitle = "Administrator",
-  userName = "System Admin",
+  userName = "Portal admin",
 }: ConferenceNavbarProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);

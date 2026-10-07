@@ -132,7 +132,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <ConferenceNavbar
           variant="portal"
           roleTitle="Administrator"
-          userName={session.user.name || "System Admin"}
+          userName={session.user.name || "Portal admin"}
         />
 
         <main className="p-4 md:p-8 flex-1 overflow-auto">

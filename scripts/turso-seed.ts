@@ -29,7 +29,7 @@ async function seedTurso() {
     create: {
       username: "admin",
       passwordHash: adminPasswordHash,
-      name: "System Admin",
+      name: "Portal admin",
       role: "ADMIN",
       email: "admin@csm-ieee.org",
       institution: "IEEE CSM Secretariat",

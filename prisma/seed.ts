@@ -10,7 +10,7 @@ async function main() {
     where: { username: 'admin' },
     update: {},
     create: {
-      name: 'System Admin',
+      name: 'Portal admin',
       username: 'admin',
       passwordHash,
       role: 'ADMIN',

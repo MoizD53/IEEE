@@ -54,7 +54,7 @@ async function resetDatabase(name: string, prisma: PrismaClient) {
     create: {
       username: "admin",
       passwordHash: adminPasswordHash,
-      name: "System Admin",
+      name: "Portal admin",
       role: "ADMIN",
       email: "admin@cicon-ieee.org",
       institution: "IEEE CICON Secretariat",
