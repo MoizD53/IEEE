@@ -1,9 +1,7 @@
-import { PrismaClient } from "@prisma/client";
+import { prisma } from "../src/lib/db";
 import bcrypt from "bcryptjs";
 import fs from "fs";
 import path from "path";
-
-const prisma = new PrismaClient();
 
 async function main() {
   console.log("🚀 Starting CICON-2026 Conference Seeding...");

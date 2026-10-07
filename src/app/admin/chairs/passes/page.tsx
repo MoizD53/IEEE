@@ -1,14 +1,11 @@
-import fs from "fs";
-import path from "path";
+
 import Link from "next/link";
 import { Printer, ArrowLeft } from "lucide-react";
 import Image from "next/image";
 
+import sessions from "../../../../../scripts/cicon_sessions_data.json";
+
 export default async function ChairPassesPage() {
-  // Read the rich session data generated previously
-  const dataPath = path.join(process.cwd(), "scripts", "cicon_sessions_data.json");
-  const rawData = fs.readFileSync(dataPath, "utf-8");
-  const sessions = JSON.parse(rawData);
 
   return (
     <div className="space-y-6 max-w-[1400px] mx-auto">
