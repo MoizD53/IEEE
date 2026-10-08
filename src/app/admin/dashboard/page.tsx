@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
-import { FileText, Users, CheckCircle, Clock, Star, TrendingUp } from "lucide-react";
+import { FileText, Users, CheckCircle, Clock, Star, TrendingUp, Sparkles } from "lucide-react";
 
 export default async function AdminDashboardPage() {
   const [
@@ -31,55 +31,67 @@ export default async function AdminDashboardPage() {
     : "0";
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
-      <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
-      
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="text-blue-500 mb-2"><FileText size={24} /></div>
-          <div className="text-2xl font-bold text-gray-900">{totalPapers}</div>
-          <div className="text-xs text-gray-500 font-medium">Total Papers</div>
+    <div className="space-y-8 max-w-7xl mx-auto p-2">
+      {/* Premium Header */}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 p-8 text-white shadow-xl">
+        <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
+          <Sparkles size={120} />
         </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="text-indigo-500 mb-2"><Users size={24} /></div>
-          <div className="text-2xl font-bold text-gray-900">{totalChairs}</div>
-          <div className="text-xs text-gray-500 font-medium">Session Chairs</div>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="text-green-500 mb-2"><CheckCircle size={24} /></div>
-          <div className="text-2xl font-bold text-gray-900">{completedEvaluations}</div>
-          <div className="text-xs text-gray-500 font-medium">Evaluated Papers</div>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="text-yellow-500 mb-2"><Clock size={24} /></div>
-          <div className="text-2xl font-bold text-gray-900">{pendingEvaluations}</div>
-          <div className="text-xs text-gray-500 font-medium">Pending Evals</div>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="text-purple-500 mb-2"><Star size={24} /></div>
-          <div className="text-2xl font-bold text-gray-900">{recommendedPapers}</div>
-          <div className="text-xs text-gray-500 font-medium">Recommended</div>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
-          <div className="text-rose-500 mb-2"><TrendingUp size={24} /></div>
-          <div className="text-2xl font-bold text-gray-900">{avgScore} <span className="text-sm font-normal text-gray-500">/ 50</span></div>
-          <div className="text-xs text-gray-500 font-medium">Average Score</div>
+        <div className="relative z-10">
+          <h1 className="text-3xl font-extrabold tracking-tight mb-2">Welcome to the Administrator Portal</h1>
+          <p className="text-blue-200/80 max-w-2xl text-sm font-medium leading-relaxed">
+            Manage session chairs, oversee paper assignments, and track real-time conference evaluation progress.
+          </p>
         </div>
       </div>
+      
+      {/* Premium Stats Grid */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm"><FileText size={20} strokeWidth={2.5} /></div>
+          <div>
+            <div className="text-3xl font-black text-slate-800 tracking-tight">{totalPapers}</div>
+            <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Total Papers</div>
+          </div>
+        </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-          <h2 className="text-lg font-semibold mb-4 border-b pb-2">Quick Actions</h2>
-          <div className="grid grid-cols-2 gap-4">
-            <Link href="/admin/papers" className="p-4 border rounded-lg text-center hover:bg-gray-50 transition-colors">
-              <div className="font-medium text-blue-600">Manage Papers</div>
-            </Link>
-            <Link href="/admin/chairs" className="p-4 border rounded-lg text-center hover:bg-gray-50 transition-colors">
-              <div className="font-medium text-blue-600">Manage Chairs</div>
-            </Link>
-            <Link href="/admin/analytics" className="p-4 border rounded-lg text-center hover:bg-gray-50 transition-colors">
-              <div className="font-medium text-blue-600">View Analytics</div>
-            </Link>
+        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-sm"><Users size={20} strokeWidth={2.5} /></div>
+          <div>
+            <div className="text-3xl font-black text-slate-800 tracking-tight">{totalChairs}</div>
+            <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Session Chairs</div>
+          </div>
+        </div>
+
+        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm"><CheckCircle size={20} strokeWidth={2.5} /></div>
+          <div>
+            <div className="text-3xl font-black text-slate-800 tracking-tight">{completedEvaluations}</div>
+            <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Evaluated Papers</div>
+          </div>
+        </div>
+
+        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-sm"><Clock size={20} strokeWidth={2.5} /></div>
+          <div>
+            <div className="text-3xl font-black text-slate-800 tracking-tight">{pendingEvaluations}</div>
+            <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Pending Evals</div>
+          </div>
+        </div>
+
+        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm"><Star size={20} strokeWidth={2.5} /></div>
+          <div>
+            <div className="text-3xl font-black text-slate-800 tracking-tight">{recommendedPapers}</div>
+            <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Recommended</div>
+          </div>
+        </div>
+
+        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+          <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all duration-300 shadow-sm"><TrendingUp size={20} strokeWidth={2.5} /></div>
+          <div>
+            <div className="text-3xl font-black text-slate-800 tracking-tight">{avgScore} <span className="text-sm font-medium text-slate-400">/ 50</span></div>
+            <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Average Score</div>
           </div>
         </div>
       </div>
