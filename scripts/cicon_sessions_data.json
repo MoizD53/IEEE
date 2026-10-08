@@ -849,11 +849,6 @@
         "author": "Tanu Singh"
       },
       {
-        "paperId": "736",
-        "title": "Advanced Quantile and Probabilistic Forecasting Methods for Supply Chain Demand Under Uncertainty",
-        "author": "Manish Mishra"
-      },
-      {
         "paperId": "713",
         "title": "Machine Learning Techniques for Electric-Vehicle BLDC/PMSM Drivetrains: A Topology-Agnostic Block-Level Framework",
         "author": "Rajiv Vyas"
@@ -1211,6 +1206,11 @@
         "paperId": "709",
         "title": "Machine Learning Ensemble and Tree-Based Methods for High-Accuracy Demand Prediction",
         "author": "Awadh Pratap Singh"
+      },
+      {
+        "paperId": "736",
+        "title": "Advanced Quantile and Probabilistic Forecasting Methods for Supply Chain Demand Under Uncertainty",
+        "author": "Manish Mishra"
       }
     ]
   },
