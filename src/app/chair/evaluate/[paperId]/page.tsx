@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import EvaluationForm from "@/components/chair/EvaluationForm";
 import Link from "next/link";
 import { ArrowLeft, FileText, CheckCircle2, XCircle, Award } from "lucide-react";
+import JumpToPaperDropdown from "@/components/chair/JumpToPaperDropdown";
 
 export default async function EvaluatePaperPage({ params }: { params: Promise<{ paperId: string }> }) {
   const { paperId } = await params;
@@ -29,14 +30,31 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
   const existingEval = paper.evaluations[0];
   const isSubmitted = existingEval?.status === "SUBMITTED";
 
-  const allAssignments = await prisma.paperAssignment.findMany({
-    where: { chairId: session.user.id, status: "ACTIVE" },
-    orderBy: { assignedAt: "desc" },
-    include: { paper: { select: { id: true, paperId: true } } }
+  const unevaluatedAssignments = await prisma.paperAssignment.findMany({
+    where: { 
+      chairId: session.user.id, 
+      status: "ACTIVE",
+      paper: {
+        evaluations: {
+          none: {
+            chairId: session.user.id,
+            status: "SUBMITTED"
+          }
+        }
+      }
+    },
+    include: { paper: { select: { id: true, paperId: true, title: true } } }
   });
   
-  const currentIndex = allAssignments.findIndex(a => a.paperId === paper.id);
-  const nextAssignment = currentIndex !== -1 && currentIndex + 1 < allAssignments.length ? allAssignments[currentIndex + 1] : null;
+  const unevaluatedPapers = unevaluatedAssignments
+    .map(a => a.paper)
+    .filter(p => p.id !== paper.id)
+    .sort((a, b) => {
+      const numA = parseInt(a.paperId);
+      const numB = parseInt(b.paperId);
+      if (!isNaN(numA) && !isNaN(numB)) return numA - numB;
+      return a.paperId.localeCompare(b.paperId);
+    });
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-10">
@@ -58,8 +76,6 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
               <h2 className="text-xl font-bold text-slate-900 mt-2">{paper.title}</h2>
               <div className="text-xs text-slate-500 mt-1">Authors: {paper.authors}</div>
             </div>
-            
-
             
           </div>
         </div>
@@ -121,17 +137,6 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
                     </span>
                   </div>
 
-                  {existingEval.feedbackText && (
-                    <div className="pt-2">
-                      <h4 className="font-bold text-xs uppercase tracking-wider text-slate-500 mb-1">Chair Remarks</h4>
-                      {existingEval.feedbackRating ? (
-                        <div className="text-amber-400 text-base mb-1">{"★".repeat(existingEval.feedbackRating)}</div>
-                      ) : null}
-                      <p className="text-xs bg-slate-50 p-3 rounded-xl italic text-slate-700 border border-slate-200">
-                        "{existingEval.feedbackText}"
-                      </p>
-                    </div>
-                  )}
                 </div>
               </div>
             ) : (
@@ -140,21 +145,7 @@ export default async function EvaluatePaperPage({ params }: { params: Promise<{ 
           </div>
 
           <div className="mt-6 flex justify-end">
-            {nextAssignment ? (
-              <Link 
-                href={`/chair/evaluate/${nextAssignment.paper.id}`}
-                className="w-full sm:w-auto px-6 py-3 bg-slate-900 text-white font-bold text-sm rounded-xl shadow hover:bg-slate-800 transition-colors text-center"
-              >
-                Next Assigned Paper &rarr;
-              </Link>
-            ) : (
-              <button 
-                disabled 
-                className="w-full sm:w-auto px-6 py-3 bg-slate-200 text-slate-500 font-bold text-sm rounded-xl text-center cursor-not-allowed border border-slate-300"
-              >
-                All Done (No More Papers)
-              </button>
-            )}
+            <JumpToPaperDropdown papers={unevaluatedPapers} />
           </div>
         </div>
       </div>
