@@ -26,7 +26,7 @@ export async function GET() {
     "Session",
     "Recommending Chair",
     "Total Score (/50)",
-    "Average Score (/5)",
+    "Average Score (/10)",
     "Feedback Stars",
     "Comments",
     "Submitted Date",
