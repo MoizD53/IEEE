@@ -347,6 +347,11 @@
         "paperId": "699",
         "title": "Attention-Guided Deep Learning with Explainable AI for Alzheimer's Disease Classification from FDG-PET Brain Scans",
         "author": "Presenter"
+      },
+      {
+        "paperId": "541",
+        "title": "Sustainable Design of AI-Driven Perception Measurement Systems for Enhanced Value Creation: An Empirical Analysis of Consumer Autonomy in the Gandhinagar E- Commerce Sector",
+        "author": "Tanu Singh"
       }
     ]
   },
@@ -843,11 +848,6 @@
       "Jal Anghan"
     ],
     "papers": [
-      {
-        "paperId": "541",
-        "title": "Sustainable Design of AI-Driven Perception Measurement Systems for Enhanced Value Creation: An Empirical Analysis of Consumer Autonomy in the Gandhinagar E- Commerce Sector",
-        "author": "Tanu Singh"
-      },
       {
         "paperId": "713",
         "title": "Machine Learning Techniques for Electric-Vehicle BLDC/PMSM Drivetrains: A Topology-Agnostic Block-Level Framework",
