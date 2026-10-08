@@ -12,12 +12,6 @@ export default async function ChairsPage() {
           <h1 className="text-2xl font-bold text-gray-900">Session Chairs</h1>
           <p className="mt-1 text-sm text-gray-500">Manage conference session chairs and their access.</p>
         </div>
-        <a 
-          href="/admin/chairs/passes"
-          className="bg-[#002855] text-white px-4 py-2 rounded shadow-sm text-sm font-medium hover:bg-[#001f44]"
-        >
-          Print ID Passes
-        </a>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
