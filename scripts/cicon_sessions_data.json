@@ -532,6 +532,16 @@
         "paperId": "649",
         "title": "Dielectric Fingerprinting of Skimmed Milk: Frequency-Dependent Electrical Characterization Using Dielectric and Impedance Spectroscopy with PCA and K-Means Clustering",
         "author": "Ania Rodrigues"
+      },
+      {
+        "paperId": "711",
+        "title": "Multi-Temporal NDVI-Based Crop Health Classification Using Machine Learning Techniques",
+        "author": "Vijaya Ahire"
+      },
+      {
+        "paperId": "710",
+        "title": "IoT-Enabled Real-Time Bird Detection and Deterrence for Jowar Crops Using a Customized Lightweight Deep Learning Model",
+        "author": "Nupur Narendra Pathrikar"
       }
     ]
   },
@@ -1087,13 +1097,6 @@
         "phone": "09654882790"
       },
       {
-        "paperId": "711",
-        "title": "Multi-Temporal NDVI-Based Crop Health Classification Using Machine Learning Techniques",
-        "author": "Vijaya Ahire",
-        "email": "vahire@mgmu.ac.in",
-        "phone": "+91 9923607777"
-      },
-      {
         "paperId": "682",
         "title": "Sensorless Field-Oriented Control of Solar PV- Powered PMSM Drive Using Mras Speed Observer and Sliding Mode Control Strategy",
         "author": "Shradha Gupta",
@@ -1318,11 +1321,6 @@
         "paperId": "606",
         "title": "Bias and Over reliance of AI in Digital Forensics Investigation",
         "author": "Vivek Joshi"
-      },
-      {
-        "paperId": "710",
-        "title": "IoT-Enabled Real-Time Bird Detection and Deterrence for Jowar Crops Using a Customized Lightweight Deep Learning Model",
-        "author": "Nupur Narendra Pathrikar"
       },
       {
         "paperId": "683",
