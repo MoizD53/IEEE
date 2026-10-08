@@ -704,11 +704,6 @@
         "author": "Vansh Bhatt"
       },
       {
-        "paperId": "709",
-        "title": "Machine Learning Ensemble and Tree-Based Methods for High-Accuracy Demand Prediction",
-        "author": "Awadh Pratap Singh"
-      },
-      {
         "paperId": "550",
         "title": "Real-Time Edge-Optimized Environmental Sound Classification using Attention-Based CRNN and TensorFlow Lite",
         "author": "Gouri Banapurmath"
@@ -1211,6 +1206,11 @@
         "paperId": "636",
         "title": "Advanced Twitter Sentiment Analytics Using Transformer-Based Natural Language Processing Models",
         "author": "Nitesh Kumar"
+      },
+      {
+        "paperId": "709",
+        "title": "Machine Learning Ensemble and Tree-Based Methods for High-Accuracy Demand Prediction",
+        "author": "Awadh Pratap Singh"
       }
     ]
   },
