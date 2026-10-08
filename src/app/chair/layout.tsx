@@ -25,7 +25,7 @@ export default async function ChairLayout({ children }: { children: React.ReactN
         <div className="absolute top-0 left-0 w-full h-64 bg-indigo-500/10 blur-[100px] pointer-events-none" />
         
         <div className="mb-10 px-2 flex items-center gap-4 relative z-10">
-          <div className="w-14 h-14 flex items-center justify-center shrink-0">
+          <div className="w-14 h-14 bg-white rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.1)] flex items-center justify-center p-1.5 shrink-0 border border-white/20">
             <img src="/logo-karnavati.png" alt="KU" className="max-w-full max-h-full object-contain" />
           </div>
           <div>
