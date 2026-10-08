@@ -35,28 +35,8 @@ export default async function AdminLayout({ children }: { children: React.ReactN
               {/* Subtle Blue Ambient Glow */}
               <div className="absolute -inset-1 rounded-[18px] bg-blue-500/10 blur-xl pointer-events-none group-hover:bg-blue-500/25 transition-all duration-300"></div>
 
-              {/* 48px x 48px Precision Mark */}
-              <div className="relative w-12 h-12 rounded-[15px] bg-gradient-to-br from-[#1E40AF] via-[#1D4ED8] to-[#1E3A8A] flex items-center justify-center shadow-[0_4px_16px_rgba(29,78,216,0.35)] ring-1 ring-inset ring-white/20 group-hover:-translate-y-0.5 group-hover:brightness-105 group-hover:shadow-[0_6px_20px_rgba(29,78,216,0.45)] transition-all duration-200 overflow-hidden">
-                {/* Subtle low-opacity geometric pattern behind letters */}
-                <svg
-                  className="absolute inset-0 w-full h-full opacity-15 pointer-events-none"
-                  viewBox="0 0 48 48"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <line x1="0" y1="48" x2="48" y2="0" stroke="white" strokeWidth="1" strokeDasharray="3 3" />
-                  <line x1="12" y1="48" x2="48" y2="12" stroke="white" strokeWidth="1" strokeDasharray="3 3" />
-                  <circle cx="24" cy="24" r="18" stroke="white" strokeWidth="0.75" />
-                </svg>
-
-                {/* CICON Lettermark */}
-                <span className="relative z-10 text-white font-black text-[12px] tracking-tight leading-none">
-                  CICON
-                </span>
-              </div>
-              
               {/* KU Logo */}
-              <div className="relative w-12 h-12 rounded-[15px] bg-white flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.15)] ring-1 ring-inset ring-slate-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200 overflow-hidden p-1.5 ml-2">
+              <div className="relative w-12 h-12 rounded-[15px] bg-white flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.15)] ring-1 ring-inset ring-slate-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200 overflow-hidden p-1.5">
                 <img src="/logo-karnavati.png" alt="KU" className="max-w-full max-h-full object-contain" />
               </div>
             </div>
