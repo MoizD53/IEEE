@@ -31,7 +31,7 @@ export async function GET() {
     "Completed Evaluations",
     "Pending Evaluations",
     "Recommended Count",
-    "Average Score Given (/20)",
+    "Average Score Given (/50)",
   ];
 
   const rows = chairs.map((c) => {

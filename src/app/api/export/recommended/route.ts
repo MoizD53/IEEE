@@ -25,7 +25,7 @@ export async function GET() {
     "Track",
     "Session",
     "Recommending Chair",
-    "Total Score (/20)",
+    "Total Score (/50)",
     "Average Score (/5)",
     "Feedback Stars",
     "Comments",

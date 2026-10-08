@@ -62,7 +62,7 @@ export default async function AdminDashboardPage() {
         </div>
         <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
           <div className="text-rose-500 mb-2"><TrendingUp size={24} /></div>
-          <div className="text-2xl font-bold text-gray-900">{avgScore} <span className="text-sm font-normal text-gray-500">/ 20</span></div>
+          <div className="text-2xl font-bold text-gray-900">{avgScore} <span className="text-sm font-normal text-gray-500">/ 50</span></div>
           <div className="text-xs text-gray-500 font-medium">Average Score</div>
         </div>
       </div>
