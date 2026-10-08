@@ -21,7 +21,7 @@ export default async function AnalyticsPage() {
   const recCount = evaluations.filter(e => e.recommended).length;
   const notRecCount = total - recCount;
   const recData = [
-    { name: 'Best Paper Recommended', value: recCount },
+    { name: 'Recommended', value: recCount },
     { name: 'Not Recommended', value: notRecCount },
   ];
 
