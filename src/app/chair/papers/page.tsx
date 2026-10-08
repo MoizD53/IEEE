@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
-import { FileText } from "lucide-react";
+import { FileText, CheckCircle2, CircleDashed, Filter, Search, ChevronRight, TrendingUp } from "lucide-react";
 
 export default async function ChairPapersPage() {
   const session = await auth();
@@ -21,73 +21,135 @@ export default async function ChairPapersPage() {
     orderBy: { assignedAt: "desc" }
   });
 
+  const evaluatedCount = assignments.filter(a => a.paper.evaluations.some(e => e.status === "SUBMITTED")).length;
+
   return (
-    <div className="space-y-6 max-w-6xl mx-auto">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">My Assigned Papers</h1>
-        <p className="mt-1 text-sm text-gray-500">View and evaluate the papers assigned to you.</p>
+    <div className="space-y-8 max-w-6xl mx-auto pb-10">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="relative">
+          <div className="absolute -left-4 -top-4 w-20 h-20 bg-indigo-500/10 rounded-full blur-2xl" />
+          <h1 className="text-3xl font-black text-slate-900 tracking-tight relative z-10">Assigned Papers</h1>
+          <p className="text-slate-500 mt-2 font-medium max-w-xl relative z-10">
+            Review and evaluate the papers allocated to your session. Your expertise shapes the quality of CICON.
+          </p>
+        </div>
+        
+        <div className="flex items-center gap-3 bg-white p-2 rounded-2xl shadow-sm border border-slate-200/60 self-start md:self-end">
+          <div className="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-xl font-bold text-sm">
+            All ({assignments.length})
+          </div>
+          <div className="px-4 py-2 text-slate-500 hover:bg-slate-50 rounded-xl font-bold text-sm cursor-pointer transition-colors">
+            Evaluated ({evaluatedCount})
+          </div>
+          <div className="px-4 py-2 text-slate-500 hover:bg-slate-50 rounded-xl font-bold text-sm cursor-pointer transition-colors">
+            Pending ({assignments.length - evaluatedCount})
+          </div>
+        </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+      {/* Optional: Add a simple non-functional search bar for visual premium feel */}
+      <div className="flex gap-4 items-center">
+        <div className="relative flex-1 max-w-md">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+          <input 
+            type="text" 
+            placeholder="Search papers by title or ID..." 
+            className="w-full pl-11 pr-4 py-3 bg-white border border-slate-200/60 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all text-sm font-medium"
+            disabled
+          />
+        </div>
+        <button className="p-3 bg-white border border-slate-200/60 rounded-2xl shadow-sm hover:bg-slate-50 text-slate-600 transition-all disabled:opacity-50" disabled>
+          <Filter size={18} />
+        </button>
+      </div>
+
+      <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200/60 overflow-hidden">
         {assignments.length === 0 ? (
-          <div className="p-12 text-center">
-            <FileText className="mx-auto h-12 w-12 text-gray-400 mb-4" />
-            <h3 className="text-lg font-medium text-gray-900">No papers assigned</h3>
-            <p className="mt-1 text-gray-500">No papers have been assigned to you yet.</p>
+          <div className="p-16 text-center flex flex-col items-center">
+            <div className="w-24 h-24 bg-slate-50 rounded-full flex items-center justify-center mb-6">
+              <FileText className="h-10 w-10 text-slate-300" />
+            </div>
+            <h3 className="text-xl font-black text-slate-900">No papers assigned</h3>
+            <p className="mt-2 text-slate-500 max-w-sm">You haven't been assigned any papers yet. We will notify you when new assignments are ready for review.</p>
           </div>
         ) : (
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50 hidden md:table-header-group">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Paper Details</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Score</th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200 block md:table-row-group">
-              {assignments.map(a => {
-                const evalData = a.paper.evaluations[0];
-                const isEvaluated = evalData?.status === "SUBMITTED";
+          <div className="divide-y divide-slate-100">
+            {assignments.map(a => {
+              const evalData = a.paper.evaluations[0];
+              const isEvaluated = evalData?.status === "SUBMITTED";
 
-                return (
-                  <tr key={a.id} className="block md:table-row p-4 md:p-0 hover:bg-gray-50 border-b md:border-b-0">
-                    <td className="md:px-6 md:py-4 block md:table-cell mb-2 md:mb-0">
-                      <div className="font-medium text-gray-900">{a.paper.title}</div>
-                      <div className="text-xs text-gray-500 mt-1">
-                        {a.paper.paperId} &bull; Track: {a.paper.track || '-'} &bull; Session: {a.paper.session || '-'}
+              return (
+                <div key={a.id} className="p-5 md:p-6 hover:bg-slate-50/50 transition-all duration-300 group relative">
+                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-transparent group-hover:bg-indigo-500 transition-colors" />
+                  
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div className="flex-1 min-w-0 flex gap-4">
+                      <div className="mt-1 hidden sm:block">
+                        {isEvaluated ? (
+                          <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                            <CheckCircle2 size={20} className="stroke-[2.5]" />
+                          </div>
+                        ) : (
+                          <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-600">
+                            <CircleDashed size={20} className="stroke-[2.5]" />
+                          </div>
+                        )}
                       </div>
-                    </td>
-                    <td className="md:px-6 md:py-4 block md:table-cell mb-2 md:mb-0 whitespace-nowrap">
-                      <span className="md:hidden text-xs font-medium text-gray-500 uppercase mr-2">Status:</span>
-                      {isEvaluated ? (
-                        <span className="px-2 py-1 text-xs font-semibold bg-green-100 text-green-800 rounded-full">Evaluated</span>
-                      ) : (
-                        <span className="px-2 py-1 text-xs font-semibold bg-yellow-100 text-yellow-800 rounded-full">Pending</span>
-                      )}
-                    </td>
-                    <td className="md:px-6 md:py-4 block md:table-cell mb-4 md:mb-0 whitespace-nowrap">
-                      <span className="md:hidden text-xs font-medium text-gray-500 uppercase mr-2">Score:</span>
-                      {isEvaluated ? (
-                        <span className="font-bold text-gray-900">{evalData.totalScore}/50</span>
-                      ) : (
-                        <span className="text-gray-400">-</span>
-                      )}
-                    </td>
-                    <td className="md:px-6 md:py-4 block md:table-cell text-right whitespace-nowrap">
+                      
+                      <div>
+                        <h2 className="text-lg font-bold text-slate-900 group-hover:text-indigo-600 transition-colors pr-4">{a.paper.title}</h2>
+                        
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mt-2.5">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 text-xs font-bold font-mono">
+                            {a.paper.paperId}
+                          </span>
+                          
+                          {a.paper.track && (
+                            <span className="flex items-center gap-1.5 text-xs font-semibold text-slate-500">
+                              <TrendingUp size={14} className="text-indigo-400" />
+                              {a.paper.track}
+                            </span>
+                          )}
+                          
+                          {a.paper.session && (
+                            <span className="flex items-center gap-1.5 text-xs font-semibold text-slate-500 border-l border-slate-200 pl-4">
+                              <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                              {a.paper.session}
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 md:gap-6 justify-between md:justify-end ml-0 sm:ml-14 md:ml-0 border-t border-slate-100 md:border-t-0 pt-4 md:pt-0">
+                      <div className="flex flex-col items-start md:items-end gap-1">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Status</span>
+                        {isEvaluated ? (
+                          <div className="flex items-center gap-2">
+                            <span className="font-black text-emerald-600">{evalData.totalScore}/50</span>
+                            <span className="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">Evaluated</span>
+                          </div>
+                        ) : (
+                          <span className="text-sm font-bold text-amber-600 bg-amber-50 px-3 py-1 rounded-lg">Pending</span>
+                        )}
+                      </div>
+
                       <Link 
                         href={`/chair/evaluate/${a.paperId}`} 
-                        className={`inline-flex justify-center w-full md:w-auto py-2 px-4 border shadow-sm text-sm font-medium rounded-md text-white transition-colors
-                          ${isEvaluated ? 'border-gray-300 bg-gray-600 hover:bg-gray-700' : 'border-transparent bg-blue-600 hover:bg-blue-700'}`}
+                        className={`shrink-0 flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-bold transition-all duration-300
+                          ${isEvaluated 
+                            ? 'bg-white border-2 border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 shadow-sm' 
+                            : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/25 border-2 border-transparent'}`}
                       >
-                        {isEvaluated ? "View Evaluation" : "Evaluate Paper"}
+                        {isEvaluated ? "Review" : "Evaluate"}
+                        <ChevronRight size={16} className={`transition-transform ${!isEvaluated && "group-hover:translate-x-1"}`} />
                       </Link>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         )}
       </div>
     </div>
