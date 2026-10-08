@@ -28,133 +28,120 @@ export default async function ChairDashboardPage() {
   const progress = totalAssigned === 0 ? 0 : Math.round((completed / totalAssigned) * 100);
 
   return (
-    <div className="space-y-8 max-w-6xl mx-auto pb-10">
+    <div className="space-y-8 max-w-5xl mx-auto pb-10">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-black text-slate-900 tracking-tight">Dashboard Overview</h1>
-          <p className="text-slate-500 mt-1 font-medium">Track your paper evaluation progress and metrics.</p>
+          <h1 className="text-2xl font-semibold text-slate-900 tracking-tight">Dashboard Overview</h1>
+          <p className="text-slate-500 mt-1 text-sm">Track your paper evaluation progress and metrics.</p>
         </div>
         {totalAssigned > 0 && (
-          <div className="bg-white px-4 py-2 rounded-2xl shadow-sm border border-slate-200/60 flex items-center gap-3">
-            <div className="text-sm font-bold text-slate-700">Completion</div>
-            <div className="w-32 h-2 bg-slate-100 rounded-full overflow-hidden">
+          <div className="flex items-center gap-3">
+            <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Completion</div>
+            <div className="w-32 h-1.5 bg-slate-200 rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full transition-all duration-1000 ease-out" 
+                className="h-full bg-blue-600 rounded-full transition-all duration-1000 ease-out" 
                 style={{ width: `${progress}%` }} 
               />
             </div>
-            <div className="text-sm font-black text-indigo-600">{progress}%</div>
+            <div className="text-sm font-semibold text-slate-700">{progress}%</div>
           </div>
         )}
       </div>
       
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        <div className="bg-white p-5 md:p-6 rounded-3xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all">
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-blue-500/5 rounded-full blur-2xl group-hover:bg-blue-500/10 transition-colors" />
-          <div className="flex items-center gap-4 relative z-10">
-            <div className="p-3.5 bg-gradient-to-br from-blue-500 to-indigo-600 text-white rounded-2xl shadow-lg shadow-blue-500/20">
-              <FileText size={24} className="stroke-[2.5]" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-0.5">Assigned</p>
-              <p className="text-3xl font-black text-slate-900 leading-none">{totalAssigned}</p>
-            </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+          <div className="p-2.5 bg-blue-50 text-blue-600 rounded-lg">
+            <FileText size={20} />
+          </div>
+          <div>
+            <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">Assigned</p>
+            <p className="text-2xl font-semibold text-slate-900 mt-1">{totalAssigned}</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 md:p-6 rounded-3xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all">
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl group-hover:bg-emerald-500/10 transition-colors" />
-          <div className="flex items-center gap-4 relative z-10">
-            <div className="p-3.5 bg-gradient-to-br from-emerald-400 to-emerald-600 text-white rounded-2xl shadow-lg shadow-emerald-500/20">
-              <CheckCircle size={24} className="stroke-[2.5]" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-0.5">Completed</p>
-              <p className="text-3xl font-black text-slate-900 leading-none">{completed}</p>
-            </div>
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+          <div className="p-2.5 bg-emerald-50 text-emerald-600 rounded-lg">
+            <CheckCircle size={20} />
+          </div>
+          <div>
+            <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">Completed</p>
+            <p className="text-2xl font-semibold text-slate-900 mt-1">{completed}</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 md:p-6 rounded-3xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all">
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-amber-500/5 rounded-full blur-2xl group-hover:bg-amber-500/10 transition-colors" />
-          <div className="flex items-center gap-4 relative z-10">
-            <div className="p-3.5 bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-2xl shadow-lg shadow-amber-500/20">
-              <Clock size={24} className="stroke-[2.5]" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-0.5">Pending</p>
-              <p className="text-3xl font-black text-slate-900 leading-none">{pending}</p>
-            </div>
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+          <div className="p-2.5 bg-amber-50 text-amber-600 rounded-lg">
+            <Clock size={20} />
+          </div>
+          <div>
+            <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">Pending</p>
+            <p className="text-2xl font-semibold text-slate-900 mt-1">{pending}</p>
           </div>
         </div>
 
-        <div className="bg-white p-5 md:p-6 rounded-3xl border border-slate-200/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all">
-          <div className="absolute -right-6 -top-6 w-24 h-24 bg-purple-500/5 rounded-full blur-2xl group-hover:bg-purple-500/10 transition-colors" />
-          <div className="flex items-center gap-4 relative z-10">
-            <div className="p-3.5 bg-gradient-to-br from-purple-500 to-pink-600 text-white rounded-2xl shadow-lg shadow-purple-500/20">
-              <Star size={24} className="stroke-[2.5]" />
-            </div>
-            <div>
-              <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mb-0.5">Recommended</p>
-              <p className="text-3xl font-black text-slate-900 leading-none">{recommended}</p>
-            </div>
+        <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-start gap-4">
+          <div className="p-2.5 bg-purple-50 text-purple-600 rounded-lg">
+            <Star size={20} />
+          </div>
+          <div>
+            <p className="text-xs text-slate-500 font-medium uppercase tracking-wide">Recommended</p>
+            <p className="text-2xl font-semibold text-slate-900 mt-1">{recommended}</p>
           </div>
         </div>
       </div>
 
-      <div className="mt-10">
-        <div className="flex justify-between items-end mb-6">
-          <div>
-            <h2 className="text-xl font-black text-slate-900 flex items-center gap-2">
-              <Activity className="text-indigo-500" size={24} />
-              Assigned Papers
-            </h2>
-          </div>
+      <div className="mt-8">
+        <div className="mb-4">
+          <h2 className="text-lg font-semibold text-slate-900">Assigned Papers</h2>
         </div>
         
-        <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200/60 overflow-hidden">
-          <ul className="divide-y divide-slate-100">
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+          <ul className="divide-y divide-slate-200">
             {assignments.length === 0 ? (
-              <li className="p-12 text-center flex flex-col items-center justify-center">
-                <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mb-4">
-                  <FileText className="text-slate-300" size={32} />
-                </div>
-                <p className="text-slate-900 font-bold text-lg">No papers assigned yet.</p>
-                <p className="text-slate-500 text-sm mt-1">Check back later when the admin assigns papers to your track.</p>
+              <li className="p-10 text-center flex flex-col items-center justify-center">
+                <FileText className="text-slate-300 mb-3" size={32} />
+                <p className="text-slate-900 font-medium">No papers assigned yet.</p>
+                <p className="text-slate-500 text-sm mt-1">Check back later.</p>
               </li>
             ) : (
               assignments.map(a => {
                 const evalData = a.paper.evaluations[0];
                 const isEvaluated = evalData?.status === "SUBMITTED";
                 return (
-                  <li key={a.id} className="p-5 hover:bg-slate-50/80 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4 group">
-                    <div className="flex items-start gap-4">
-                      <div className={`mt-1 w-2.5 h-2.5 rounded-full shrink-0 ${isEvaluated ? 'bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]' : 'bg-amber-400 shadow-[0_0_10px_rgba(251,191,36,0.5)]'}`} />
-                      <div>
-                        <h3 className="font-bold text-slate-900 group-hover:text-indigo-600 transition-colors line-clamp-1">{a.paper.title}</h3>
-                        <div className="flex flex-wrap items-center gap-3 mt-1.5 text-xs font-semibold text-slate-500">
-                          <span className="bg-slate-100 px-2 py-0.5 rounded-md text-slate-600">{a.paper.paperId}</span>
-                          {a.paper.track && <span className="flex items-center gap-1"><TrendingUp size={12} /> {a.paper.track}</span>}
-                          {a.paper.session && <span className="text-slate-400">&bull; Session: {a.paper.session}</span>}
-                        </div>
+                  <li key={a.id} className="p-4 sm:p-5 hover:bg-slate-50 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    <div>
+                      <div className="flex items-center gap-3 mb-1">
+                        <span className="text-xs font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded">{a.paper.paperId}</span>
+                        {isEvaluated ? (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                            Evaluated
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-medium text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full border border-amber-200">
+                            Pending
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="font-medium text-slate-900 line-clamp-1">{a.paper.title}</h3>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mt-1.5 text-xs text-slate-500">
+                        {a.paper.track && <span className="flex items-center gap-1"><TrendingUp size={12} /> {a.paper.track}</span>}
+                        {a.paper.session && <span>&bull; Session: {a.paper.session}</span>}
                       </div>
                     </div>
-                    <div className="flex items-center gap-4 ml-6 sm:ml-0">
-                      {isEvaluated ? (
-                        <span className="px-3 py-1.5 text-xs font-bold bg-emerald-50/80 text-emerald-700 border border-emerald-200/60 rounded-xl shadow-sm">
-                          Evaluated ({evalData.totalScore}/50)
-                        </span>
-                      ) : (
-                        <span className="px-3 py-1.5 text-xs font-bold bg-amber-50/80 text-amber-700 border border-amber-200/60 rounded-xl shadow-sm">
-                          Pending Review
-                        </span>
+                    
+                    <div className="flex items-center gap-4 shrink-0">
+                      {isEvaluated && (
+                        <div className="hidden sm:block text-right">
+                          <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Score</div>
+                          <div className="text-sm font-semibold text-slate-900">{evalData.totalScore}/50</div>
+                        </div>
                       )}
                       <Link 
                         href={`/chair/evaluate/${a.paperId}`} 
-                        className={`text-sm px-5 py-2.5 font-bold rounded-xl transition-all shadow-sm flex items-center gap-2
+                        className={`text-sm px-4 py-2 font-medium rounded-lg transition-colors flex items-center justify-center min-w-[100px]
                           ${isEvaluated 
-                            ? "bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300" 
-                            : "bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-indigo-500/25 hover:shadow-lg"}`}
+                            ? "bg-white border border-slate-300 text-slate-700 hover:bg-slate-50" 
+                            : "bg-blue-600 text-white hover:bg-blue-700"}`}
                       >
                         {isEvaluated ? "View" : "Evaluate"}
                       </Link>
