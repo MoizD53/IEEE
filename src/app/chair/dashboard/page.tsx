@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
-import { FileText, CheckCircle, Clock, Star, ArrowRight, Activity, TrendingUp } from "lucide-react";
+import { FileText, CheckCircle, Clock, Star, Activity, TrendingUp } from "lucide-react";
 
 export default async function ChairDashboardPage() {
   const session = await auth();
@@ -107,12 +107,9 @@ export default async function ChairDashboardPage() {
           <div>
             <h2 className="text-xl font-black text-slate-900 flex items-center gap-2">
               <Activity className="text-indigo-500" size={24} />
-              Recent Assignments
+              Assigned Papers
             </h2>
           </div>
-          <Link href="/chair/papers" className="text-sm font-bold text-indigo-600 hover:text-indigo-700 flex items-center gap-1 group">
-            View all <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-          </Link>
         </div>
         
         <div className="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200/60 overflow-hidden">
@@ -126,7 +123,7 @@ export default async function ChairDashboardPage() {
                 <p className="text-slate-500 text-sm mt-1">Check back later when the admin assigns papers to your track.</p>
               </li>
             ) : (
-              assignments.slice(0, 5).map(a => {
+              assignments.map(a => {
                 const evalData = a.paper.evaluations[0];
                 const isEvaluated = evalData?.status === "SUBMITTED";
                 return (
