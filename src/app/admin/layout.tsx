@@ -31,7 +31,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
         <div className="px-1 pt-1 pb-1">
           <Link href="/admin/dashboard" className="group flex items-center gap-3.5 select-none block">
             {/* Logo Mark Container with subtle ambient glow */}
-            <div className="relative shrink-0">
+            <div className="relative shrink-0 flex items-center">
               {/* Subtle Blue Ambient Glow */}
               <div className="absolute -inset-1 rounded-[18px] bg-blue-500/10 blur-xl pointer-events-none group-hover:bg-blue-500/25 transition-all duration-300"></div>
 
@@ -53,6 +53,11 @@ export default async function AdminLayout({ children }: { children: React.ReactN
                 <span className="relative z-10 text-white font-black text-[12px] tracking-tight leading-none">
                   CICON
                 </span>
+              </div>
+              
+              {/* KU Logo */}
+              <div className="relative w-12 h-12 rounded-[15px] bg-white flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.15)] ring-1 ring-inset ring-slate-200 group-hover:-translate-y-0.5 group-hover:shadow-[0_6px_20px_rgba(0,0,0,0.2)] transition-all duration-200 overflow-hidden p-1.5 ml-2">
+                <img src="/logo-karnavati.png" alt="KU" className="max-w-full max-h-full object-contain" />
               </div>
             </div>
 
