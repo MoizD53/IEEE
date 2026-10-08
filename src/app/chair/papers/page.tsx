@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
-import { FileText, CheckCircle2, CircleDashed, Filter, Search, ChevronRight, TrendingUp } from "lucide-react";
+import { FileText, CheckCircle2, CircleDashed, ChevronRight, TrendingUp } from "lucide-react";
 
 export default async function ChairPapersPage() {
   const session = await auth();
@@ -46,20 +46,7 @@ export default async function ChairPapersPage() {
         </div>
       </div>
 
-      <div className="flex gap-3 items-center">
-        <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={16} />
-          <input 
-            type="text" 
-            placeholder="Search papers by title or ID..." 
-            className="w-full pl-9 pr-4 py-2 bg-white border border-slate-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all text-sm"
-            disabled
-          />
-        </div>
-        <button className="p-2 bg-white border border-slate-200 rounded-lg shadow-sm hover:bg-slate-50 text-slate-600 transition-colors disabled:opacity-50" disabled>
-          <Filter size={16} />
-        </button>
-      </div>
+
 
       <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
         {assignments.length === 0 ? (
