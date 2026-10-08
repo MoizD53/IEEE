@@ -9,7 +9,7 @@
     "email": "swapnil.parikh@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 1: Artificial Intelligence and Data Science – Session 1",
+    "sessionName": "Track 1: Artificial Intelligence and Data Science \u2013 Session 1",
     "track": "Track 1: Artificial Intelligence and Data Science",
     "date": "09-10-2026",
     "time": "11:45 AM to 01:45 PM",
@@ -39,12 +39,12 @@
       },
       {
         "paperId": "221",
-        "title": "MF-HCT: A Multi-Feature Hybrid CNN–Transformer Architecture for Robust Music Genre Classification with Cross-Dataset Generalization",
+        "title": "MF-HCT: A Multi-Feature Hybrid CNN\u2013Transformer Architecture for Robust Music Genre Classification with Cross-Dataset Generalization",
         "author": "Mayurbhai Mistry"
       },
       {
         "paperId": "293",
-        "title": "A Wearable Data–Driven Framework for Comparing Personalized and Generalized Cognitive State Estimation",
+        "title": "A Wearable Data\u2013Driven Framework for Comparing Personalized and Generalized Cognitive State Estimation",
         "author": "Agrim Puriya"
       },
       {
@@ -90,7 +90,7 @@
     "email": "pooja.shah@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 1: Artificial Intelligence and Data Science – Session 2",
+    "sessionName": "Track 1: Artificial Intelligence and Data Science \u2013 Session 2",
     "track": "Track 1: Artificial Intelligence and Data Science",
     "date": "09-10-2026",
     "time": "11:45 AM to 01:45 PM",
@@ -160,7 +160,7 @@
     "email": "sheetal.pandya@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 3: Cybersecurity, Privacy, and Trusted Systems – Session 1",
+    "sessionName": "Track 3: Cybersecurity, Privacy, and Trusted Systems \u2013 Session 1",
     "track": "Track 3: Cybersecurity, Privacy, and Trusted Systems",
     "date": "09-10-2026",
     "time": "11:45 AM to 01:45 PM",
@@ -190,7 +190,7 @@
       },
       {
         "paperId": "628",
-        "title": "Modernizing Suspicious Transaction Reporting in India’s Fintech Sector using Agentic AI",
+        "title": "Modernizing Suspicious Transaction Reporting in India\u2019s Fintech Sector using Agentic AI",
         "author": "Vaishnavi Bansal"
       },
       {
@@ -220,7 +220,7 @@
     "email": "keyur.brahmbhatt@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 6: AI-Driven Multimodal Intelligence for Sustainable Healthcare Systems – Session 1",
+    "sessionName": "Track 6: AI-Driven Multimodal Intelligence for Sustainable Healthcare Systems \u2013 Session 1",
     "track": "Track 6: AI-Driven Multimodal Intelligence for Sustainable Healthcare Systems",
     "date": "09-10-2026",
     "time": "11:45 AM to 01:45 PM",
@@ -240,7 +240,7 @@
       },
       {
         "paperId": "236",
-        "title": "Voice-Based Parkinson’s Screening with Lightweight Random Forests: Group-Aware Evaluation and Explainable Acoustic Biomarkers",
+        "title": "Voice-Based Parkinson\u2019s Screening with Lightweight Random Forests: Group-Aware Evaluation and Explainable Acoustic Biomarkers",
         "author": "Deep Dave"
       },
       {
@@ -283,14 +283,14 @@
   {
     "sessionId": "SESSION-05",
     "index": 5,
-    "name": "Dr. Sandip Modha",
-    "username": "sandip.modha",
-    "password": "Sandip@2026",
+    "name": "Dr. Vineet Mehta",
+    "username": "vineet.mehta",
+    "password": "Vineet@2026",
     "phone": "98250 11552",
-    "email": "sandip.modha@cicon2026.org",
+    "email": "vineet.mehta@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies – Session 1",
+    "sessionName": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies \u2013 Session 1",
     "track": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies",
     "date": "09-10-2026",
     "time": "11:45 AM to 01:45 PM",
@@ -353,14 +353,14 @@
   {
     "sessionId": "SESSION-06",
     "index": 6,
-    "name": "Dr. Madhu Shukla",
-    "username": "madhu.shukla",
-    "password": "Madhu@2026",
+    "name": "Dr. Sheetal Pandya",
+    "username": "sheetal.track1",
+    "password": "Sheetal@2026",
     "phone": "99981 91173",
-    "email": "madhu.shukla@cicon2026.org",
+    "email": "sheetal.pandya.track1@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 1: Artificial Intelligence and Data Science – Session 3",
+    "sessionName": "Track 1: Artificial Intelligence and Data Science \u2013 Session 3",
     "track": "Track 1: Artificial Intelligence and Data Science",
     "date": "09-10-2026",
     "time": "03:00 PM to 05:00 PM",
@@ -385,7 +385,7 @@
       },
       {
         "paperId": "248",
-        "title": "DataPulse AI – Real-Time Anomaly Detection for Critical Systems",
+        "title": "DataPulse AI \u2013 Real-Time Anomaly Detection for Critical Systems",
         "author": "Muskan Rai"
       },
       {
@@ -435,7 +435,7 @@
     "email": "payal.chaudhari@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 3: Cybersecurity, Privacy, and Trusted Systems – Session 2",
+    "sessionName": "Track 3: Cybersecurity, Privacy, and Trusted Systems \u2013 Session 2",
     "track": "Track 3: Cybersecurity, Privacy, and Trusted Systems",
     "date": "09-10-2026",
     "time": "03:00 PM to 05:00 PM",
@@ -490,7 +490,7 @@
     "email": "himani.trivedi@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 1: Artificial Intelligence and Data Science – Session 4",
+    "sessionName": "Track 1: Artificial Intelligence and Data Science \u2013 Session 4",
     "track": "Track 1: Artificial Intelligence and Data Science",
     "date": "09-10-2026",
     "time": "03:00 PM to 05:00 PM",
@@ -520,7 +520,7 @@
       },
       {
         "paperId": "247",
-        "title": "The Sentinel’s Latent Space: Unsupervised SAR Change Detection for Mangrove Monitoring - A Comprehensive Review",
+        "title": "The Sentinel\u2019s Latent Space: Unsupervised SAR Change Detection for Mangrove Monitoring - A Comprehensive Review",
         "author": "Yashvi Tanwar"
       },
       {
@@ -551,7 +551,7 @@
     "time": "03:00 PM to 05:00 PM",
     "venue": "D8, D Block - UIT",
     "mode": "In-Person",
-    "coChair": "Dr. Alok Behera",
+    "coChair": "Dr. Gaurav Hirani",
     "rapporteur": "Prof. Manender Dutt",
     "studentCoordinators": [
       "Haripreeth chebrolu",
@@ -658,11 +658,11 @@
   {
     "sessionId": "SESSION-11",
     "index": 11,
-    "name": "Dr. Vineet Mehta",
-    "username": "vineet.mehta",
-    "password": "Vineet@2026",
+    "name": "Dr. Sandip Modha",
+    "username": "sandip.modha",
+    "password": "Sandip@2026",
     "phone": "95301 78043",
-    "email": "vineet.mehta@cicon2026.org",
+    "email": "sandip.modha@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
     "sessionName": "Track 1: AI & Data Science Session 5 + Cultural, Social & Ethical Dimensions Session 1",
@@ -750,7 +750,7 @@
     "email": "vikas.bhadoria@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 5: Smart Systems and IoT – Session 1",
+    "sessionName": "Track 5: Smart Systems and IoT \u2013 Session 1",
     "track": "Track 5: Smart Systems and IoT",
     "date": "09-10-2026",
     "time": "04:00 PM to 06:00 PM",
@@ -760,7 +760,7 @@
     "rapporteur": "Prof. Anamika Singh",
     "studentCoordinators": [
       "Dasadiya Rudra",
-      "Labdhi Jain"
+      "Yash Gaur"
     ],
     "papers": [
       {
@@ -825,7 +825,7 @@
     "email": "chandrasekhar@cicon2026.org",
     "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
     "role": "SESSION_CHAIR",
-    "sessionName": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies – Session II",
+    "sessionName": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies \u2013 Session II",
     "track": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies",
     "date": "09-10-2026",
     "time": "04:00 PM to 06:00 PM",
@@ -835,7 +835,7 @@
     "rapporteur": "Prof. Trupesh Patel",
     "studentCoordinators": [
       "Dhrumil Sumit shah",
-      "Aanya Shah"
+      "Jal Anghan"
     ],
     "papers": [
       {
@@ -972,7 +972,7 @@
     "rapporteur": "Prof. Bhoomika Swami",
     "studentCoordinators": [
       "Shah Keval DevendraKumar",
-      "DIVY PATEL"
+      "Yashika"
     ],
     "papers": [
       {
@@ -1176,7 +1176,7 @@
       },
       {
         "paperId": "360",
-        "title": "Wearable – Informed Neural ODE-Transformers For Irregulary Sampled Vital Sign Prediction",
+        "title": "Wearable \u2013 Informed Neural ODE-Transformers For Irregulary Sampled Vital Sign Prediction",
         "author": "M. Nagabhushana Rao"
       },
       {
@@ -1287,7 +1287,7 @@
     "time": "10:45 AM to 12:45 PM",
     "venue": "D6, D Block - UIT",
     "mode": "In-Person",
-    "coChair": "Dr. Madhu Shukla, Dr. Hiren Kukadiya, Prof. Lopamodra Pakira",
+    "coChair": "Dr.Muneer nabi, Prof. Lopamodra Pakira",
     "rapporteur": "Prof. Niyati Pandit",
     "studentCoordinators": [
       "Agastya Borana",
@@ -1366,7 +1366,7 @@
     "papers": [
       {
         "paperId": "212",
-        "title": "Machine Learning–Based Screening of Sleep Disorders Using Lifestyle Features",
+        "title": "Machine Learning\u2013Based Screening of Sleep Disorders Using Lifestyle Features",
         "author": "Nikita Joshi"
       },
       {
@@ -1376,7 +1376,7 @@
       },
       {
         "paperId": "493",
-        "title": "Mapping Buyers’ Preferences for Electric Vehicles in the Indian Market",
+        "title": "Mapping Buyers\u2019 Preferences for Electric Vehicles in the Indian Market",
         "author": "Sonal Sharma"
       },
       {
@@ -1391,7 +1391,7 @@
       },
       {
         "paperId": "194",
-        "title": "Storage Authenticity Is Not Issuance Authenticity: A Decision-Tree Typology of IPFS–Filecoin Platforms Against Credential Counterfeiting",
+        "title": "Storage Authenticity Is Not Issuance Authenticity: A Decision-Tree Typology of IPFS\u2013Filecoin Platforms Against Credential Counterfeiting",
         "author": "Naveen Kandwal"
       },
       {
@@ -1429,7 +1429,7 @@
     "mode": "Online",
     "gmeet": "https://meet.google.com/jde-nygn-zgw",
     "dialIn": "(US) +1 609-491-2342 PIN: 327 517 499#",
-    "coChair": "Dr. Hiren Kukadiya, Dr. Alok Behara",
+    "coChair": "Dr. Hiren Kukadiya",
     "rapporteur": "Bhaumik Patel",
     "studentCoordinators": [
       "Preet Kaushal Patel",
@@ -1445,7 +1445,7 @@
       },
       {
         "paperId": "691",
-        "title": "Hybrid Ensemble Learning for Explainable State of Health Prediction of LiFePO₄ Batteries",
+        "title": "Hybrid Ensemble Learning for Explainable State of Health Prediction of LiFePO\u2084 Batteries",
         "author": "KAMALNATH D S",
         "email": "dskamalnath@gmail.com",
         "phone": "8124760759"
@@ -1526,7 +1526,7 @@
     "mode": "Online",
     "gmeet": "https://meet.google.com/vsp-pvke-sow",
     "dialIn": "(US) +1 219-316-1493 PIN: 760 104 273#",
-    "coChair": "Dr. Sushma Jha, Dr. Ashwin Raiyani",
+    "coChair": "Dr. Reena Patel",
     "rapporteur": "Bhoomika Swami",
     "studentCoordinators": [
       "Dasadiya Rudra",
@@ -1563,7 +1563,7 @@
       },
       {
         "paperId": "318",
-        "title": "Reconceptualizing Bloom’s “Create” for Human–AI Co-Creation: Toward an AI-Integrated Cognitive Taxonomy for Higher-Order Learning",
+        "title": "Reconceptualizing Bloom\u2019s \u201cCreate\u201d for Human\u2013AI Co-Creation: Toward an AI-Integrated Cognitive Taxonomy for Higher-Order Learning",
         "author": "Dr J Revathi",
         "email": "drrevathistanns@gmail.com",
         "phone": "9494231772"

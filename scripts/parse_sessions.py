@@ -12,7 +12,7 @@ sessions = [
         "email": "swapnil.parikh@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 1: Artificial Intelligence and Data Science – Session 1",
+        "sessionName": "Track 1: Artificial Intelligence and Data Science \u2013 Session 1",
         "track": "Track 1: Artificial Intelligence and Data Science",
         "date": "09-10-2026",
         "time": "11:45 AM to 01:45 PM",
@@ -20,19 +20,67 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Awniya kumar",
         "rapporteur": "Prof. Anjali Joshi",
-        "studentCoordinators": ["Nigam Trivedi", "Agam Sharma"],
+        "studentCoordinators": [
+            "Nigam Trivedi",
+            "Agam Sharma"
+        ],
         "papers": [
-            {"paperId": "112", "title": "Interpretable Student Churn Prediction Using Machine Learning with Adaptive Semester Weighting", "author": "Dr. Bhrantav Vora"},
-            {"paperId": "65", "title": "Early Epileptic Seizure Diagnosis Through Dilated Temporal Convolutional Networks on CHB-MIT Scalp EEG Signals", "author": "Jainee Patel"},
-            {"paperId": "246", "title": "Epistemic Uncertainty-Aware Critical Route Optimization for Emergency Vehicles", "author": "Karan Chavda"},
-            {"paperId": "221", "title": "MF-HCT: A Multi-Feature Hybrid CNN–Transformer Architecture for Robust Music Genre Classification with Cross-Dataset Generalization", "author": "Mayurbhai Mistry"},
-            {"paperId": "293", "title": "A Wearable Data–Driven Framework for Comparing Personalized and Generalized Cognitive State Estimation", "author": "Agrim Puriya"},
-            {"paperId": "439", "title": "An Explainable Ensemble Learning Framework for Student Performance Prediction Using Big Data Analytics", "author": "Monali B Suthar"},
-            {"paperId": "144", "title": "FarmGuide: A Multi model XG BOOST Algorithm For Agricultural Price Forecasting And Risk aware market Advisory", "author": "M.Anitha"},
-            {"paperId": "668", "title": "Federated Learning for Privacy-Preserving Smart Healthcare Systems: A Bibliometric, Systematic, and Comparative Analysis", "author": "Dr. Ashwin Raiyani"},
-            {"paperId": "604", "title": "An Integrated Crowd Dynamics and RFID Tracking Framework for Predictive Congestion Management", "author": "Gripsy Paul Mannickathan"},
-            {"paperId": "388", "title": "SmartGuard: A Lightweight On-Device Deep Learning Framework for Real-Time Driver State Classification", "author": "Sohil Shah"},
-            {"paperId": "720", "title": "AI - Enabled SARIMA Forecasting of Environmental Parameters for Predictive Health Management of Outdoor Power System Equipment", "author": "Vinit Mehta", "email": "vinit.mehta@jietjodhpur.ac.in"}
+            {
+                "paperId": "112",
+                "title": "Interpretable Student Churn Prediction Using Machine Learning with Adaptive Semester Weighting",
+                "author": "Dr. Bhrantav Vora"
+            },
+            {
+                "paperId": "65",
+                "title": "Early Epileptic Seizure Diagnosis Through Dilated Temporal Convolutional Networks on CHB-MIT Scalp EEG Signals",
+                "author": "Jainee Patel"
+            },
+            {
+                "paperId": "246",
+                "title": "Epistemic Uncertainty-Aware Critical Route Optimization for Emergency Vehicles",
+                "author": "Karan Chavda"
+            },
+            {
+                "paperId": "221",
+                "title": "MF-HCT: A Multi-Feature Hybrid CNN\u2013Transformer Architecture for Robust Music Genre Classification with Cross-Dataset Generalization",
+                "author": "Mayurbhai Mistry"
+            },
+            {
+                "paperId": "293",
+                "title": "A Wearable Data\u2013Driven Framework for Comparing Personalized and Generalized Cognitive State Estimation",
+                "author": "Agrim Puriya"
+            },
+            {
+                "paperId": "439",
+                "title": "An Explainable Ensemble Learning Framework for Student Performance Prediction Using Big Data Analytics",
+                "author": "Monali B Suthar"
+            },
+            {
+                "paperId": "144",
+                "title": "FarmGuide: A Multi model XG BOOST Algorithm For Agricultural Price Forecasting And Risk aware market Advisory",
+                "author": "M.Anitha"
+            },
+            {
+                "paperId": "668",
+                "title": "Federated Learning for Privacy-Preserving Smart Healthcare Systems: A Bibliometric, Systematic, and Comparative Analysis",
+                "author": "Dr. Ashwin Raiyani"
+            },
+            {
+                "paperId": "604",
+                "title": "An Integrated Crowd Dynamics and RFID Tracking Framework for Predictive Congestion Management",
+                "author": "Gripsy Paul Mannickathan"
+            },
+            {
+                "paperId": "388",
+                "title": "SmartGuard: A Lightweight On-Device Deep Learning Framework for Real-Time Driver State Classification",
+                "author": "Sohil Shah"
+            },
+            {
+                "paperId": "720",
+                "title": "AI - Enabled SARIMA Forecasting of Environmental Parameters for Predictive Health Management of Outdoor Power System Equipment",
+                "author": "Vinit Mehta",
+                "email": "vinit.mehta@jietjodhpur.ac.in"
+            }
         ]
     },
     {
@@ -45,7 +93,7 @@ sessions = [
         "email": "pooja.shah@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 1: Artificial Intelligence and Data Science – Session 2",
+        "sessionName": "Track 1: Artificial Intelligence and Data Science \u2013 Session 2",
         "track": "Track 1: Artificial Intelligence and Data Science",
         "date": "09-10-2026",
         "time": "11:45 AM to 01:45 PM",
@@ -53,17 +101,56 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Gaurav Hirani",
         "rapporteur": "Prof. Sunnyraj Puwar",
-        "studentCoordinators": ["Agastya Borana", "Ved A. Gajjar"],
+        "studentCoordinators": [
+            "Agastya Borana",
+            "Ved A. Gajjar"
+        ],
         "papers": [
-            {"paperId": "581", "title": "Multi-Species Leaf Disease Detection Using Feature-Enriched Machine Learning Models", "author": "Patel Hiralben Bharatkumar"},
-            {"paperId": "403", "title": "Analyzing the Impact of Class Imbalance through Explainable AI(XAI)", "author": "Kaikashan I Siddavatam"},
-            {"paperId": "526", "title": "AI-Driven Machine Learning and Deep Learning Frameworks for PM2.5 Estimation Across Indian Metro Cities", "author": "ALIYA MUNIRUDDIN KURESHI"},
-            {"paperId": "226", "title": "Bridging Clinical Integrity and Machine Learning: A High- Fidelity Pipeline for Zero-Error Survival Classification on the SEER Dataset", "author": "Divyang Patel"},
-            {"paperId": "407", "title": "Real-Time Sign Language Detection using MediaPipe + LSTM", "author": "Sanket Shah"},
-            {"paperId": "180", "title": "ExecDraw: A Structural Program Bottleneck for Compositional Generalization in Generative Vision", "author": "Jalpan Vyas"},
-            {"paperId": "624", "title": "SSA-Enhanced Deep Learning for Bitcoin Price Forecasting: A Signal Denoising Framework with Statistical Validation", "author": "Anil Yadav"},
-            {"paperId": "762", "title": "Automatic Word Sense Disambiguation for Low Resource Marathi using Word2Vec Based Contextual Representation and DBSCAN", "author": "Simran N. Maniyar"},
-            {"paperId": "757", "title": "GreenTrust-QCNN: Rice Disease Detection With Gaussian Process Uncertainty Quantification", "author": "Tarunjit Yumnam"}
+            {
+                "paperId": "581",
+                "title": "Multi-Species Leaf Disease Detection Using Feature-Enriched Machine Learning Models",
+                "author": "Patel Hiralben Bharatkumar"
+            },
+            {
+                "paperId": "403",
+                "title": "Analyzing the Impact of Class Imbalance through Explainable AI(XAI)",
+                "author": "Kaikashan I Siddavatam"
+            },
+            {
+                "paperId": "526",
+                "title": "AI-Driven Machine Learning and Deep Learning Frameworks for PM2.5 Estimation Across Indian Metro Cities",
+                "author": "ALIYA MUNIRUDDIN KURESHI"
+            },
+            {
+                "paperId": "226",
+                "title": "Bridging Clinical Integrity and Machine Learning: A High- Fidelity Pipeline for Zero-Error Survival Classification on the SEER Dataset",
+                "author": "Divyang Patel"
+            },
+            {
+                "paperId": "407",
+                "title": "Real-Time Sign Language Detection using MediaPipe + LSTM",
+                "author": "Sanket Shah"
+            },
+            {
+                "paperId": "180",
+                "title": "ExecDraw: A Structural Program Bottleneck for Compositional Generalization in Generative Vision",
+                "author": "Jalpan Vyas"
+            },
+            {
+                "paperId": "624",
+                "title": "SSA-Enhanced Deep Learning for Bitcoin Price Forecasting: A Signal Denoising Framework with Statistical Validation",
+                "author": "Anil Yadav"
+            },
+            {
+                "paperId": "762",
+                "title": "Automatic Word Sense Disambiguation for Low Resource Marathi using Word2Vec Based Contextual Representation and DBSCAN",
+                "author": "Simran N. Maniyar"
+            },
+            {
+                "paperId": "757",
+                "title": "GreenTrust-QCNN: Rice Disease Detection With Gaussian Process Uncertainty Quantification",
+                "author": "Tarunjit Yumnam"
+            }
         ]
     },
     {
@@ -76,7 +163,7 @@ sessions = [
         "email": "sheetal.pandya@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 3: Cybersecurity, Privacy, and Trusted Systems – Session 1",
+        "sessionName": "Track 3: Cybersecurity, Privacy, and Trusted Systems \u2013 Session 1",
         "track": "Track 3: Cybersecurity, Privacy, and Trusted Systems",
         "date": "09-10-2026",
         "time": "11:45 AM to 01:45 PM",
@@ -84,15 +171,46 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Sohil Shah",
         "rapporteur": "Prof. Shivi Shukla",
-        "studentCoordinators": ["Tushar Sharma", "Man jetani"],
+        "studentCoordinators": [
+            "Tushar Sharma",
+            "Man jetani"
+        ],
         "papers": [
-            {"paperId": "496", "title": "AcceptanceAn Intelligent Traffic Violation Detection System Using Deep Learning and Computer Vision", "author": "Aditya V G"},
-            {"paperId": "218", "title": "Machine Learning-Based Adaptive Digital Twin for Real-Time Threat Detection in Cloud Systems", "author": "Khush Purohit"},
-            {"paperId": "594", "title": "TLSH-Based Malware Family Classification Using Ensemble Learning", "author": "Abhishek Kadavala"},
-            {"paperId": "628", "title": "Modernizing Suspicious Transaction Reporting in India’s Fintech Sector using Agentic AI", "author": "Vaishnavi Bansal"},
-            {"paperId": "255", "title": "A Rule-Based Email Spoofing Detection and Forensic Analysis Framework Using Header Fields and SPF Validation", "author": "Kunal Rana"},
-            {"paperId": "233", "title": "SecureSamvaad: A Multimodal Fusion Approach For Real-Time Telecom Fraud Detection", "author": "Charmi Padh"},
-            {"paperId": "103", "title": "Graph-Theoretic Consensus Mechanisms in Distributed and Multi-Agent Systems", "author": "Dr. Minal Shukla"}
+            {
+                "paperId": "496",
+                "title": "AcceptanceAn Intelligent Traffic Violation Detection System Using Deep Learning and Computer Vision",
+                "author": "Aditya V G"
+            },
+            {
+                "paperId": "218",
+                "title": "Machine Learning-Based Adaptive Digital Twin for Real-Time Threat Detection in Cloud Systems",
+                "author": "Khush Purohit"
+            },
+            {
+                "paperId": "594",
+                "title": "TLSH-Based Malware Family Classification Using Ensemble Learning",
+                "author": "Abhishek Kadavala"
+            },
+            {
+                "paperId": "628",
+                "title": "Modernizing Suspicious Transaction Reporting in India\u2019s Fintech Sector using Agentic AI",
+                "author": "Vaishnavi Bansal"
+            },
+            {
+                "paperId": "255",
+                "title": "A Rule-Based Email Spoofing Detection and Forensic Analysis Framework Using Header Fields and SPF Validation",
+                "author": "Kunal Rana"
+            },
+            {
+                "paperId": "233",
+                "title": "SecureSamvaad: A Multimodal Fusion Approach For Real-Time Telecom Fraud Detection",
+                "author": "Charmi Padh"
+            },
+            {
+                "paperId": "103",
+                "title": "Graph-Theoretic Consensus Mechanisms in Distributed and Multi-Agent Systems",
+                "author": "Dr. Minal Shukla"
+            }
         ]
     },
     {
@@ -105,7 +223,7 @@ sessions = [
         "email": "keyur.brahmbhatt@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 6: AI-Driven Multimodal Intelligence for Sustainable Healthcare Systems – Session 1",
+        "sessionName": "Track 6: AI-Driven Multimodal Intelligence for Sustainable Healthcare Systems \u2013 Session 1",
         "track": "Track 6: AI-Driven Multimodal Intelligence for Sustainable Healthcare Systems",
         "date": "09-10-2026",
         "time": "11:45 AM to 01:45 PM",
@@ -113,30 +231,69 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Manivel Kandasami",
         "rapporteur": "Prof. Shruti Darbar",
-        "studentCoordinators": ["parth sidhpura", "Labdhi Jain"],
+        "studentCoordinators": [
+            "parth sidhpura",
+            "Labdhi Jain"
+        ],
         "papers": [
-            {"paperId": "513", "title": "Fine-Tuning Medical Vision Transformers for MRI Stroke Classification with Explainable AI and Sparse Attention Mechanisms", "author": "RAJA S"},
-            {"paperId": "236", "title": "Voice-Based Parkinson’s Screening with Lightweight Random Forests: Group-Aware Evaluation and Explainable Acoustic Biomarkers", "author": "Deep Dave"},
-            {"paperId": "216", "title": "AI-Driven Cardiovascular Digital Twin Framework using Multi-Model Clinical Data for Risk Prediction and Preventive Healthcare", "author": "MS.SHREYABEN PARESHKUMAR BHATT"},
-            {"paperId": "462", "title": "Lightweight Multi-Scale 1D CNN with RR-Interval Fusion and Noise Augmentation for Inter-Patient ECG Arrhythmia Classification on MIT-BIH Dataset", "author": "Kishor Kumar Reddy C"},
-            {"paperId": "517", "title": "Deep Learning Approach for Lung Nodule Detection Using 3D CT Imaging", "author": "C Kishor Kumar Reddy"},
-            {"paperId": "576", "title": "Deep Learning-Based Multi-Class Skin Cancer Detection from Dermoscopic Images: A Comparative Study with Ensemble Learning and Explainability", "author": "C Kishor Kumar Reddy"},
-            {"paperId": "460", "title": "Hierarchical learning Based Pneumonia Detection from Radiographs Using EfficientNetV2L", "author": "C Kishor Kumar Reddy"},
-            {"paperId": "515", "title": "Federated Learning assisted Cataract Detection for Tele-Ophthalmology Application in Healthcare 4.0", "author": "Abhay Chovatiya"},
-            {"paperId": "672", "title": "Explainable Brain Tumor Classification Using Vision Transformer and SHAP on BRATS Dataset", "author": "Arvind Singh"}
+            {
+                "paperId": "513",
+                "title": "Fine-Tuning Medical Vision Transformers for MRI Stroke Classification with Explainable AI and Sparse Attention Mechanisms",
+                "author": "RAJA S"
+            },
+            {
+                "paperId": "236",
+                "title": "Voice-Based Parkinson\u2019s Screening with Lightweight Random Forests: Group-Aware Evaluation and Explainable Acoustic Biomarkers",
+                "author": "Deep Dave"
+            },
+            {
+                "paperId": "216",
+                "title": "AI-Driven Cardiovascular Digital Twin Framework using Multi-Model Clinical Data for Risk Prediction and Preventive Healthcare",
+                "author": "MS.SHREYABEN PARESHKUMAR BHATT"
+            },
+            {
+                "paperId": "462",
+                "title": "Lightweight Multi-Scale 1D CNN with RR-Interval Fusion and Noise Augmentation for Inter-Patient ECG Arrhythmia Classification on MIT-BIH Dataset",
+                "author": "Kishor Kumar Reddy C"
+            },
+            {
+                "paperId": "517",
+                "title": "Deep Learning Approach for Lung Nodule Detection Using 3D CT Imaging",
+                "author": "C Kishor Kumar Reddy"
+            },
+            {
+                "paperId": "576",
+                "title": "Deep Learning-Based Multi-Class Skin Cancer Detection from Dermoscopic Images: A Comparative Study with Ensemble Learning and Explainability",
+                "author": "C Kishor Kumar Reddy"
+            },
+            {
+                "paperId": "460",
+                "title": "Hierarchical learning Based Pneumonia Detection from Radiographs Using EfficientNetV2L",
+                "author": "C Kishor Kumar Reddy"
+            },
+            {
+                "paperId": "515",
+                "title": "Federated Learning assisted Cataract Detection for Tele-Ophthalmology Application in Healthcare 4.0",
+                "author": "Abhay Chovatiya"
+            },
+            {
+                "paperId": "672",
+                "title": "Explainable Brain Tumor Classification Using Vision Transformer and SHAP on BRATS Dataset",
+                "author": "Arvind Singh"
+            }
         ]
     },
     {
         "sessionId": "SESSION-05",
         "index": 5,
-        "name": "Dr. Sandip Modha",
-        "username": "sandip.modha",
-        "password": "Sandip@2026",
+        "name": "Dr. Vineet Mehta",
+        "username": "vineet.mehta",
+        "password": "Vineet@2026",
         "phone": "98250 11552",
-        "email": "sandip.modha@cicon2026.org",
+        "email": "vineet.mehta@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies – Session 1",
+        "sessionName": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies \u2013 Session 1",
         "track": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies",
         "date": "09-10-2026",
         "time": "11:45 AM to 01:45 PM",
@@ -144,30 +301,69 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Ashwin Raiyani, Prof. Shoeb Khan",
         "rapporteur": "Prof. Chiranjevi Dukuru",
-        "studentCoordinators": ["Haripreeth chebrolu", "Piya Sanghvi"],
+        "studentCoordinators": [
+            "Haripreeth chebrolu",
+            "Piya Sanghvi"
+        ],
         "papers": [
-            {"paperId": "404", "title": "Quantum Antennas: Opportunities and Prospective for 6G Communications", "author": "Bhumit Chhabra"},
-            {"paperId": "277", "title": "Robust LSTM Based Turbofan Engine Health Monitoring with Integrated Multi Modal Alerting", "author": "Dr. Sujesh G"},
-            {"paperId": "410", "title": "DIGITAL SMOG: INVISIBLE EMISSIONS AND ESG GAPS IN AI DATA CENTRES", "author": "Dr. Arti Aneja"},
-            {"paperId": "641", "title": "The Evolving Role of Vocational Learning in Artificial Intelligence Era", "author": "Sanskruti Bhosale"},
-            {"paperId": "680", "title": "Predictive Health Monitoring of a 48 V / 100 Ah LiFePO4 Battery Pack Using Datasheet-Constrained Synthetic Aging and a Stress-Aware Convex Ensemble", "author": "Vinit Mehta"},
-            {"paperId": "674", "title": "Machine Learning Technique based Predictive maintenance and Performance Estimation of Centrifugal Pump", "author": "Rama Maliya"},
-            {"paperId": "591", "title": "Open Space as Ecological Infrastructure: A Design-Led Conservation Framework for Peri-Urban Bhugaon, Pune, Aligned with the Sustainable Development Goals", "author": "Prutha Mathankar-Tayade"},
-            {"paperId": "698", "title": "Multi-Class Skin Disease Classification with Severity Assessment using Artificial Intelligence", "author": "Presenter"},
-            {"paperId": "699", "title": "Attention-Guided Deep Learning with Explainable AI for Alzheimer's Disease Classification from FDG-PET Brain Scans", "author": "Presenter"}
+            {
+                "paperId": "404",
+                "title": "Quantum Antennas: Opportunities and Prospective for 6G Communications",
+                "author": "Bhumit Chhabra"
+            },
+            {
+                "paperId": "277",
+                "title": "Robust LSTM Based Turbofan Engine Health Monitoring with Integrated Multi Modal Alerting",
+                "author": "Dr. Sujesh G"
+            },
+            {
+                "paperId": "410",
+                "title": "DIGITAL SMOG: INVISIBLE EMISSIONS AND ESG GAPS IN AI DATA CENTRES",
+                "author": "Dr. Arti Aneja"
+            },
+            {
+                "paperId": "641",
+                "title": "The Evolving Role of Vocational Learning in Artificial Intelligence Era",
+                "author": "Sanskruti Bhosale"
+            },
+            {
+                "paperId": "680",
+                "title": "Predictive Health Monitoring of a 48 V / 100 Ah LiFePO4 Battery Pack Using Datasheet-Constrained Synthetic Aging and a Stress-Aware Convex Ensemble",
+                "author": "Vinit Mehta"
+            },
+            {
+                "paperId": "674",
+                "title": "Machine Learning Technique based Predictive maintenance and Performance Estimation of Centrifugal Pump",
+                "author": "Rama Maliya"
+            },
+            {
+                "paperId": "591",
+                "title": "Open Space as Ecological Infrastructure: A Design-Led Conservation Framework for Peri-Urban Bhugaon, Pune, Aligned with the Sustainable Development Goals",
+                "author": "Prutha Mathankar-Tayade"
+            },
+            {
+                "paperId": "698",
+                "title": "Multi-Class Skin Disease Classification with Severity Assessment using Artificial Intelligence",
+                "author": "Presenter"
+            },
+            {
+                "paperId": "699",
+                "title": "Attention-Guided Deep Learning with Explainable AI for Alzheimer's Disease Classification from FDG-PET Brain Scans",
+                "author": "Presenter"
+            }
         ]
     },
     {
         "sessionId": "SESSION-06",
         "index": 6,
-        "name": "Dr. Madhu Shukla",
-        "username": "madhu.shukla",
-        "password": "Madhu@2026",
+        "name": "Dr. Sheetal Pandya",
+        "username": "sheetal.track1",
+        "password": "Sheetal@2026",
         "phone": "99981 91173",
-        "email": "madhu.shukla@cicon2026.org",
+        "email": "sheetal.pandya.track1@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 1: Artificial Intelligence and Data Science – Session 3",
+        "sessionName": "Track 1: Artificial Intelligence and Data Science \u2013 Session 3",
         "track": "Track 1: Artificial Intelligence and Data Science",
         "date": "09-10-2026",
         "time": "03:00 PM to 05:00 PM",
@@ -175,18 +371,61 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Arpita Maheria",
         "rapporteur": "Prof. Suraj shit",
-        "studentCoordinators": ["Piya Sanghvi", "Agam Sharma"],
+        "studentCoordinators": [
+            "Piya Sanghvi",
+            "Agam Sharma"
+        ],
         "papers": [
-            {"paperId": "341", "title": "Mitigating Prompt Injection Attacks in Large Language Models Using a Multi-Agent Defense Framework", "author": "Dr Nitin Rathore"},
-            {"paperId": "567", "title": "An XGBoost-Based PHQ-9 Depression Severity Prediction and Recommendation System", "author": "Tarannum Bloch"},
-            {"paperId": "248", "title": "DataPulse AI – Real-Time Anomaly Detection for Critical Systems", "author": "Muskan Rai"},
-            {"paperId": "113", "title": "Prediction of Groundwater Quality of Raghogarh Using Support Vector Machine with Linear Kernel", "author": "Dr Yogesh Iyer Murthy"},
-            {"paperId": "284", "title": "An Intelligent Framework for Lung Disease Prediction Using Advanced Machine Learning Techniques", "author": "Ramani Jaydeep Ramniklal"},
-            {"paperId": "623", "title": "Next-Day Air Quality Forecasting with a CNN--BiLSTM Hybrid Deep Learning Framework", "author": "Namrata Dangar"},
-            {"paperId": "86", "title": "An Automated Formal Verification Tool for LLM-Generated Asymptotic Code Optimizations", "author": "Pankaj Kumar Bind"},
-            {"paperId": "671", "title": "Multi-Class COVID-19 Classification Using Chest X-rays with Explainable CNN Models", "author": "Ronak Doshi"},
-            {"paperId": "170", "title": "AI-Assisted Bug Prediction and Code Review Automation using Machine Learning", "author": "Ms. Jenice P. Bhavsar"},
-            {"paperId": "408", "title": "Privacy-Preserving Legal Document Classification Using Federated Learning and Pre-trained Language Models", "author": "Jinal Upadhayay"}
+            {
+                "paperId": "341",
+                "title": "Mitigating Prompt Injection Attacks in Large Language Models Using a Multi-Agent Defense Framework",
+                "author": "Dr Nitin Rathore"
+            },
+            {
+                "paperId": "567",
+                "title": "An XGBoost-Based PHQ-9 Depression Severity Prediction and Recommendation System",
+                "author": "Tarannum Bloch"
+            },
+            {
+                "paperId": "248",
+                "title": "DataPulse AI \u2013 Real-Time Anomaly Detection for Critical Systems",
+                "author": "Muskan Rai"
+            },
+            {
+                "paperId": "113",
+                "title": "Prediction of Groundwater Quality of Raghogarh Using Support Vector Machine with Linear Kernel",
+                "author": "Dr Yogesh Iyer Murthy"
+            },
+            {
+                "paperId": "284",
+                "title": "An Intelligent Framework for Lung Disease Prediction Using Advanced Machine Learning Techniques",
+                "author": "Ramani Jaydeep Ramniklal"
+            },
+            {
+                "paperId": "623",
+                "title": "Next-Day Air Quality Forecasting with a CNN--BiLSTM Hybrid Deep Learning Framework",
+                "author": "Namrata Dangar"
+            },
+            {
+                "paperId": "86",
+                "title": "An Automated Formal Verification Tool for LLM-Generated Asymptotic Code Optimizations",
+                "author": "Pankaj Kumar Bind"
+            },
+            {
+                "paperId": "671",
+                "title": "Multi-Class COVID-19 Classification Using Chest X-rays with Explainable CNN Models",
+                "author": "Ronak Doshi"
+            },
+            {
+                "paperId": "170",
+                "title": "AI-Assisted Bug Prediction and Code Review Automation using Machine Learning",
+                "author": "Ms. Jenice P. Bhavsar"
+            },
+            {
+                "paperId": "408",
+                "title": "Privacy-Preserving Legal Document Classification Using Federated Learning and Pre-trained Language Models",
+                "author": "Jinal Upadhayay"
+            }
         ]
     },
     {
@@ -199,7 +438,7 @@ sessions = [
         "email": "payal.chaudhari@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 3: Cybersecurity, Privacy, and Trusted Systems – Session 2",
+        "sessionName": "Track 3: Cybersecurity, Privacy, and Trusted Systems \u2013 Session 2",
         "track": "Track 3: Cybersecurity, Privacy, and Trusted Systems",
         "date": "09-10-2026",
         "time": "03:00 PM to 05:00 PM",
@@ -207,15 +446,41 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Shankara Nayaki",
         "rapporteur": "Prof. Neha Minocha",
-        "studentCoordinators": ["Anshuman Rana", "Ved A. Gajjar"],
+        "studentCoordinators": [
+            "Anshuman Rana",
+            "Ved A. Gajjar"
+        ],
         "papers": [
-            {"paperId": "523", "title": "Beyond Physical SIMs: Forensic Insights into eSIM-Based SIM-Swap Attacks", "author": "Arya Sharma"},
-            {"paperId": "210", "title": "Secure Delegation for MCP Agentic Workflows via OAuth Token Exchange and Nested Actor Claims", "author": "PATEL NAITIK MUKESHKUMAR"},
-            {"paperId": "627", "title": "Privacy Preservation Using Blockchain Technology for Personal Database", "author": "Dr Devendrasinh Vashi"},
-            {"paperId": "640", "title": "ClariFrame: A Resource-Adaptive and Hallucination-Free Video Enhancement Pipeline for Forensic Investigations", "author": "Aryan Bhanushali"},
-            {"paperId": "636", "title": "Advanced Twitter Sentiment Analytics Using Transformer-Based Natural Language Processing Models", "author": "Nitesh Kumar"},
-            {"paperId": "551", "title": "Modified RLWE -Based Automated Mutual Authentication for Lightweight IoT Environment", "author": "S. Catherin Sonia"},
-            {"paperId": "367", "title": "Deep Learning Based RF Signal Anomaly Detection for Early Identification of Unauthorised Communication Devices", "author": "Susmita Mukherjee"}
+            {
+                "paperId": "523",
+                "title": "Beyond Physical SIMs: Forensic Insights into eSIM-Based SIM-Swap Attacks",
+                "author": "Arya Sharma"
+            },
+            {
+                "paperId": "210",
+                "title": "Secure Delegation for MCP Agentic Workflows via OAuth Token Exchange and Nested Actor Claims",
+                "author": "PATEL NAITIK MUKESHKUMAR"
+            },
+            {
+                "paperId": "627",
+                "title": "Privacy Preservation Using Blockchain Technology for Personal Database",
+                "author": "Dr Devendrasinh Vashi"
+            },
+            {
+                "paperId": "640",
+                "title": "ClariFrame: A Resource-Adaptive and Hallucination-Free Video Enhancement Pipeline for Forensic Investigations",
+                "author": "Aryan Bhanushali"
+            },
+            {
+                "paperId": "551",
+                "title": "Modified RLWE -Based Automated Mutual Authentication for Lightweight IoT Environment",
+                "author": "S. Catherin Sonia"
+            },
+            {
+                "paperId": "367",
+                "title": "Deep Learning Based RF Signal Anomaly Detection for Early Identification of Unauthorised Communication Devices",
+                "author": "Susmita Mukherjee"
+            }
         ]
     },
     {
@@ -228,7 +493,7 @@ sessions = [
         "email": "himani.trivedi@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 1: Artificial Intelligence and Data Science – Session 4",
+        "sessionName": "Track 1: Artificial Intelligence and Data Science \u2013 Session 4",
         "track": "Track 1: Artificial Intelligence and Data Science",
         "date": "09-10-2026",
         "time": "03:00 PM to 05:00 PM",
@@ -236,15 +501,41 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Divya Mohan",
         "rapporteur": "Prof. Anjali Yadav",
-        "studentCoordinators": ["Jaykumar Chetankumar Patel", "Man jetani"],
+        "studentCoordinators": [
+            "Jaykumar Chetankumar Patel",
+            "Man jetani"
+        ],
         "papers": [
-            {"paperId": "375", "title": "Predicting Purchase Intention from Instagram Influencer Credibility Using Machine Learning: Evidence from Chandigarh, India", "author": "Anup Lal Yadav"},
-            {"paperId": "376", "title": "Sentiment-Aware Deep Learning Analysis of Instagram Influencer Content and Its Impact on Consumer Purchase Decisions: A Study from Chandigarh", "author": "Anup Lal Yadav"},
-            {"paperId": "237", "title": "Smart Agricultural Chatbot and Intelligent Hybrid Deep Learning Framework for Tomato Disease Detection with Computer Vision and NLP", "author": "Jayashri Patil"},
-            {"paperId": "247", "title": "The Sentinel’s Latent Space: Unsupervised SAR Change Detection for Mangrove Monitoring - A Comprehensive Review", "author": "Yashvi Tanwar"},
-            {"paperId": "369", "title": "AMJLSF (Autonomous Multi-Jurisdictional LLM Security Framework): A Black-Box Approach to Multi-Dimensional Security Auditing and Regulatory Risk Scoring", "author": "Sanket Shah"},
-            {"paperId": "651", "title": "Explainable Hybrid ANN-Based Framework for Early Cardiovascular Risk Prediction", "author": "MUSTAFIZUR RAHAMAN"},
-            {"paperId": "649", "title": "Dielectric Fingerprinting of Skimmed Milk: Frequency-Dependent Electrical Characterization Using Dielectric and Impedance Spectroscopy with PCA and K-Means Clustering", "author": "Ania Rodrigues"}
+            {
+                "paperId": "375",
+                "title": "Predicting Purchase Intention from Instagram Influencer Credibility Using Machine Learning: Evidence from Chandigarh, India",
+                "author": "Anup Lal Yadav"
+            },
+            {
+                "paperId": "376",
+                "title": "Sentiment-Aware Deep Learning Analysis of Instagram Influencer Content and Its Impact on Consumer Purchase Decisions: A Study from Chandigarh",
+                "author": "Anup Lal Yadav"
+            },
+            {
+                "paperId": "237",
+                "title": "Smart Agricultural Chatbot and Intelligent Hybrid Deep Learning Framework for Tomato Disease Detection with Computer Vision and NLP",
+                "author": "Jayashri Patil"
+            },
+            {
+                "paperId": "247",
+                "title": "The Sentinel\u2019s Latent Space: Unsupervised SAR Change Detection for Mangrove Monitoring - A Comprehensive Review",
+                "author": "Yashvi Tanwar"
+            },
+            {
+                "paperId": "369",
+                "title": "AMJLSF (Autonomous Multi-Jurisdictional LLM Security Framework): A Black-Box Approach to Multi-Dimensional Security Auditing and Regulatory Risk Scoring",
+                "author": "Sanket Shah"
+            },
+            {
+                "paperId": "649",
+                "title": "Dielectric Fingerprinting of Skimmed Milk: Frequency-Dependent Electrical Characterization Using Dielectric and Impedance Spectroscopy with PCA and K-Means Clustering",
+                "author": "Ania Rodrigues"
+            }
         ]
     },
     {
@@ -263,18 +554,53 @@ sessions = [
         "time": "03:00 PM to 05:00 PM",
         "venue": "D8, D Block - UIT",
         "mode": "In-Person",
-        "coChair": "Dr. Alok Behera",
+        "coChair": "Dr. Gaurav Hirani",
         "rapporteur": "Prof. Manender Dutt",
-        "studentCoordinators": ["Haripreeth chebrolu", "Agastya Borana"],
+        "studentCoordinators": [
+            "Haripreeth chebrolu",
+            "Agastya Borana"
+        ],
         "papers": [
-            {"paperId": "555", "title": "Accuracy estimation of MetiSmile AI based facial scanner in measuring nasolabial angle", "author": "Dr. Ishwa Parmar"},
-            {"paperId": "570", "title": "Assessment of Clinical Decision Support Systems (CDSS) in Endodontic Treatment Planning Amongst Dental Practitioners", "author": "KENA J BHALANI"},
-            {"paperId": "586", "title": "Assessment of Artificial Intelligence based Telemedicine and Remote Care in Healthcare Services", "author": "DR. SHIJITA SINHA"},
-            {"paperId": "569", "title": "EVALUATION OF ARTIFICIAL INTELLIGENCE ASSISTED ENDODONTIC IMAGING ACCEPTANCE", "author": "Priyanka Ratiya"},
-            {"paperId": "90", "title": "Comparative Performance of Deep Learning Architectures for Glaucoma Screening in Retinal Imaging", "author": "Sukhdeep Kaur"},
-            {"paperId": "524", "title": "ECI v2: Explanation Consensus Index for Trustworthy Pneumonia Detection", "author": "Dr. Shivangi Nigam"},
-            {"paperId": "196", "title": "AI-Based Detection of Abnormalities in Medical Imaging: A Review of Deep Learning Approaches for X-ray and Ultrasound Analysis", "author": "Kamlesh Kumar Ramnani"},
-            {"paperId": "444", "title": "A Safety-Aligned Prompt Engineering Framework for Mental Health Support Using RLHF++ and Constitutional AI", "author": "VR Sofia Chandrasekar"}
+            {
+                "paperId": "555",
+                "title": "Accuracy estimation of MetiSmile AI based facial scanner in measuring nasolabial angle",
+                "author": "Dr. Ishwa Parmar"
+            },
+            {
+                "paperId": "570",
+                "title": "Assessment of Clinical Decision Support Systems (CDSS) in Endodontic Treatment Planning Amongst Dental Practitioners",
+                "author": "KENA J BHALANI"
+            },
+            {
+                "paperId": "586",
+                "title": "Assessment of Artificial Intelligence based Telemedicine and Remote Care in Healthcare Services",
+                "author": "DR. SHIJITA SINHA"
+            },
+            {
+                "paperId": "569",
+                "title": "EVALUATION OF ARTIFICIAL INTELLIGENCE ASSISTED ENDODONTIC IMAGING ACCEPTANCE",
+                "author": "Priyanka Ratiya"
+            },
+            {
+                "paperId": "90",
+                "title": "Comparative Performance of Deep Learning Architectures for Glaucoma Screening in Retinal Imaging",
+                "author": "Sukhdeep Kaur"
+            },
+            {
+                "paperId": "524",
+                "title": "ECI v2: Explanation Consensus Index for Trustworthy Pneumonia Detection",
+                "author": "Dr. Shivangi Nigam"
+            },
+            {
+                "paperId": "196",
+                "title": "AI-Based Detection of Abnormalities in Medical Imaging: A Review of Deep Learning Approaches for X-ray and Ultrasound Analysis",
+                "author": "Kamlesh Kumar Ramnani"
+            },
+            {
+                "paperId": "444",
+                "title": "A Safety-Aligned Prompt Engineering Framework for Mental Health Support Using RLHF++ and Constitutional AI",
+                "author": "VR Sofia Chandrasekar"
+            }
         ]
     },
     {
@@ -295,24 +621,51 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Raksha Pandey, Dr. Vibha Kalaiya",
         "rapporteur": "Komal thummar",
-        "studentCoordinators": ["parth sidhpura", "Tushar Sharma"],
+        "studentCoordinators": [
+            "parth sidhpura",
+            "Tushar Sharma"
+        ],
         "papers": [
-            {"paperId": "261", "title": "Bridging Traits and State: Emotion Converges with Personality in Multimodal Human-Focused AI", "author": "Babalu Kushwaha"},
-            {"paperId": "626", "title": "What catches the eye? Investigating the impact of dark and light mode on trigger action", "author": "Aryaa Deshmukh"},
-            {"paperId": "621", "title": "Accessibility Beyond Users: Structural Exclusion and Devanagari Typography", "author": "Riya Patil"},
-            {"paperId": "692", "title": "Deep Hybrid Multimodal Fusion and Domain Adaptation for Context-Aware Sentiment Recognition in Interactive System", "author": "Jyotsana Kulkarni"},
-            {"paperId": "666", "title": "Human Centred Design for HypeKartel: A Trust-First Resale Platform for Indian Gen Z", "author": "Abhinaba Gupta"},
-            {"paperId": "245", "title": "User-Centered Analysis and Risk Modeling of Smartphone Charging Behavior of College Students", "author": "Darshan Talati"}
+            {
+                "paperId": "261",
+                "title": "Bridging Traits and State: Emotion Converges with Personality in Multimodal Human-Focused AI",
+                "author": "Babalu Kushwaha"
+            },
+            {
+                "paperId": "626",
+                "title": "What catches the eye? Investigating the impact of dark and light mode on trigger action",
+                "author": "Aryaa Deshmukh"
+            },
+            {
+                "paperId": "621",
+                "title": "Accessibility Beyond Users: Structural Exclusion and Devanagari Typography",
+                "author": "Riya Patil"
+            },
+            {
+                "paperId": "692",
+                "title": "Deep Hybrid Multimodal Fusion and Domain Adaptation for Context-Aware Sentiment Recognition in Interactive System",
+                "author": "Jyotsana Kulkarni"
+            },
+            {
+                "paperId": "666",
+                "title": "Human Centred Design for HypeKartel: A Trust-First Resale Platform for Indian Gen Z",
+                "author": "Abhinaba Gupta"
+            },
+            {
+                "paperId": "245",
+                "title": "User-Centered Analysis and Risk Modeling of Smartphone Charging Behavior of College Students",
+                "author": "Darshan Talati"
+            }
         ]
     },
     {
         "sessionId": "SESSION-11",
         "index": 11,
-        "name": "Dr. Vineet Mehta",
-        "username": "vineet.mehta",
-        "password": "Vineet@2026",
+        "name": "Dr. Sandip Modha",
+        "username": "sandip.modha",
+        "password": "Sandip@2026",
         "phone": "95301 78043",
-        "email": "vineet.mehta@cicon2026.org",
+        "email": "sandip.modha@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
         "sessionName": "Track 1: AI & Data Science Session 5 + Cultural, Social & Ethical Dimensions Session 1",
@@ -323,20 +676,71 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Sohil Shah, Prof. Rajeev Kumar",
         "rapporteur": "Prof. Jyoti Kaurav",
-        "studentCoordinators": ["Preet Kaushal Patel", "Man jetani"],
+        "studentCoordinators": [
+            "Preet Kaushal Patel",
+            "Man jetani"
+        ],
         "papers": [
-            {"paperId": "707", "title": "Towards Robust Classroom Attendance: A Comprehensive Evaluation of Face Detection and Recognition Models", "author": "Ridham Patel"},
-            {"paperId": "772", "title": "An Ensemble Machine Learning Approach for Air Quality Index Classification Across Indian and Global Datasets", "author": "Saumyya Dalal"},
-            {"paperId": "723", "title": "An Ensemble Machine Learning Approach for Soil Fertility Classification", "author": "Vansh Bhatt"},
-            {"paperId": "709", "title": "Machine Learning Ensemble and Tree-Based Methods for High-Accuracy Demand Prediction", "author": "Awadh Pratap Singh"},
-            {"paperId": "550", "title": "Real-Time Edge-Optimized Environmental Sound Classification using Attention-Based CRNN and TensorFlow Lite", "author": "Gouri Banapurmath"},
-            {"paperId": "516", "title": "Feature-Based Classification of Banana Chips using Machine Learning Models", "author": "Vaishali Vadhavana"},
-            {"paperId": "761", "title": "Evaluating Gateway-Mediated Multi-Provider LLM Inference:A Two-Phase Benchmark of the SEMDOK Platform", "author": "YUMNAM MOMOJIT"},
-            {"paperId": "759", "title": "FundedFirst: An Agentic AI Framework for Real-Time Startup Funding Intelligence and Automated Job Discovery", "author": "Tarunjit Yumnam"},
-            {"paperId": "198", "title": "Submission files: Rethinking Punishment and Moral Responsibility in Artificial Agents Addressing the Responsibility Gap in Future AGI Systems", "author": "Malay Patel"},
-            {"paperId": "263", "title": "The Loyalty Paradox in Digital Advertising: Emotional Architectures, Cognitive Mechanisms, and the Imperative for Neuroscientific Validation", "author": "Krish Jani"},
-            {"paperId": "596", "title": "Cause, Effect, and Responsibility: A Framework Critique of Material Innovation in Interior Architecture Practice", "author": "Amal Shah"},
-            {"paperId": "611", "title": "From Pothi to Screen: A Collaborative and Practice-Based Translation of Pinguli Chitrakathi", "author": "Hirock Jyoti Roy"}
+            {
+                "paperId": "707",
+                "title": "Towards Robust Classroom Attendance: A Comprehensive Evaluation of Face Detection and Recognition Models",
+                "author": "Ridham Patel"
+            },
+            {
+                "paperId": "772",
+                "title": "An Ensemble Machine Learning Approach for Air Quality Index Classification Across Indian and Global Datasets",
+                "author": "Saumyya Dalal"
+            },
+            {
+                "paperId": "723",
+                "title": "An Ensemble Machine Learning Approach for Soil Fertility Classification",
+                "author": "Vansh Bhatt"
+            },
+            {
+                "paperId": "709",
+                "title": "Machine Learning Ensemble and Tree-Based Methods for High-Accuracy Demand Prediction",
+                "author": "Awadh Pratap Singh"
+            },
+            {
+                "paperId": "550",
+                "title": "Real-Time Edge-Optimized Environmental Sound Classification using Attention-Based CRNN and TensorFlow Lite",
+                "author": "Gouri Banapurmath"
+            },
+            {
+                "paperId": "516",
+                "title": "Feature-Based Classification of Banana Chips using Machine Learning Models",
+                "author": "Vaishali Vadhavana"
+            },
+            {
+                "paperId": "761",
+                "title": "Evaluating Gateway-Mediated Multi-Provider LLM Inference:A Two-Phase Benchmark of the SEMDOK Platform",
+                "author": "YUMNAM MOMOJIT"
+            },
+            {
+                "paperId": "759",
+                "title": "FundedFirst: An Agentic AI Framework for Real-Time Startup Funding Intelligence and Automated Job Discovery",
+                "author": "Tarunjit Yumnam"
+            },
+            {
+                "paperId": "198",
+                "title": "Submission files: Rethinking Punishment and Moral Responsibility in Artificial Agents Addressing the Responsibility Gap in Future AGI Systems",
+                "author": "Malay Patel"
+            },
+            {
+                "paperId": "263",
+                "title": "The Loyalty Paradox in Digital Advertising: Emotional Architectures, Cognitive Mechanisms, and the Imperative for Neuroscientific Validation",
+                "author": "Krish Jani"
+            },
+            {
+                "paperId": "596",
+                "title": "Cause, Effect, and Responsibility: A Framework Critique of Material Innovation in Interior Architecture Practice",
+                "author": "Amal Shah"
+            },
+            {
+                "paperId": "611",
+                "title": "From Pothi to Screen: A Collaborative and Practice-Based Translation of Pinguli Chitrakathi",
+                "author": "Hirock Jyoti Roy"
+            }
         ]
     },
     {
@@ -349,7 +753,7 @@ sessions = [
         "email": "vikas.bhadoria@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 5: Smart Systems and IoT – Session 1",
+        "sessionName": "Track 5: Smart Systems and IoT \u2013 Session 1",
         "track": "Track 5: Smart Systems and IoT",
         "date": "09-10-2026",
         "time": "04:00 PM to 06:00 PM",
@@ -357,18 +761,61 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Prakash Arumugum",
         "rapporteur": "Prof. Anamika Singh",
-        "studentCoordinators": ["Dasadiya Rudra", "Labdhi Jain"],
+        "studentCoordinators": [
+            "Dasadiya Rudra",
+            "Yash Gaur"
+        ],
         "papers": [
-            {"paperId": "333", "title": "BlockAlert: An IoT-Blockchain Framework for Flood and Landslide Early Warning Systems", "author": "Dr. Muneshwara M S"},
-            {"paperId": "694", "title": "From MANET to IoT: Bibliometric Analysis of Paradigm Shifts in Wireless Ad Hoc Network Research", "author": "HIRENKUMAR KUKADIYA"},
-            {"paperId": "62", "title": "CareConnect: An IoT-Enabled Real-Time Emergency Response System for Elderly Assistance", "author": "Kalaidharshini K"},
-            {"paperId": "260", "title": "Low-Cost Edge-Assisted Vehicle Parking Guidance System Using Ultrasonic Sensor Fusion and ESP32", "author": "Rajkumar Rajbhar"},
-            {"paperId": "456", "title": "IoT and ML Based MultiSensor Acoustic Framework for Real-Time Plant Stress Detection", "author": "Pranav Mittal"},
-            {"paperId": "249", "title": "SecurePark : Real Time Edge AI and IOT Based Vehicle Parking Ecosystem", "author": "Prem Raichura"},
-            {"paperId": "512", "title": "AgriChain: A Blockchain-Based Transparent and Traceable Agricultural Supply Chain System", "author": "Md. Tauseef"},
-            {"paperId": "411", "title": "SecureIoT: A Zero Trust and Machine Learning Driven Multi Layer Security Framework for IoT Systems", "author": "Jay Parmar"},
-            {"paperId": "730", "title": "Smart Energy Management Using Renewable Energy and Energy Storage Systems in Gandhinagar", "author": "Rajveer Chauhan"},
-            {"paperId": "266", "title": "PREDICTIVE MAINTENANCE FOR INDUSTRIAL MACHINES USING MULTI-SENSOR DATA AND MACHINE LEARNING", "author": "S.AMBIKA"}
+            {
+                "paperId": "333",
+                "title": "BlockAlert: An IoT-Blockchain Framework for Flood and Landslide Early Warning Systems",
+                "author": "Dr. Muneshwara M S"
+            },
+            {
+                "paperId": "694",
+                "title": "From MANET to IoT: Bibliometric Analysis of Paradigm Shifts in Wireless Ad Hoc Network Research",
+                "author": "HIRENKUMAR KUKADIYA"
+            },
+            {
+                "paperId": "62",
+                "title": "CareConnect: An IoT-Enabled Real-Time Emergency Response System for Elderly Assistance",
+                "author": "Kalaidharshini K"
+            },
+            {
+                "paperId": "260",
+                "title": "Low-Cost Edge-Assisted Vehicle Parking Guidance System Using Ultrasonic Sensor Fusion and ESP32",
+                "author": "Rajkumar Rajbhar"
+            },
+            {
+                "paperId": "456",
+                "title": "IoT and ML Based MultiSensor Acoustic Framework for Real-Time Plant Stress Detection",
+                "author": "Pranav Mittal"
+            },
+            {
+                "paperId": "249",
+                "title": "SecurePark : Real Time Edge AI and IOT Based Vehicle Parking Ecosystem",
+                "author": "Prem Raichura"
+            },
+            {
+                "paperId": "512",
+                "title": "AgriChain: A Blockchain-Based Transparent and Traceable Agricultural Supply Chain System",
+                "author": "Md. Tauseef"
+            },
+            {
+                "paperId": "411",
+                "title": "SecureIoT: A Zero Trust and Machine Learning Driven Multi Layer Security Framework for IoT Systems",
+                "author": "Jay Parmar"
+            },
+            {
+                "paperId": "730",
+                "title": "Smart Energy Management Using Renewable Energy and Energy Storage Systems in Gandhinagar",
+                "author": "Rajveer Chauhan"
+            },
+            {
+                "paperId": "266",
+                "title": "PREDICTIVE MAINTENANCE FOR INDUSTRIAL MACHINES USING MULTI-SENSOR DATA AND MACHINE LEARNING",
+                "author": "S.AMBIKA"
+            }
         ]
     },
     {
@@ -381,7 +828,7 @@ sessions = [
         "email": "chandrasekhar@cicon2026.org",
         "institution": "Unitedworld Institute of Technology (UIT), Karnavati University",
         "role": "SESSION_CHAIR",
-        "sessionName": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies – Session II",
+        "sessionName": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies \u2013 Session II",
         "track": "Track 7: Sustainable Design for AI-Driven and Emerging Technologies",
         "date": "09-10-2026",
         "time": "04:00 PM to 06:00 PM",
@@ -389,18 +836,56 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Govindam Sharma, Dr. Somya Mishra",
         "rapporteur": "Prof. Trupesh Patel",
-        "studentCoordinators": ["Dhrumil Sumit shah", "Aanya Shah"],
+        "studentCoordinators": [
+            "Dhrumil Sumit shah",
+            "Jal Anghan"
+        ],
         "papers": [
-            {"paperId": "541", "title": "Sustainable Design of AI-Driven Perception Measurement Systems for Enhanced Value Creation: An Empirical Analysis of Consumer Autonomy in the Gandhinagar E- Commerce Sector", "author": "Tanu Singh"},
-            {"paperId": "736", "title": "Advanced Quantile and Probabilistic Forecasting Methods for Supply Chain Demand Under Uncertainty", "author": "Manish Mishra"},
-            {"paperId": "713", "title": "Machine Learning Techniques for Electric-Vehicle BLDC/PMSM Drivetrains: A Topology-Agnostic Block-Level Framework", "author": "Rajiv Vyas"},
-            {"paperId": "675", "title": "Planetary Cycle Encoding for Market Direction Forecasting: A Machine Learning Framework Integrating Astronomical Ephemeris Data with Financial Time Series", "author": "Dhwani Modi"},
-            {"paperId": "697", "title": "FRIB: Frequency Residual Identity Bridging for Few-Shot Face Recognition", "author": "Krish Patel"},
-            {"paperId": "745", "title": "Calibration of heat-pulse sensor with rigid probes using homogeneous liquids", "author": "Jay Tanna"},
-            {"paperId": "676", "title": "Performance Prediction of Centrifugal Pump using Long Short-Term Memory and eXtreme Gradient Boosting", "author": "Rama Maliya"},
-            {"paperId": "733", "title": "Impact of Smart E-Governance Adoption on Administrative Performance of Indian Universities in the Era of Industry 5.0", "author": "Pawan Kataria"},
-            {"paperId": "700", "title": "Explainable Transfer Learning for Automated Acne Severity Classification: A Comparative Evaluation of Deep CNN Architectures", "author": "Mrs. Parul Madan"},
-            {"paperId": "748", "title": "Structural Feature Difference Guided 3D Attention U-Net for Multi Contrast Brain MRI Registration", "author": "Neha Agarwal"}
+            {
+                "paperId": "541",
+                "title": "Sustainable Design of AI-Driven Perception Measurement Systems for Enhanced Value Creation: An Empirical Analysis of Consumer Autonomy in the Gandhinagar E- Commerce Sector",
+                "author": "Tanu Singh"
+            },
+            {
+                "paperId": "736",
+                "title": "Advanced Quantile and Probabilistic Forecasting Methods for Supply Chain Demand Under Uncertainty",
+                "author": "Manish Mishra"
+            },
+            {
+                "paperId": "713",
+                "title": "Machine Learning Techniques for Electric-Vehicle BLDC/PMSM Drivetrains: A Topology-Agnostic Block-Level Framework",
+                "author": "Rajiv Vyas"
+            },
+            {
+                "paperId": "675",
+                "title": "Planetary Cycle Encoding for Market Direction Forecasting: A Machine Learning Framework Integrating Astronomical Ephemeris Data with Financial Time Series",
+                "author": "Dhwani Modi"
+            },
+            {
+                "paperId": "697",
+                "title": "FRIB: Frequency Residual Identity Bridging for Few-Shot Face Recognition",
+                "author": "Krish Patel"
+            },
+            {
+                "paperId": "745",
+                "title": "Calibration of heat-pulse sensor with rigid probes using homogeneous liquids",
+                "author": "Jay Tanna"
+            },
+            {
+                "paperId": "676",
+                "title": "Performance Prediction of Centrifugal Pump using Long Short-Term Memory and eXtreme Gradient Boosting",
+                "author": "Rama Maliya"
+            },
+            {
+                "paperId": "700",
+                "title": "Explainable Transfer Learning for Automated Acne Severity Classification: A Comparative Evaluation of Deep CNN Architectures",
+                "author": "Mrs. Parul Madan"
+            },
+            {
+                "paperId": "748",
+                "title": "Structural Feature Difference Guided 3D Attention U-Net for Multi Contrast Brain MRI Registration",
+                "author": "Neha Agarwal"
+            }
         ]
     },
     {
@@ -421,16 +906,51 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Surbhi Singh, Prof. Aditya Lingam",
         "rapporteur": "Prof. Vaibhav Tiwari",
-        "studentCoordinators": ["AYUSH VANKAR", "DIVY PATEL"],
+        "studentCoordinators": [
+            "AYUSH VANKAR",
+            "DIVY PATEL"
+        ],
         "papers": [
-            {"paperId": "25", "title": "Consensus-Amplified Hybrid Ensemble Learning for Robust Retail Demand Forecasting and Inventory Cost Stabilization", "author": "Jaymin V. Soni"},
-            {"paperId": "230", "title": "A Culturally Sensitive Game Design Framework for Revitalizing Indian Tribal Storytelling within the AVGC Ecosystem: A Practice-Based Study", "author": "Arun Bhagwan Suryawanshi"},
-            {"paperId": "577", "title": "Strategic and Artificial Intelligence Readiness as Drivers of Organizational Agility in Dynamic Market", "author": "Ms. Anjali Jadon"},
-            {"paperId": "280", "title": "Explainable AI-Based Drowsiness Detection for Smart and Conventional Automobile Systems: A Review and Implementation Framework", "author": "Rajkumar Rajbhar"},
-            {"paperId": "203", "title": "Draw2Development: Converting Hand-Drawn UI Sketches Into Front-End Code Using YOLOv8 and LLMs", "author": "Dhruvi Patel"},
-            {"paperId": "395", "title": "Hybrid RNN-Transformer Framework for Detecting Face Swapping and Lip-Syncing Forgeries in Real-Time", "author": "Preeti Rana"},
-            {"paperId": "391", "title": "Incorporating AI in Interior Design Education: A Framework for Inclusive Learning Based on UDL Throughout the Design Process", "author": "Mira Patel"},
-            {"paperId": "593", "title": "Comparative Study of AI-Based and Human Expert Spatial Assessment Using Vastu Principles", "author": "Zankruti Raval"}
+            {
+                "paperId": "25",
+                "title": "Consensus-Amplified Hybrid Ensemble Learning for Robust Retail Demand Forecasting and Inventory Cost Stabilization",
+                "author": "Jaymin V. Soni"
+            },
+            {
+                "paperId": "230",
+                "title": "A Culturally Sensitive Game Design Framework for Revitalizing Indian Tribal Storytelling within the AVGC Ecosystem: A Practice-Based Study",
+                "author": "Arun Bhagwan Suryawanshi"
+            },
+            {
+                "paperId": "577",
+                "title": "Strategic and Artificial Intelligence Readiness as Drivers of Organizational Agility in Dynamic Market",
+                "author": "Ms. Anjali Jadon"
+            },
+            {
+                "paperId": "280",
+                "title": "Explainable AI-Based Drowsiness Detection for Smart and Conventional Automobile Systems: A Review and Implementation Framework",
+                "author": "Rajkumar Rajbhar"
+            },
+            {
+                "paperId": "203",
+                "title": "Draw2Development: Converting Hand-Drawn UI Sketches Into Front-End Code Using YOLOv8 and LLMs",
+                "author": "Dhruvi Patel"
+            },
+            {
+                "paperId": "395",
+                "title": "Hybrid RNN-Transformer Framework for Detecting Face Swapping and Lip-Syncing Forgeries in Real-Time",
+                "author": "Preeti Rana"
+            },
+            {
+                "paperId": "391",
+                "title": "Incorporating AI in Interior Design Education: A Framework for Inclusive Learning Based on UDL Throughout the Design Process",
+                "author": "Mira Patel"
+            },
+            {
+                "paperId": "593",
+                "title": "Comparative Study of AI-Based and Human Expert Spatial Assessment Using Vastu Principles",
+                "author": "Zankruti Raval"
+            }
         ]
     },
     {
@@ -453,18 +973,81 @@ sessions = [
         "dialIn": "(US) +1 657-845-2463 PIN: 988 699 125#",
         "coChair": "Dr. Hiren Kukadiya, Prof. Kakoli Biswas",
         "rapporteur": "Prof. Bhoomika Swami",
-        "studentCoordinators": ["Shah Keval DevendraKumar", "DIVY PATEL"],
+        "studentCoordinators": [
+            "Shah Keval DevendraKumar",
+            "Yashika"
+        ],
         "papers": [
-            {"paperId": "661", "title": "Transformer-Enhanced Generative Adversarial Networks for Synthetic Medical Image Generation and Data Augmentation in Prostate Cancer in MRI Segmentation", "author": "Ms. KAVITHA A", "email": "outreach.kavi@gmail.com", "phone": "9384385121"},
-            {"paperId": "750", "title": "Secure Location, Time and AI-Based Smart Application Restriction and Attendance System for Students", "author": "Selvanayagi A", "email": "selvanayagia.cse@mkce.ac.in", "phone": "9994817644"},
-            {"paperId": "662", "title": "Hierarchical Multi-Task Deep Neural Network with Attention-Based Feature Fusion for Personalized Survival Prediction in Pancreatic and Liver Cancer Patients", "author": "Ms.Kavitha A", "email": "outreach.kavi@gmail.com", "phone": "9384385121"},
-            {"paperId": "749", "title": "Intensive Care Monitoring System using IoT and Cloud Integration", "author": "Selvanayagi A", "email": "selvanayagia.cse@mkce.ac.in", "phone": "9994817644"},
-            {"paperId": "485", "title": "Multi-Domain Data Fusion and Explainable AI for Transparent and Sustainable Supply Chain Optimization", "author": "Naveen Kumar Korada", "email": "naveen.korada_phd.2024@woxsen.edu.in", "phone": "8885056828"},
-            {"paperId": "466", "title": "Machine Learning for Depression Detection Using Textual Data: Comparative Analysis of SVM and Decision Tree Classifiers", "author": "Pankaj Bhambri", "email": "pkbhambri@gmail.com", "phone": "9814828414"},
-            {"paperId": "548", "title": "Adaptive Graph Memory Architecture for Dynamic Traffic Flow Analysis and Forecasting", "author": "Divyansh.", "email": "2305857@kiit.ac.in", "phone": "8008720677"},
-            {"paperId": "315", "title": "Adaptive and Inclusive AI Framework for Equitable Healthcare Diagnostics Across Diverse Populations", "author": "Dr K Sridhar", "email": "sridhark529reddy@gmail.com", "phone": "9985676333"},
-            {"paperId": "589", "title": "GNN-Geo: A Graph Neural Network Approach for Precise IP Geolocation", "author": "Dr.Sandeep Kulkarni", "email": "sandeeppostdoc@gmail.com", "phone": "8861346508"},
-            {"paperId": "344", "title": "Dynamic DNA-Based Quantum Image Encryption for Secure Cloud Storage", "author": "Dr. Swetha M S", "email": "swethams_ise2014@bmsit.in", "phone": "9844690637"}
+            {
+                "paperId": "661",
+                "title": "Transformer-Enhanced Generative Adversarial Networks for Synthetic Medical Image Generation and Data Augmentation in Prostate Cancer in MRI Segmentation",
+                "author": "Ms. KAVITHA A",
+                "email": "outreach.kavi@gmail.com",
+                "phone": "9384385121"
+            },
+            {
+                "paperId": "750",
+                "title": "Secure Location, Time and AI-Based Smart Application Restriction and Attendance System for Students",
+                "author": "Selvanayagi A",
+                "email": "selvanayagia.cse@mkce.ac.in",
+                "phone": "9994817644"
+            },
+            {
+                "paperId": "662",
+                "title": "Hierarchical Multi-Task Deep Neural Network with Attention-Based Feature Fusion for Personalized Survival Prediction in Pancreatic and Liver Cancer Patients",
+                "author": "Ms.Kavitha A",
+                "email": "outreach.kavi@gmail.com",
+                "phone": "9384385121"
+            },
+            {
+                "paperId": "749",
+                "title": "Intensive Care Monitoring System using IoT and Cloud Integration",
+                "author": "Selvanayagi A",
+                "email": "selvanayagia.cse@mkce.ac.in",
+                "phone": "9994817644"
+            },
+            {
+                "paperId": "485",
+                "title": "Multi-Domain Data Fusion and Explainable AI for Transparent and Sustainable Supply Chain Optimization",
+                "author": "Naveen Kumar Korada",
+                "email": "naveen.korada_phd.2024@woxsen.edu.in",
+                "phone": "8885056828"
+            },
+            {
+                "paperId": "466",
+                "title": "Machine Learning for Depression Detection Using Textual Data: Comparative Analysis of SVM and Decision Tree Classifiers",
+                "author": "Pankaj Bhambri",
+                "email": "pkbhambri@gmail.com",
+                "phone": "9814828414"
+            },
+            {
+                "paperId": "548",
+                "title": "Adaptive Graph Memory Architecture for Dynamic Traffic Flow Analysis and Forecasting",
+                "author": "Divyansh.",
+                "email": "2305857@kiit.ac.in",
+                "phone": "8008720677"
+            },
+            {
+                "paperId": "315",
+                "title": "Adaptive and Inclusive AI Framework for Equitable Healthcare Diagnostics Across Diverse Populations",
+                "author": "Dr K Sridhar",
+                "email": "sridhark529reddy@gmail.com",
+                "phone": "9985676333"
+            },
+            {
+                "paperId": "589",
+                "title": "GNN-Geo: A Graph Neural Network Approach for Precise IP Geolocation",
+                "author": "Dr.Sandeep Kulkarni",
+                "email": "sandeeppostdoc@gmail.com",
+                "phone": "8861346508"
+            },
+            {
+                "paperId": "344",
+                "title": "Dynamic DNA-Based Quantum Image Encryption for Secure Cloud Storage",
+                "author": "Dr. Swetha M S",
+                "email": "swethams_ise2014@bmsit.in",
+                "phone": "9844690637"
+            }
         ]
     },
     {
@@ -487,18 +1070,78 @@ sessions = [
         "dialIn": "(US) +1 336-904-9362 PIN: 324 161 276#",
         "coChair": "Dr. Reena Patel",
         "rapporteur": "Prof. Sunnyraj Puwar",
-        "studentCoordinators": ["Aanya Shah", "Shah Keval DevendraKumar"],
+        "studentCoordinators": [
+            "Aanya Shah",
+            "Shah Keval DevendraKumar"
+        ],
         "papers": [
-            {"paperId": "681", "title": "An Attention-Based Deep Neural Network for Secure and Energy-Efficient Node Classification in Wireless Sensor Networks", "author": "Abinayaa S S", "email": "abisriyaa@gmail.com", "phone": "7708992299"},
-            {"paperId": "737", "title": "An Intelligent and Secure Framework for IoT Systems Using Blockchain Technology", "author": "Divya Upadhyay (Galgotias college of engineering technology)", "email": "upadhyay.divya@gmail.com", "phone": "09654882790"},
-            {"paperId": "711", "title": "Multi-Temporal NDVI-Based Crop Health Classification Using Machine Learning Techniques", "author": "Vijaya Ahire", "email": "vahire@mgmu.ac.in", "phone": "+91 9923607777"},
-            {"paperId": "682", "title": "Sensorless Field-Oriented Control of Solar PV- Powered PMSM Drive Using Mras Speed Observer and Sliding Mode Control Strategy", "author": "Shradha Gupta", "email": "242231010@nitdelhi.ac.in", "phone": "9303653407"},
-            {"paperId": "767", "title": "Deepfakes enabled Digital Identity in Corporate Verification Systems: assessment of risks and control recommendations", "author": "Vidyavati Ramteke", "email": "vidyavati@scit.edu", "phone": "9823988482"},
-            {"paperId": "739", "title": "Enhanced Fuzzy-Based Synchronised and Secure Blockchain Framework for Real-Time Supply Chain Monitoring", "author": "Divya Upadhyay (Galgotias college of engineering technology)", "email": "upadhyay.divya@gmail.com", "phone": "09654882790"},
-            {"paperId": "320", "title": "Robust Face Recognition Using Optimized Feature Extraction for Automated Attendance Monitoring", "author": "Dr Arun Kumar Kandru"},
-            {"paperId": "400", "title": "Zero-shot and Few-shot Learning for Unseen Garbage Categories in Classification Systems for Automated Waste Management", "author": "Dr. R. Vidya"},
-            {"paperId": "323", "title": "Cost aware cloud resources optimization using deep reinforcement learning techniques", "author": "Dr.Syed umar"},
-            {"paperId": "304", "title": "Low-Depth and Area-Efficient Optimization of Lightweight S-Boxes Using SAT-Based Circuit Modeling", "author": "Madutha Santosh Kumar"}
+            {
+                "paperId": "681",
+                "title": "An Attention-Based Deep Neural Network for Secure and Energy-Efficient Node Classification in Wireless Sensor Networks",
+                "author": "Abinayaa S S",
+                "email": "abisriyaa@gmail.com",
+                "phone": "7708992299"
+            },
+            {
+                "paperId": "737",
+                "title": "An Intelligent and Secure Framework for IoT Systems Using Blockchain Technology",
+                "author": "Divya Upadhyay (Galgotias college of engineering technology)",
+                "email": "upadhyay.divya@gmail.com",
+                "phone": "09654882790"
+            },
+            {
+                "paperId": "711",
+                "title": "Multi-Temporal NDVI-Based Crop Health Classification Using Machine Learning Techniques",
+                "author": "Vijaya Ahire",
+                "email": "vahire@mgmu.ac.in",
+                "phone": "+91 9923607777"
+            },
+            {
+                "paperId": "682",
+                "title": "Sensorless Field-Oriented Control of Solar PV- Powered PMSM Drive Using Mras Speed Observer and Sliding Mode Control Strategy",
+                "author": "Shradha Gupta",
+                "email": "242231010@nitdelhi.ac.in",
+                "phone": "9303653407"
+            },
+            {
+                "paperId": "767",
+                "title": "Deepfakes enabled Digital Identity in Corporate Verification Systems: assessment of risks and control recommendations",
+                "author": "Vidyavati Ramteke",
+                "email": "vidyavati@scit.edu",
+                "phone": "9823988482"
+            },
+            {
+                "paperId": "739",
+                "title": "Enhanced Fuzzy-Based Synchronised and Secure Blockchain Framework for Real-Time Supply Chain Monitoring",
+                "author": "Divya Upadhyay (Galgotias college of engineering technology)",
+                "email": "upadhyay.divya@gmail.com",
+                "phone": "09654882790"
+            },
+            {
+                "paperId": "320",
+                "title": "Robust Face Recognition Using Optimized Feature Extraction for Automated Attendance Monitoring",
+                "author": "Dr Arun Kumar Kandru"
+            },
+            {
+                "paperId": "400",
+                "title": "Zero-shot and Few-shot Learning for Unseen Garbage Categories in Classification Systems for Automated Waste Management",
+                "author": "Dr. R. Vidya"
+            },
+            {
+                "paperId": "323",
+                "title": "Cost aware cloud resources optimization using deep reinforcement learning techniques",
+                "author": "Dr.Syed umar"
+            },
+            {
+                "paperId": "304",
+                "title": "Low-Depth and Area-Efficient Optimization of Lightweight S-Boxes Using SAT-Based Circuit Modeling",
+                "author": "Madutha Santosh Kumar"
+            },
+            {
+                "paperId": "651",
+                "title": "Explainable Hybrid ANN-Based Framework for Early Cardiovascular Risk Prediction",
+                "author": "MUSTAFIZUR RAHAMAN"
+            }
         ]
     },
     {
@@ -519,16 +1162,56 @@ sessions = [
         "mode": "Online",
         "coChair": "Dr. Jitendra kumar",
         "rapporteur": "Prof. Miki Patel",
-        "studentCoordinators": ["AYUSH VANKAR", "Preet Kaushal Patel"],
+        "studentCoordinators": [
+            "AYUSH VANKAR",
+            "Preet Kaushal Patel"
+        ],
         "papers": [
-            {"paperId": "326", "title": "Machine Learning and Deep Learning Approaches for Accurate Malaria Parasite Detection in Cell Images", "author": "Tirumala Paruchuri"},
-            {"paperId": "358", "title": "Federated Fine-Tuning of Large Language Models for Clinical Note Summarization: Implementation and Lessons from a Three-Hospital Network", "author": "M. Nagabhushana Rao"},
-            {"paperId": "360", "title": "Wearable – Informed Neural ODE-Transformers For Irregulary Sampled Vital Sign Prediction", "author": "M. Nagabhushana Rao"},
-            {"paperId": "322", "title": "Autonomous Self-Healing Edge Networks Using Decentralized Multi-Agent Reinforcement Learning", "author": "Bhukya Madhu"},
-            {"paperId": "317", "title": "Wavelet Assisted Lightweight Deep Learning model for Vehicle Detection and Traffic Analytics in Intelligent Transportation Systems", "author": "Epuri Deepthi"},
-            {"paperId": "298", "title": "Assessing the Aquifer Properties in Korremula Village through Electrical Resistivity by Regression method", "author": "M.Durga"},
-            {"paperId": "301", "title": "PerformanceOptimizationofAerationSystemsfor Enhanced Wastewater Treatment Efficiency: Experimental and Analytical Study", "author": "M.Durga"},
-            {"paperId": "299", "title": "Evaluating the Impact of Multimodal Agentic AI on Higher-Order Thinking in Engineering Education: From Scaffolding to Cognitive Atrophy", "author": "Dr Dayaker P"}
+            {
+                "paperId": "326",
+                "title": "Machine Learning and Deep Learning Approaches for Accurate Malaria Parasite Detection in Cell Images",
+                "author": "Tirumala Paruchuri"
+            },
+            {
+                "paperId": "358",
+                "title": "Federated Fine-Tuning of Large Language Models for Clinical Note Summarization: Implementation and Lessons from a Three-Hospital Network",
+                "author": "M. Nagabhushana Rao"
+            },
+            {
+                "paperId": "360",
+                "title": "Wearable \u2013 Informed Neural ODE-Transformers For Irregulary Sampled Vital Sign Prediction",
+                "author": "M. Nagabhushana Rao"
+            },
+            {
+                "paperId": "322",
+                "title": "Autonomous Self-Healing Edge Networks Using Decentralized Multi-Agent Reinforcement Learning",
+                "author": "Bhukya Madhu"
+            },
+            {
+                "paperId": "317",
+                "title": "Wavelet Assisted Lightweight Deep Learning model for Vehicle Detection and Traffic Analytics in Intelligent Transportation Systems",
+                "author": "Epuri Deepthi"
+            },
+            {
+                "paperId": "298",
+                "title": "Assessing the Aquifer Properties in Korremula Village through Electrical Resistivity by Regression method",
+                "author": "M.Durga"
+            },
+            {
+                "paperId": "301",
+                "title": "PerformanceOptimizationofAerationSystemsfor Enhanced Wastewater Treatment Efficiency: Experimental and Analytical Study",
+                "author": "M.Durga"
+            },
+            {
+                "paperId": "299",
+                "title": "Evaluating the Impact of Multimodal Agentic AI on Higher-Order Thinking in Engineering Education: From Scaffolding to Cognitive Atrophy",
+                "author": "Dr Dayaker P"
+            },
+            {
+                "paperId": "636",
+                "title": "Advanced Twitter Sentiment Analytics Using Transformer-Based Natural Language Processing Models",
+                "author": "Nitesh Kumar"
+            }
         ]
     },
     {
@@ -549,15 +1232,46 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Raksha Pandey",
         "rapporteur": "Prof. Miki Patel",
-        "studentCoordinators": ["Nigam Trivedi", "Shah Keval DevendraKumar"],
+        "studentCoordinators": [
+            "Nigam Trivedi",
+            "Shah Keval DevendraKumar"
+        ],
         "papers": [
-            {"paperId": "459", "title": "Adaptive Compressed In-Memory LUT Architecture for Ultra-Efficient FIR Filter Realization", "author": "Chinthakindi Kiran Kumar"},
-            {"paperId": "254", "title": "AcceptanAn Intelligent Cloud Cost Monitoring and Optimization Framework Using Machine Learning", "author": "Devshree Sunit Mehta"},
-            {"paperId": "97", "title": "Explainable XGBoost-NLP Stacking for Proactive Bipolar Disorder Identification on Social Platforms", "author": "Dr.Saravanan.M.S"},
-            {"paperId": "108", "title": "LLM-Augmented Hybrid Models for Longitudinal Behavioral Data Analysis in Early-Stage Parkinson's Risk Stratification", "author": "Saravanan Madderi Sivalingam"},
-            {"paperId": "696", "title": "EcoShift: A Predictive Deadline-Aware Scheduling Framework for Carbon-Neutral Temporal Load Shifting in Distributed Cloud Environments", "author": "Bhavana B R"},
-            {"paperId": "155", "title": "ZTA-Shield: A Zero Trust Approach for Multi-Tenant Clouds", "author": "Rohan Thakar"},
-            {"paperId": "275", "title": "Eventra: A MERN Stack Campus Event Management Platform with Multi-Dimensional Eligibility Filtering, Verification-Based Feedback, and Role-Aware Analytics", "author": "Nyasa Modi"}
+            {
+                "paperId": "459",
+                "title": "Adaptive Compressed In-Memory LUT Architecture for Ultra-Efficient FIR Filter Realization",
+                "author": "Chinthakindi Kiran Kumar"
+            },
+            {
+                "paperId": "254",
+                "title": "AcceptanAn Intelligent Cloud Cost Monitoring and Optimization Framework Using Machine Learning",
+                "author": "Devshree Sunit Mehta"
+            },
+            {
+                "paperId": "97",
+                "title": "Explainable XGBoost-NLP Stacking for Proactive Bipolar Disorder Identification on Social Platforms",
+                "author": "Dr.Saravanan.M.S"
+            },
+            {
+                "paperId": "108",
+                "title": "LLM-Augmented Hybrid Models for Longitudinal Behavioral Data Analysis in Early-Stage Parkinson's Risk Stratification",
+                "author": "Saravanan Madderi Sivalingam"
+            },
+            {
+                "paperId": "696",
+                "title": "EcoShift: A Predictive Deadline-Aware Scheduling Framework for Carbon-Neutral Temporal Load Shifting in Distributed Cloud Environments",
+                "author": "Bhavana B R"
+            },
+            {
+                "paperId": "155",
+                "title": "ZTA-Shield: A Zero Trust Approach for Multi-Tenant Clouds",
+                "author": "Rohan Thakar"
+            },
+            {
+                "paperId": "275",
+                "title": "Eventra: A MERN Stack Campus Event Management Platform with Multi-Dimensional Eligibility Filtering, Verification-Based Feedback, and Role-Aware Analytics",
+                "author": "Nyasa Modi"
+            }
         ]
     },
     {
@@ -576,19 +1290,58 @@ sessions = [
         "time": "10:45 AM to 12:45 PM",
         "venue": "D6, D Block - UIT",
         "mode": "In-Person",
-        "coChair": "Dr. Madhu Shukla, Dr. Hiren Kukadiya, Prof. Lopamodra Pakira",
+        "coChair": "Dr.Muneer nabi, Prof. Lopamodra Pakira",
         "rapporteur": "Prof. Niyati Pandit",
-        "studentCoordinators": ["Agastya Borana", "Aanya Shah"],
+        "studentCoordinators": [
+            "Agastya Borana",
+            "Aanya Shah"
+        ],
         "papers": [
-            {"paperId": "678", "title": "A Generative Computational Mechanics Framework for the Topo-Kinematic Optimization of Functionally Graded Auxetic Lattices", "author": "Ketan Chandrakant Shah"},
-            {"paperId": "601", "title": "Generative Design Systems as a Pedagogical Tool in Interior Design Education: Computational Explorations through Parametric Workflows", "author": "Saumya Trivedi"},
-            {"paperId": "620", "title": "Bridging Spatial Syntax and Storyboard Beats: A Structural Equation Model for AI-Driven Environmental Storytelling in Game Design", "author": "Sachin Khankhoje"},
-            {"paperId": "339", "title": "Reimagining the Studio: An Empirical Investigation into the Future of Design Education with Artificial Intelligence", "author": "Manish Sharma"},
-            {"paperId": "606", "title": "Bias and Over reliance of AI in Digital Forensics Investigation", "author": "Vivek Joshi"},
-            {"paperId": "710", "title": "IoT-Enabled Real-Time Bird Detection and Deterrence for Jowar Crops Using a Customized Lightweight Deep Learning Model", "author": "Nupur Narendra Pathrikar"},
-            {"paperId": "683", "title": "Lightweight Cryptographic Protocols for Secure Federated Edge Intelligence", "author": "Dr Balajee Maram"},
-            {"paperId": "250", "title": "FEA-Based Design Optimization of Synchronous Reluctance Motor for Electric Mobility Applications", "author": "Dr. Krishna Patel"},
-            {"paperId": "685", "title": "Self-Healing Cognitive Healthcare Operating System for Autonomous Disease Intelligence Using Multi-Agent AI and Digital Twins", "author": "Anup Lal Yadav"}
+            {
+                "paperId": "678",
+                "title": "A Generative Computational Mechanics Framework for the Topo-Kinematic Optimization of Functionally Graded Auxetic Lattices",
+                "author": "Ketan Chandrakant Shah"
+            },
+            {
+                "paperId": "601",
+                "title": "Generative Design Systems as a Pedagogical Tool in Interior Design Education: Computational Explorations through Parametric Workflows",
+                "author": "Saumya Trivedi"
+            },
+            {
+                "paperId": "620",
+                "title": "Bridging Spatial Syntax and Storyboard Beats: A Structural Equation Model for AI-Driven Environmental Storytelling in Game Design",
+                "author": "Sachin Khankhoje"
+            },
+            {
+                "paperId": "339",
+                "title": "Reimagining the Studio: An Empirical Investigation into the Future of Design Education with Artificial Intelligence",
+                "author": "Manish Sharma"
+            },
+            {
+                "paperId": "606",
+                "title": "Bias and Over reliance of AI in Digital Forensics Investigation",
+                "author": "Vivek Joshi"
+            },
+            {
+                "paperId": "710",
+                "title": "IoT-Enabled Real-Time Bird Detection and Deterrence for Jowar Crops Using a Customized Lightweight Deep Learning Model",
+                "author": "Nupur Narendra Pathrikar"
+            },
+            {
+                "paperId": "683",
+                "title": "Lightweight Cryptographic Protocols for Secure Federated Edge Intelligence",
+                "author": "Dr Balajee Maram"
+            },
+            {
+                "paperId": "250",
+                "title": "FEA-Based Design Optimization of Synchronous Reluctance Motor for Electric Mobility Applications",
+                "author": "Dr. Krishna Patel"
+            },
+            {
+                "paperId": "685",
+                "title": "Self-Healing Cognitive Healthcare Operating System for Autonomous Disease Intelligence Using Multi-Agent AI and Digital Twins",
+                "author": "Anup Lal Yadav"
+            }
         ]
     },
     {
@@ -609,17 +1362,56 @@ sessions = [
         "mode": "In-Person",
         "coChair": "Dr. Chintan Trivedi",
         "rapporteur": "Rahul Patira",
-        "studentCoordinators": ["Tushar Sharma", "AYUSH VANKAR"],
+        "studentCoordinators": [
+            "Tushar Sharma",
+            "AYUSH VANKAR"
+        ],
         "papers": [
-            {"paperId": "212", "title": "Machine Learning–Based Screening of Sleep Disorders Using Lifestyle Features", "author": "Nikita Joshi"},
-            {"paperId": "522", "title": "Evaluation of Accuracy and Efficiency of Gemini Nano Banana Pro for 3D Reconstruction from Dental 2D Radiographs", "author": "Niraj Kinariwala"},
-            {"paperId": "493", "title": "Mapping Buyers’ Preferences for Electric Vehicles in the Indian Market", "author": "Sonal Sharma"},
-            {"paperId": "497", "title": "Exploring Patient Preferences through Perceptual Mapping: A Study of Select Hospitals", "author": "Archana Yadav"},
-            {"paperId": "163", "title": "ClearHealth: AI-Powered Biomarker Extraction and Longitudinal Health Tracking on Mobile Platforms", "author": "Krishna Modi"},
-            {"paperId": "194", "title": "Storage Authenticity Is Not Issuance Authenticity: A Decision-Tree Typology of IPFS–Filecoin Platforms Against Credential Counterfeiting", "author": "Naveen Kandwal"},
-            {"paperId": "664", "title": "Content-Addressed Distributed Systems: Architectural Foundations, Incentive Mechanisms, and Decentralization Challenges", "author": "Naveen Kandwal"},
-            {"paperId": "769", "title": "Ensemble Learning Based Zero-Day Network Threat Detection Using Hybrid Machine Learning Models", "author": "Umar Farooq"},
-            {"paperId": "770", "title": "Deepfake Detection on Mobile Devices: Challenges of Generalization and Efficient Deployment", "author": "Bhaveshbhai R Maheshwari"}
+            {
+                "paperId": "212",
+                "title": "Machine Learning\u2013Based Screening of Sleep Disorders Using Lifestyle Features",
+                "author": "Nikita Joshi"
+            },
+            {
+                "paperId": "522",
+                "title": "Evaluation of Accuracy and Efficiency of Gemini Nano Banana Pro for 3D Reconstruction from Dental 2D Radiographs",
+                "author": "Niraj Kinariwala"
+            },
+            {
+                "paperId": "493",
+                "title": "Mapping Buyers\u2019 Preferences for Electric Vehicles in the Indian Market",
+                "author": "Sonal Sharma"
+            },
+            {
+                "paperId": "497",
+                "title": "Exploring Patient Preferences through Perceptual Mapping: A Study of Select Hospitals",
+                "author": "Archana Yadav"
+            },
+            {
+                "paperId": "163",
+                "title": "ClearHealth: AI-Powered Biomarker Extraction and Longitudinal Health Tracking on Mobile Platforms",
+                "author": "Krishna Modi"
+            },
+            {
+                "paperId": "194",
+                "title": "Storage Authenticity Is Not Issuance Authenticity: A Decision-Tree Typology of IPFS\u2013Filecoin Platforms Against Credential Counterfeiting",
+                "author": "Naveen Kandwal"
+            },
+            {
+                "paperId": "664",
+                "title": "Content-Addressed Distributed Systems: Architectural Foundations, Incentive Mechanisms, and Decentralization Challenges",
+                "author": "Naveen Kandwal"
+            },
+            {
+                "paperId": "769",
+                "title": "Ensemble Learning Based Zero-Day Network Threat Detection Using Hybrid Machine Learning Models",
+                "author": "Umar Farooq"
+            },
+            {
+                "paperId": "770",
+                "title": "Deepfake Detection on Mobile Devices: Challenges of Generalization and Efficient Deployment",
+                "author": "Bhaveshbhai R Maheshwari"
+            }
         ]
     },
     {
@@ -640,20 +1432,83 @@ sessions = [
         "mode": "Online",
         "gmeet": "https://meet.google.com/jde-nygn-zgw",
         "dialIn": "(US) +1 609-491-2342 PIN: 327 517 499#",
-        "coChair": "Dr. Hiren Kukadiya, Dr. Alok Behara",
+        "coChair": "Dr. Hiren Kukadiya",
         "rapporteur": "Bhaumik Patel",
-        "studentCoordinators": ["Preet Kaushal Patel", "Agam Sharma"],
+        "studentCoordinators": [
+            "Preet Kaushal Patel",
+            "Agam Sharma"
+        ],
         "papers": [
-            {"paperId": "314", "title": "Adaptive and Fair AI-Driven Framework for Scalable Clinical Decision Support in Diverse Healthcare Environments", "author": "Dr K Sridhar", "email": "sridhark529reddy@gmail.com", "phone": "9985676333"},
-            {"paperId": "691", "title": "Hybrid Ensemble Learning for Explainable State of Health Prediction of LiFePO₄ Batteries", "author": "KAMALNATH D S", "email": "dskamalnath@gmail.com", "phone": "8124760759"},
-            {"paperId": "706", "title": "Data Analytics Enhancement Using Neural Embedding for Entity Resolution", "author": "EDWIN DAVID", "email": "edwindavid333@gmail.com", "phone": "6573195897"},
-            {"paperId": "747", "title": "Hybrid Self-Supervised CNN-Transformer Model for Early Multiple Sclerosis Detection in 3D MRI", "author": "S. P. Santhoshkumar", "email": "spsanthoshkumar16@gmail.com", "phone": "9994525372"},
-            {"paperId": "734", "title": "Digital Marketing Customer Segmentation: A Comparative Evaluation of K-Means, DBSCAN, and Hierarchical Clustering on the Mall Customers Dataset", "author": "EDWIN DAVID", "email": "edwindavid333@gmail.com", "phone": "6573195897"},
-            {"paperId": "746", "title": "Real-Time Tomato Disease Mapping and Detection Using YOLOv8 for Food Security Enhancement", "author": "S. P. Santhoshkumar", "email": "spsanthoshkumar16@gmail.com", "phone": "9994525372"},
-            {"paperId": "718", "title": "A Review on Maximum Power Point Tracking Techniques for Photovoltaic Power Generation", "author": "Soma Deb", "email": "soma.deb@sharda.ac.in", "phone": "9999349599"},
-            {"paperId": "705", "title": "AGRAG-LLM Framework for Intelligent Scientific Article Analysis and Question Answering", "author": "S. P. Santhoshkumar", "email": "spsanthoshkumar16@gmail.com", "phone": "9994525372"},
-            {"paperId": "732", "title": "IoT Based Artificially Intelligent Framework PapCanCervixIOHT for Accurate Cervical Cancer Cell Classification", "author": "Dr. Barkha Bhavsar", "email": "barkha.bhavsar@gmail.com", "phone": "+18484829671"},
-            {"paperId": "81", "title": "Enhancing Machine Learning Education through an Immersive Metaverse Framework for K-Means Clustering Visualization", "author": "Gayathri Karthick", "email": "g.karthick@yorksj.ac.uk", "phone": "0044-7404067070"}
+            {
+                "paperId": "314",
+                "title": "Adaptive and Fair AI-Driven Framework for Scalable Clinical Decision Support in Diverse Healthcare Environments",
+                "author": "Dr K Sridhar",
+                "email": "sridhark529reddy@gmail.com",
+                "phone": "9985676333"
+            },
+            {
+                "paperId": "691",
+                "title": "Hybrid Ensemble Learning for Explainable State of Health Prediction of LiFePO\u2084 Batteries",
+                "author": "KAMALNATH D S",
+                "email": "dskamalnath@gmail.com",
+                "phone": "8124760759"
+            },
+            {
+                "paperId": "706",
+                "title": "Data Analytics Enhancement Using Neural Embedding for Entity Resolution",
+                "author": "EDWIN DAVID",
+                "email": "edwindavid333@gmail.com",
+                "phone": "6573195897"
+            },
+            {
+                "paperId": "747",
+                "title": "Hybrid Self-Supervised CNN-Transformer Model for Early Multiple Sclerosis Detection in 3D MRI",
+                "author": "S. P. Santhoshkumar",
+                "email": "spsanthoshkumar16@gmail.com",
+                "phone": "9994525372"
+            },
+            {
+                "paperId": "734",
+                "title": "Digital Marketing Customer Segmentation: A Comparative Evaluation of K-Means, DBSCAN, and Hierarchical Clustering on the Mall Customers Dataset",
+                "author": "EDWIN DAVID",
+                "email": "edwindavid333@gmail.com",
+                "phone": "6573195897"
+            },
+            {
+                "paperId": "746",
+                "title": "Real-Time Tomato Disease Mapping and Detection Using YOLOv8 for Food Security Enhancement",
+                "author": "S. P. Santhoshkumar",
+                "email": "spsanthoshkumar16@gmail.com",
+                "phone": "9994525372"
+            },
+            {
+                "paperId": "718",
+                "title": "A Review on Maximum Power Point Tracking Techniques for Photovoltaic Power Generation",
+                "author": "Soma Deb",
+                "email": "soma.deb@sharda.ac.in",
+                "phone": "9999349599"
+            },
+            {
+                "paperId": "705",
+                "title": "AGRAG-LLM Framework for Intelligent Scientific Article Analysis and Question Answering",
+                "author": "S. P. Santhoshkumar",
+                "email": "spsanthoshkumar16@gmail.com",
+                "phone": "9994525372"
+            },
+            {
+                "paperId": "732",
+                "title": "IoT Based Artificially Intelligent Framework PapCanCervixIOHT for Accurate Cervical Cancer Cell Classification",
+                "author": "Dr. Barkha Bhavsar",
+                "email": "barkha.bhavsar@gmail.com",
+                "phone": "+18484829671"
+            },
+            {
+                "paperId": "81",
+                "title": "Enhancing Machine Learning Education through an Immersive Metaverse Framework for K-Means Clustering Visualization",
+                "author": "Gayathri Karthick",
+                "email": "g.karthick@yorksj.ac.uk",
+                "phone": "0044-7404067070"
+            }
         ]
     },
     {
@@ -674,33 +1529,88 @@ sessions = [
         "mode": "Online",
         "gmeet": "https://meet.google.com/vsp-pvke-sow",
         "dialIn": "(US) +1 219-316-1493 PIN: 760 104 273#",
-        "coChair": "Dr. Sushma Jha, Dr. Ashwin Raiyani",
+        "coChair": "Dr. Reena Patel",
         "rapporteur": "Bhoomika Swami",
-        "studentCoordinators": ["Dasadiya Rudra", "Ved A. Gajjar"],
+        "studentCoordinators": [
+            "Dasadiya Rudra",
+            "Ved A. Gajjar"
+        ],
         "papers": [
-            {"paperId": "719", "title": "Wavelet Coefficient Based Fault Signal Extraction for LCC-HVDC Transmission Line Protection", "author": "Soma Deb", "email": "soma.deb@sharda.ac.in", "phone": "9999349599"},
-            {"paperId": "727", "title": "Deep Learning-Based Skin Cancer Detection Using Image Classification Techniques", "author": "Pournima Yograj Tembhare", "email": "pournimatembhare123@gmail.com", "phone": "9545036256"},
-            {"paperId": "733", "title": "Impact of Smart E-Governance Adoption on Administrative Performance of Indian Universities in the Era of Industry 5.0", "author": "Pawan Kataria", "email": "thepawankataria@gmail.com", "phone": "9448444890"},
-            {"paperId": "663", "title": "Responsible AI Governance for Mobility Justice in Smart Cities: A Thematic Synthesis and Evaluation Framework for Inclusive Smart Mobility", "author": "Sher Singh Baghel", "email": "shersinghb12@gmail.com", "phone": "9457871228"},
-            {"paperId": "318", "title": "Reconceptualizing Bloom’s “Create” for Human–AI Co-Creation: Toward an AI-Integrated Cognitive Taxonomy for Higher-Order Learning", "author": "Dr J Revathi", "email": "drrevathistanns@gmail.com", "phone": "9494231772"},
-            {"paperId": "725", "title": "Design and Implementation of an AI-Powered Object Detection Framework for the Visually Impaired", "author": "Dr.Subhashree Choudhury", "email": "subhashreechoudhury@soa.ac.in", "phone": "8093162126"},
-            {"paperId": "751", "title": "Test Scenario Generation for Software Testing using Search Based Techniques", "author": "Dr. Deepti Bala Mishra", "email": "mishradeeptibala@gmail.com", "phone": "94380 35983"},
-            {"paperId": "726", "title": "IoT-Enabled Smart Waste Management System for Real-Time Bin Monitoring and Optimized Urban Waste Collection", "author": "Dr.Subhashree Choudhury", "email": "subhashreechoudhury@soa.ac.in", "phone": "8093162126"},
-            {"paperId": "597", "title": "Implementation of Plant Health Examination System Employing IoT and Convolutional Neural Networks", "author": "Dr.Supriya", "email": "p_supriya@cb.amrita.edu", "phone": "99440 53755"},
-            {"paperId": "738", "title": "Personalized Multimodal Quantum-Temporal Learning Framework for Post-Stroke Functional Outcome Prediction and Recovery Trajectory Analysis.", "author": "S.Jancy", "email": "jancy.cse@sathyabama.ac.in", "phone": "7401002909"}
+            {
+                "paperId": "719",
+                "title": "Wavelet Coefficient Based Fault Signal Extraction for LCC-HVDC Transmission Line Protection",
+                "author": "Soma Deb",
+                "email": "soma.deb@sharda.ac.in",
+                "phone": "9999349599"
+            },
+            {
+                "paperId": "727",
+                "title": "Deep Learning-Based Skin Cancer Detection Using Image Classification Techniques",
+                "author": "Pournima Yograj Tembhare",
+                "email": "pournimatembhare123@gmail.com",
+                "phone": "9545036256"
+            },
+            {
+                "paperId": "733",
+                "title": "Impact of Smart E-Governance Adoption on Administrative Performance of Indian Universities in the Era of Industry 5.0",
+                "author": "Pawan Kataria",
+                "email": "thepawankataria@gmail.com",
+                "phone": "9448444890"
+            },
+            {
+                "paperId": "663",
+                "title": "Responsible AI Governance for Mobility Justice in Smart Cities: A Thematic Synthesis and Evaluation Framework for Inclusive Smart Mobility",
+                "author": "Sher Singh Baghel",
+                "email": "shersinghb12@gmail.com",
+                "phone": "9457871228"
+            },
+            {
+                "paperId": "318",
+                "title": "Reconceptualizing Bloom\u2019s \u201cCreate\u201d for Human\u2013AI Co-Creation: Toward an AI-Integrated Cognitive Taxonomy for Higher-Order Learning",
+                "author": "Dr J Revathi",
+                "email": "drrevathistanns@gmail.com",
+                "phone": "9494231772"
+            },
+            {
+                "paperId": "725",
+                "title": "Design and Implementation of an AI-Powered Object Detection Framework for the Visually Impaired",
+                "author": "Dr.Subhashree Choudhury",
+                "email": "subhashreechoudhury@soa.ac.in",
+                "phone": "8093162126"
+            },
+            {
+                "paperId": "751",
+                "title": "Test Scenario Generation for Software Testing using Search Based Techniques",
+                "author": "Dr. Deepti Bala Mishra",
+                "email": "mishradeeptibala@gmail.com",
+                "phone": "94380 35983"
+            },
+            {
+                "paperId": "726",
+                "title": "IoT-Enabled Smart Waste Management System for Real-Time Bin Monitoring and Optimized Urban Waste Collection",
+                "author": "Dr.Subhashree Choudhury",
+                "email": "subhashreechoudhury@soa.ac.in",
+                "phone": "8093162126"
+            },
+            {
+                "paperId": "597",
+                "title": "Implementation of Plant Health Examination System Employing IoT and Convolutional Neural Networks",
+                "author": "Dr.Supriya",
+                "email": "p_supriya@cb.amrita.edu",
+                "phone": "99440 53755"
+            },
+            {
+                "paperId": "738",
+                "title": "Personalized Multimodal Quantum-Temporal Learning Framework for Post-Stroke Functional Outcome Prediction and Recovery Trajectory Analysis.",
+                "author": "S.Jancy",
+                "email": "jancy.cse@sathyabama.ac.in",
+                "phone": "7401002909"
+            }
         ]
     }
 ]
 
-print(f"Total sessions: {len(sessions)}")
-total_papers = sum(len(s['papers']) for s in sessions)
-print(f"Total papers across all sessions: {total_papers}")
-all_paper_ids = set()
-for s in sessions:
-    for p in s['papers']:
-        all_paper_ids.add(p['paperId'])
-print(f"Unique papers: {len(all_paper_ids)}")
-
-with open(r"d:\IEEE\scripts\cicon_sessions_data.json", "w", encoding="utf-8") as f:
-    json.dump(sessions, f, indent=2, ensure_ascii=False)
-print("Saved to scripts/cicon_sessions_data.json")
+if __name__ == "__main__":
+    with open('D:/IEEE/scripts/cicon_sessions_data.json', 'w', encoding='utf-8') as f:
+        json.dump(sessions, f, indent=2)
+    print("Exported sessions successfully!")
