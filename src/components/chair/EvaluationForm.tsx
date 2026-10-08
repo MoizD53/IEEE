@@ -293,44 +293,7 @@ export default function EvaluationForm({ paperId }: { paperId: string }) {
         </div>
       </div>
 
-      {/* Written Remarks */}
-      <div className="space-y-4">
-        <div className="border-b pb-2">
-          <h3 className="text-base font-bold text-slate-900">
-            Session Chair Remarks & Feedback
-          </h3>
-        </div>
 
-        <div className="bg-slate-50 p-4 rounded-2xl border border-slate-200 space-y-4">
-          <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-2">Overall Rating</label>
-            <div className="flex gap-2">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <button
-                  key={star}
-                  type="button"
-                  onClick={() => setFeedbackRating(star)}
-                  className={`text-2xl transition-transform hover:scale-110 focus:outline-none ${star <= feedbackRating ? 'text-amber-400' : 'text-slate-300 hover:text-amber-200'}`}
-                >
-                  ★
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-              Constructive Comments / Observations for Authors:
-            </label>
-            <textarea
-              rows={4}
-              value={feedbackText}
-              onChange={(e) => setFeedbackText(e.target.value)}
-              placeholder="Highlight strengths, methodological suggestions, or comments regarding delivery and Q&A..."
-              className="w-full rounded-xl border border-slate-300 bg-white p-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none"
-            ></textarea>
-          </div>
-        </div>
-      </div>
 
       <div className="pt-2 flex justify-end">
         <button
