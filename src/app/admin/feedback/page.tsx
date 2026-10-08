@@ -29,23 +29,22 @@ export default async function AdminFeedbackPage() {
     : "0.0";
 
   return (
-    <div className="space-y-8 max-w-7xl mx-auto pb-12">
-      {/* Header Banner */}
-      <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200/90 relative overflow-hidden">
-        <div className="absolute right-0 top-0 bottom-0 w-80 bg-gradient-to-l from-amber-50/70 to-transparent pointer-events-none hidden md:block"></div>
-        <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-amber-50 text-amber-800 border border-amber-200 mb-3">
-              <MessageSquareText size={13} className="text-amber-600" />
-              Conference Audit Desk
+    <div className="space-y-8 max-w-7xl mx-auto p-2">
+      {/* Premium Header */}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-amber-800 via-amber-700 to-orange-900 p-8 text-white shadow-xl">
+        <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
+          <MessageSquareText size={120} />
+        </div>
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm border border-white/20 text-white">
+              <MessageSquareText size={24} />
             </div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-              Session Chair Conference Feedback
-            </h1>
-            <p className="mt-1.5 text-sm text-slate-500 max-w-2xl leading-relaxed">
-              Review session chairs' feedback on conference organization.
-            </p>
+            <h1 className="text-3xl font-extrabold tracking-tight">Conference Feedback</h1>
           </div>
+          <p className="text-amber-100 max-w-2xl text-sm font-medium leading-relaxed mt-3">
+            Review session chairs' feedback and ratings on conference organization and logistics.
+          </p>
         </div>
       </div>
 

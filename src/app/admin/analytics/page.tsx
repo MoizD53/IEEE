@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/db";
 import { ScoreDistributionChart, RecommendationPieChart } from "@/components/admin/AnalyticsCharts";
-import { auth } from "@/lib/auth";
+import { BarChart3 } from "lucide-react";
 
 export default async function AnalyticsPage() {
   const evaluations = await prisma.evaluation.findMany({
@@ -48,10 +48,23 @@ export default async function AnalyticsPage() {
   });
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto pb-10">
-      <div>
-        <h1 className="text-2xl font-bold text-slate-900">Presentation Scoring Analytics</h1>
-        <p className="mt-1 text-sm text-slate-500">Real-time statistics across all 5 parameters on the 50-mark scale ({total} evaluations).</p>
+    <div className="space-y-8 max-w-7xl mx-auto p-2 pb-10">
+      {/* Premium Header */}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-rose-900 via-pink-900 to-slate-900 p-8 text-white shadow-xl">
+        <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
+          <BarChart3 size={120} />
+        </div>
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm border border-white/20 text-white">
+              <BarChart3 size={24} />
+            </div>
+            <h1 className="text-3xl font-extrabold tracking-tight">Scoring Analytics</h1>
+          </div>
+          <p className="text-rose-100/90 max-w-2xl text-sm font-medium leading-relaxed mt-3">
+            Real-time statistics across all 5 evaluation parameters on the 50-mark scale ({total} evaluations).
+          </p>
+        </div>
       </div>
 
       {/* 5 Parameters Averages + Total Score */}

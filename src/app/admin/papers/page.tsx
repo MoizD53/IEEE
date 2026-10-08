@@ -4,6 +4,8 @@ import GlobalAssignForm from "@/components/admin/GlobalAssignForm";
 import { getPapers } from "@/lib/actions/paper";
 import { prisma } from "@/lib/db";
 
+import { FileText, Sparkles } from "lucide-react";
+
 export default async function PapersPage() {
   const papers = await getPapers();
   const chairs = await prisma.user.findMany({
@@ -12,10 +14,23 @@ export default async function PapersPage() {
   });
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto">
-      <div>
-        <h1 className="text-2xl font-bold text-gray-900">Papers & Assignments</h1>
-        <p className="mt-1 text-sm text-gray-500">Manage conference papers and their chair assignments.</p>
+    <div className="space-y-8 max-w-7xl mx-auto p-2">
+      {/* Premium Header */}
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-blue-800 via-blue-700 to-indigo-900 p-8 text-white shadow-xl">
+        <div className="absolute top-0 right-0 p-12 opacity-10 pointer-events-none">
+          <FileText size={120} />
+        </div>
+        <div className="relative z-10">
+          <div className="flex items-center gap-3 mb-2">
+            <div className="p-2 bg-white/10 rounded-lg backdrop-blur-sm border border-white/20 text-white">
+              <FileText size={24} />
+            </div>
+            <h1 className="text-3xl font-extrabold tracking-tight">Papers & Assignments</h1>
+          </div>
+          <p className="text-blue-100 max-w-2xl text-sm font-medium leading-relaxed mt-3">
+            Register new conference papers and globally manage session chair assignments.
+          </p>
+        </div>
       </div>
 
       <div className="space-y-6">
