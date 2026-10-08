@@ -152,7 +152,9 @@ sessions = [
             {"paperId": "641", "title": "The Evolving Role of Vocational Learning in Artificial Intelligence Era", "author": "Sanskruti Bhosale"},
             {"paperId": "680", "title": "Predictive Health Monitoring of a 48 V / 100 Ah LiFePO4 Battery Pack Using Datasheet-Constrained Synthetic Aging and a Stress-Aware Convex Ensemble", "author": "Vinit Mehta"},
             {"paperId": "674", "title": "Machine Learning Technique based Predictive maintenance and Performance Estimation of Centrifugal Pump", "author": "Rama Maliya"},
-            {"paperId": "591", "title": "Open Space as Ecological Infrastructure: A Design-Led Conservation Framework for Peri-Urban Bhugaon, Pune, Aligned with the Sustainable Development Goals", "author": "Prutha Mathankar-Tayade"}
+            {"paperId": "591", "title": "Open Space as Ecological Infrastructure: A Design-Led Conservation Framework for Peri-Urban Bhugaon, Pune, Aligned with the Sustainable Development Goals", "author": "Prutha Mathankar-Tayade"},
+            {"paperId": "698", "title": "Multi-Class Skin Disease Classification with Severity Assessment using Artificial Intelligence", "author": "Presenter"},
+            {"paperId": "699", "title": "Attention-Guided Deep Learning with Explainable AI for Alzheimer's Disease Classification from FDG-PET Brain Scans", "author": "Presenter"}
         ]
     },
     {
