@@ -4,7 +4,7 @@ import { LogOut, Loader2 } from "lucide-react";
 import { signOut } from "next-auth/react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-// import { checkFeedbackStatus } from "@/lib/actions/conference-feedback";
+import { checkFeedbackStatus } from "@/lib/actions/conference-feedback";
 
 export default function SignOutButton({ className, children }: { className?: string, children?: React.ReactNode }) {
   const [loading, setLoading] = useState(false);
@@ -12,8 +12,6 @@ export default function SignOutButton({ className, children }: { className?: str
 
   const handleSignOut = async () => {
     setLoading(true);
-    // Compulsory feedback check temporarily removed as requested
-    /*
     try {
       const res = await checkFeedbackStatus();
       if (res.success && !res.hasGivenFeedback) {
@@ -25,7 +23,6 @@ export default function SignOutButton({ className, children }: { className?: str
     } catch (err) {
       console.error(err);
     }
-    */
     await signOut({ callbackUrl: "/login" });
   };
 
