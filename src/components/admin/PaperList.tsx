@@ -16,9 +16,18 @@ type Paper = {
 export default function PaperList({ papers }: { papers: Paper[] }) {
   const [searchTerm, setSearchTerm] = useState("");
 
-  const filteredPapers = papers.filter((paper) =>
-    paper.paperId.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredPapers = papers
+    .filter((paper) =>
+      paper.paperId.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      const numA = parseInt(a.paperId);
+      const numB = parseInt(b.paperId);
+      if (!isNaN(numA) && !isNaN(numB)) {
+        return numA - numB;
+      }
+      return a.paperId.localeCompare(b.paperId);
+    });
 
   if (papers.length === 0) {
     return <div className="text-slate-500 p-8 text-center bg-white rounded-3xl border border-slate-200/90 shadow-sm font-medium">No papers found.</div>;
