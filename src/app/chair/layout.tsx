@@ -25,8 +25,8 @@ export default async function ChairLayout({ children }: { children: React.ReactN
         <div className="absolute top-0 left-0 w-full h-64 bg-indigo-500/10 blur-[100px] pointer-events-none" />
         
         <div className="mb-10 px-2 flex items-center gap-4 relative z-10">
-          <div className="w-12 h-12 rounded-2xl bg-white/10 backdrop-blur-md flex items-center justify-center p-2 shadow-inner border border-white/20">
-            <img src="/logo-karnavati.png" alt="KU" className="max-w-full max-h-full object-contain filter drop-shadow-sm" />
+          <div className="w-14 h-14 flex items-center justify-center shrink-0">
+            <img src="/logo-karnavati.png" alt="KU" className="max-w-full max-h-full object-contain" />
           </div>
           <div>
             <h1 className="text-lg font-black tracking-tight bg-gradient-to-r from-white to-indigo-200 bg-clip-text text-transparent">CICON Portal</h1>
