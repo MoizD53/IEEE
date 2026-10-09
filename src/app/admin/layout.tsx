@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import ConferenceNavbar from "@/components/ConferenceNavbar";
 import SignOutButton from "@/components/SignOutButton";
+import AutoRefresh from "@/components/AutoRefresh";
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
@@ -23,6 +24,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
 
   return (
     <div className="min-h-screen bg-slate-50/70 flex flex-col md:flex-row">
+      <AutoRefresh interval={5000} />
       {/* Enterprise-Grade Admin Sidebar */}
       <aside className="w-64 bg-gradient-to-b from-[#0F172A] via-[#0B132B] to-[#070D1A] text-slate-100 min-h-screen p-5 flex flex-col hidden md:flex shrink-0 border-r border-slate-800/80 shadow-2xl">
         {/* ========================================================= */}
