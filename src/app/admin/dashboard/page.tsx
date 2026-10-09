@@ -3,51 +3,59 @@ import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { FileText, Users, CheckCircle, Clock, Star, TrendingUp, Sparkles, User, FileOutput } from "lucide-react";
 
-async function PendingEvaluationsList() {
-  const activeAssignments = await prisma.paperAssignment.findMany({
-    where: { status: "ACTIVE" },
-    include: {
-      chair: { select: { name: true, institution: true } },
-      paper: { select: { paperId: true, title: true } },
+async function SessionProgressBars() {
+  const papers = await prisma.paper.findMany({
+    select: { session: true, status: true }
+  });
+
+  const sessionStats = new Map<string, { total: number; completed: number }>();
+
+  for (const p of papers) {
+    if (!p.session) continue;
+    
+    if (!sessionStats.has(p.session)) {
+      sessionStats.set(p.session, { total: 0, completed: 0 });
     }
-  });
+    
+    const stats = sessionStats.get(p.session)!;
+    stats.total += 1;
+    if (['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(p.status)) {
+      stats.completed += 1;
+    }
+  }
 
-  const submittedEvals = await prisma.evaluation.findMany({
-    where: { status: "SUBMITTED" },
-    select: { paperId: true, chairId: true }
-  });
+  const sessions = Array.from(sessionStats.entries())
+    .map(([name, stats]) => ({
+      name,
+      ...stats,
+      percentage: stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0
+    }))
+    .sort((a, b) => b.percentage - a.percentage); // Sort by highest progress
 
-  const submittedSet = new Set(submittedEvals.map(e => `${e.paperId}-${e.chairId}`));
-
-  const currentlyEvaluating = activeAssignments.filter(
-    a => !submittedSet.has(`${a.paperId}-${a.chairId}`)
-  );
-
-  if (currentlyEvaluating.length === 0) {
+  if (sessions.length === 0) {
     return (
       <div className="text-center p-8 border-2 border-dashed border-slate-200 rounded-2xl">
-        <p className="text-slate-500 font-medium">No pending evaluations at the moment.</p>
+        <p className="text-slate-500 font-medium">No session data available.</p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {currentlyEvaluating.map(assignment => (
-        <div key={assignment.id} className="p-4 rounded-2xl border border-slate-100 bg-slate-50 flex items-start gap-3">
-          <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-            <User size={18} />
+    <div className="space-y-6">
+      {sessions.map((session, idx) => (
+        <div key={idx} className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+          <div className="flex justify-between items-start mb-2 gap-4">
+            <h4 className="font-bold text-sm text-slate-800 leading-tight flex-1">{session.name}</h4>
+            <span className="text-sm font-black text-indigo-600 shrink-0">{session.completed} / {session.total}</span>
           </div>
-          <div className="min-w-0 flex-1">
-            <h4 className="font-bold text-sm text-slate-900 truncate">{assignment.chair.name}</h4>
-            <div className="text-xs text-slate-500 truncate mb-2">{assignment.chair.institution || 'Chair'}</div>
-            
-            <div className="bg-white p-2.5 rounded-xl border border-slate-200 shadow-sm">
-              <div className="text-[10px] uppercase font-bold tracking-wider text-blue-600 mb-0.5">Evaluating</div>
-              <div className="text-xs font-bold text-slate-800">{assignment.paper.paperId}</div>
-              <div className="text-xs text-slate-600 truncate">{assignment.paper.title}</div>
-            </div>
+          
+          <div className="w-full bg-slate-200 rounded-full h-2.5 mb-1 overflow-hidden">
+            <div 
+              className="bg-gradient-to-r from-indigo-500 to-violet-500 h-2.5 rounded-full transition-all duration-1000 ease-out" 
+              style={{ width: `${session.percentage}%` }}
+            ></div>
           </div>
+          <div className="text-[10px] font-bold text-slate-400 text-right">{session.percentage}% Completed</div>
         </div>
       ))}
     </div>
@@ -147,21 +155,21 @@ export default async function AdminDashboardPage() {
         </Link>
       </div>
 
-      {/* Currently Evaluating Section */}
+      {/* Session Progress Section */}
       <div className="bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-slate-200 mt-8">
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
-              <Clock size={20} className="animate-pulse" />
+            <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600">
+              <TrendingUp size={20} />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-slate-900">Live Evaluation Status</h2>
-              <p className="text-sm text-slate-500 mt-0.5">Session Chairs currently assigned to pending evaluations</p>
+              <h2 className="text-lg font-bold text-slate-900">Session Progress</h2>
+              <p className="text-sm text-slate-500 mt-0.5">Track evaluation completion rates across all conference sessions</p>
             </div>
           </div>
         </div>
 
-        <PendingEvaluationsList />
+        <SessionProgressBars />
       </div>
     </div>
   );
