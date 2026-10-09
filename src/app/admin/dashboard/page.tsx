@@ -47,53 +47,53 @@ export default async function AdminDashboardPage() {
       
       {/* Premium Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
-        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+        <Link href="/admin/papers" className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
           <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm"><FileText size={20} strokeWidth={2.5} /></div>
           <div>
             <div className="text-3xl font-black text-slate-800 tracking-tight">{totalPapers}</div>
             <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Total Papers</div>
           </div>
-        </div>
+        </Link>
 
-        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+        <Link href="/admin/chairs" className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
           <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-sm"><Users size={20} strokeWidth={2.5} /></div>
           <div>
             <div className="text-3xl font-black text-slate-800 tracking-tight">{totalChairs}</div>
             <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Session Chairs</div>
           </div>
-        </div>
+        </Link>
 
-        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+        <Link href="/admin/feedback" className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
           <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm"><CheckCircle size={20} strokeWidth={2.5} /></div>
           <div>
             <div className="text-3xl font-black text-slate-800 tracking-tight">{completedEvaluations}</div>
             <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Evaluated Papers</div>
           </div>
-        </div>
+        </Link>
 
-        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+        <Link href="/admin/papers" className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
           <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-sm"><Clock size={20} strokeWidth={2.5} /></div>
           <div>
             <div className="text-3xl font-black text-slate-800 tracking-tight">{pendingEvaluations}</div>
             <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Pending Evals</div>
           </div>
-        </div>
+        </Link>
 
-        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+        <Link href="/admin/feedback" className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
           <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm"><Star size={20} strokeWidth={2.5} /></div>
           <div>
             <div className="text-3xl font-black text-slate-800 tracking-tight">{recommendedPapers}</div>
             <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Recommended</div>
           </div>
-        </div>
+        </Link>
 
-        <div className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+        <Link href="/admin/analytics" className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
           <div className="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-rose-600 group-hover:text-white transition-all duration-300 shadow-sm"><TrendingUp size={20} strokeWidth={2.5} /></div>
           <div>
             <div className="text-3xl font-black text-slate-800 tracking-tight">{avgScore} <span className="text-sm font-medium text-slate-400">/ 50</span></div>
             <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Average Score</div>
           </div>
-        </div>
+        </Link>
       </div>
     </div>
   );
