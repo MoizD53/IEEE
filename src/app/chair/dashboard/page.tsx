@@ -3,6 +3,8 @@ import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { FileText, CheckCircle, Clock, Star, Activity, TrendingUp } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function ChairDashboardPage() {
   const session = await auth();
   const userId = session!.user.id;
