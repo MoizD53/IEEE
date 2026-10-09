@@ -9,15 +9,35 @@ async function SessionProgressBars() {
   });
 
   const sessionStats = new Map<string, { total: number; completed: number }>();
+  const romanMap: Record<string, string> = { 'I': '1', 'II': '2', 'III': '3', 'IV': '4', 'V': '5' };
 
   for (const p of papers) {
     if (!p.session) continue;
     
-    if (!sessionStats.has(p.session)) {
-      sessionStats.set(p.session, { total: 0, completed: 0 });
+    // Normalize session name to group by Session X + Date/Time
+    const match = p.session.match(/Session\s+([0-9]+|I{1,3}|IV|V).*?(\d{2}-\d{2}-\d{4}\s+\d{2}:\d{2}\s+[AP]M\s+to\s+\d{2}:\d{2}\s+[AP]M)/i);
+    let normalizedName = p.session;
+    
+    if (match) {
+      let val = match[1].toUpperCase();
+      val = romanMap[val] || val;
+      const time = match[2] || '';
+      normalizedName = `Session ${val} (${time})`;
+    } else {
+      // Fallback if it doesn't match the standard date time format
+      const fallback = p.session.match(/Session\s+([0-9]+|I{1,3}|IV|V)/i);
+      if (fallback) {
+        let val = fallback[1].toUpperCase();
+        val = romanMap[val] || val;
+        normalizedName = `Session ${val}`;
+      }
     }
     
-    const stats = sessionStats.get(p.session)!;
+    if (!sessionStats.has(normalizedName)) {
+      sessionStats.set(normalizedName, { total: 0, completed: 0 });
+    }
+    
+    const stats = sessionStats.get(normalizedName)!;
     stats.total += 1;
     if (['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(p.status)) {
       stats.completed += 1;
