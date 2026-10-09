@@ -9,7 +9,8 @@ import {
   BarChart, 
   Download, 
   Settings, 
-  MessageSquareText 
+  MessageSquareText,
+  Star
 } from "lucide-react";
 import ConferenceNavbar from "@/components/ConferenceNavbar";
 import SignOutButton from "@/components/SignOutButton";
@@ -91,6 +92,13 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           >
             <BarChart size={18} className="text-amber-400" />
             Analytics
+          </Link>
+          <Link
+            href="/admin/marks"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium hover:bg-slate-800/80 transition-colors text-slate-300 hover:text-white"
+          >
+            <Star size={18} className="text-cyan-400" />
+            Track Marks
           </Link>
           <Link
             href="/admin/feedback"
