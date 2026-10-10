@@ -17,9 +17,15 @@ async function ChairProgressBars() {
   const chairStats = chairs
     .map(chair => {
       const total = chair.assignments.length;
-      const completed = chair.assignments.filter(a => 
-        ['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(a.paper.status)
-      ).length;
+      const evaluatedPapers = chair.assignments
+        .filter(a => ['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(a.paper.status))
+        .map(a => a.paper.paperId);
+      
+      const pendingPapers = chair.assignments
+        .filter(a => !['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(a.paper.status))
+        .map(a => a.paper.paperId);
+
+      const completed = evaluatedPapers.length;
 
       let date = "";
       if (chair.assignments.length > 0 && chair.assignments[0].paper.session) {
@@ -32,7 +38,9 @@ async function ChairProgressBars() {
         date,
         total,
         completed,
-        percentage: total > 0 ? Math.round((completed / total) * 100) : 0
+        percentage: total > 0 ? Math.round((completed / total) * 100) : 0,
+        evaluatedPapers,
+        pendingPapers
       };
     })
     .filter(c => c.total > 0)
@@ -58,13 +66,30 @@ async function ChairProgressBars() {
             <span className="text-sm font-black text-indigo-600 shrink-0">{chair.completed} / {chair.total}</span>
           </div>
           
-          <div className="w-full bg-slate-200 rounded-full h-2.5 mb-1 overflow-hidden">
+          <div className="w-full bg-slate-200 rounded-full h-2.5 mb-2 overflow-hidden">
             <div 
               className="bg-gradient-to-r from-indigo-500 to-violet-500 h-2.5 rounded-full transition-all duration-1000 ease-out" 
               style={{ width: `${chair.percentage}%` }}
             ></div>
           </div>
-          <div className="text-[10px] font-bold text-slate-400 text-right">{chair.percentage}% Completed</div>
+          <div className="flex justify-between items-start">
+            <details className="text-[11px] text-slate-500 cursor-pointer group">
+              <summary className="hover:text-indigo-600 transition-colors font-medium outline-none">
+                View Paper IDs
+              </summary>
+              <div className="mt-2 space-y-1.5 bg-white p-3 rounded-lg border border-slate-200 shadow-sm leading-relaxed max-w-lg">
+                <div>
+                  <span className="font-semibold text-emerald-600 uppercase tracking-wider text-[10px]">Evaluated:</span>{" "}
+                  {chair.evaluatedPapers.length > 0 ? chair.evaluatedPapers.join(", ") : "None"}
+                </div>
+                <div>
+                  <span className="font-semibold text-amber-600 uppercase tracking-wider text-[10px]">Pending:</span>{" "}
+                  {chair.pendingPapers.length > 0 ? chair.pendingPapers.join(", ") : "None"}
+                </div>
+              </div>
+            </details>
+            <div className="text-[10px] font-bold text-slate-400 text-right mt-1">{chair.percentage}% Completed</div>
+          </div>
         </div>
       ))}
     </div>
