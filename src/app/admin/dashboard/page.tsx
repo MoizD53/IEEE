@@ -20,8 +20,16 @@ async function ChairProgressBars() {
       const completed = chair.assignments.filter(a => 
         ['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(a.paper.status)
       ).length;
+
+      let date = "";
+      if (chair.assignments.length > 0 && chair.assignments[0].paper.session) {
+        const match = chair.assignments[0].paper.session.match(/(\d{2}-\d{2}-\d{4})/);
+        if (match) date = match[1];
+      }
+
       return {
         name: chair.name,
+        date,
         total,
         completed,
         percentage: total > 0 ? Math.round((completed / total) * 100) : 0
@@ -43,7 +51,10 @@ async function ChairProgressBars() {
       {chairStats.map((chair, idx) => (
         <div key={idx} className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
           <div className="flex justify-between items-start mb-2 gap-4">
-            <h4 className="font-bold text-sm text-slate-800 leading-tight flex-1">{chair.name}</h4>
+            <h4 className="font-bold text-sm text-slate-800 leading-tight flex-1">
+              {chair.name}
+              {chair.date && <span className="text-xs font-medium text-slate-500 ml-2 bg-slate-200 px-2 py-0.5 rounded-full">{chair.date}</span>}
+            </h4>
             <span className="text-sm font-black text-indigo-600 shrink-0">{chair.completed} / {chair.total}</span>
           </div>
           
