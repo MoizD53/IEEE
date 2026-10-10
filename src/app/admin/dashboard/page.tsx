@@ -3,79 +3,57 @@ import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { FileText, Users, CheckCircle, Clock, Star, TrendingUp, Sparkles, User, FileOutput } from "lucide-react";
 
-async function SessionProgressBars() {
-  const papers = await prisma.paper.findMany({
-    select: { session: true, status: true }
-  });
-
-  const sessionStats = new Map<string, { total: number; completed: number }>();
-  const romanMap: Record<string, string> = { 'I': '1', 'II': '2', 'III': '3', 'IV': '4', 'V': '5' };
-
-  for (const p of papers) {
-    if (!p.session) continue;
-    
-    // Normalize session name to group by Session X + Date/Time
-    const match = p.session.match(/Session\s+([0-9]+|I{1,3}|IV|V).*?(\d{2}-\d{2}-\d{4}\s+\d{2}:\d{2}\s+[AP]M\s+to\s+\d{2}:\d{2}\s+[AP]M)/i);
-    let normalizedName = p.session;
-    
-    if (match) {
-      let val = match[1].toUpperCase();
-      val = romanMap[val] || val;
-      const time = match[2] || '';
-      normalizedName = `Session ${val} (${time})`;
-    } else {
-      // Fallback if it doesn't match the standard date time format
-      const fallback = p.session.match(/Session\s+([0-9]+|I{1,3}|IV|V)/i);
-      if (fallback) {
-        let val = fallback[1].toUpperCase();
-        val = romanMap[val] || val;
-        normalizedName = `Session ${val}`;
+async function ChairProgressBars() {
+  const chairs = await prisma.user.findMany({
+    where: { role: "SESSION_CHAIR" },
+    include: {
+      assignments: {
+        where: { status: "ACTIVE" },
+        include: { paper: true }
       }
     }
-    
-    if (!sessionStats.has(normalizedName)) {
-      sessionStats.set(normalizedName, { total: 0, completed: 0 });
-    }
-    
-    const stats = sessionStats.get(normalizedName)!;
-    stats.total += 1;
-    if (['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(p.status)) {
-      stats.completed += 1;
-    }
-  }
+  });
 
-  const sessions = Array.from(sessionStats.entries())
-    .map(([name, stats]) => ({
-      name,
-      ...stats,
-      percentage: stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0
-    }))
+  const chairStats = chairs
+    .map(chair => {
+      const total = chair.assignments.length;
+      const completed = chair.assignments.filter(a => 
+        ['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(a.paper.status)
+      ).length;
+      return {
+        name: chair.name,
+        total,
+        completed,
+        percentage: total > 0 ? Math.round((completed / total) * 100) : 0
+      };
+    })
+    .filter(c => c.total > 0)
     .sort((a, b) => b.percentage - a.percentage); // Sort by highest progress
 
-  if (sessions.length === 0) {
+  if (chairStats.length === 0) {
     return (
       <div className="text-center p-8 border-2 border-dashed border-slate-200 rounded-2xl">
-        <p className="text-slate-500 font-medium">No session data available.</p>
+        <p className="text-slate-500 font-medium">No session chair data available.</p>
       </div>
     );
   }
 
   return (
     <div className="space-y-6">
-      {sessions.map((session, idx) => (
+      {chairStats.map((chair, idx) => (
         <div key={idx} className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
           <div className="flex justify-between items-start mb-2 gap-4">
-            <h4 className="font-bold text-sm text-slate-800 leading-tight flex-1">{session.name}</h4>
-            <span className="text-sm font-black text-indigo-600 shrink-0">{session.completed} / {session.total}</span>
+            <h4 className="font-bold text-sm text-slate-800 leading-tight flex-1">{chair.name}</h4>
+            <span className="text-sm font-black text-indigo-600 shrink-0">{chair.completed} / {chair.total}</span>
           </div>
           
           <div className="w-full bg-slate-200 rounded-full h-2.5 mb-1 overflow-hidden">
             <div 
               className="bg-gradient-to-r from-indigo-500 to-violet-500 h-2.5 rounded-full transition-all duration-1000 ease-out" 
-              style={{ width: `${session.percentage}%` }}
+              style={{ width: `${chair.percentage}%` }}
             ></div>
           </div>
-          <div className="text-[10px] font-bold text-slate-400 text-right">{session.percentage}% Completed</div>
+          <div className="text-[10px] font-bold text-slate-400 text-right">{chair.percentage}% Completed</div>
         </div>
       ))}
     </div>
@@ -183,13 +161,13 @@ export default async function AdminDashboardPage() {
               <TrendingUp size={20} />
             </div>
             <div>
-              <h2 className="text-lg font-bold text-slate-900">Session Progress</h2>
-              <p className="text-sm text-slate-500 mt-0.5">Track evaluation completion rates across all conference sessions</p>
+              <h2 className="text-lg font-bold text-slate-900">Session Chair Progress</h2>
+              <p className="text-sm text-slate-500 mt-0.5">Track evaluation completion rates across all session chairs</p>
             </div>
           </div>
         </div>
 
-        <SessionProgressBars />
+        <ChairProgressBars />
       </div>
     </div>
   );
