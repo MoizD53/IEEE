@@ -2,8 +2,10 @@ import { prisma } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { FileText, CheckCircle, Clock, Star, Activity, TrendingUp } from "lucide-react";
+import AutoRefresh from "@/components/AutoRefresh";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export default async function ChairDashboardPage() {
   const session = await auth();
@@ -31,6 +33,7 @@ export default async function ChairDashboardPage() {
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto pb-10">
+      <AutoRefresh interval={5000} />
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
           <h1 className="text-2xl font-semibold text-slate-900 tracking-tight">Dashboard Overview</h1>
