@@ -2,6 +2,7 @@ import { prisma } from "@/lib/db";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { FileText, Users, CheckCircle, Clock, Star, TrendingUp, Sparkles, User, FileOutput } from "lucide-react";
+import ChairProgressClient from "@/components/admin/ChairProgressClient";
 
 async function ChairProgressBars() {
   const chairs = await prisma.user.findMany({
@@ -49,7 +50,16 @@ async function ChairProgressBars() {
       };
     })
     .filter(c => c.total > 0)
-    .sort((a, b) => b.percentage - a.percentage); // Sort by highest progress
+    .sort((a, b) => {
+      // Sort by date first ("09-10-2026" comes before "10-10-2026")
+      if (a.date !== b.date) {
+        if (a.date === "09-10-2026") return -1;
+        if (b.date === "09-10-2026") return 1;
+        return a.date.localeCompare(b.date);
+      }
+      // Then sort by percentage (highest progress first)
+      return b.percentage - a.percentage;
+    });
 
   if (chairStats.length === 0) {
     return (
@@ -59,61 +69,7 @@ async function ChairProgressBars() {
     );
   }
 
-  return (
-    <div className="space-y-6">
-      {chairStats.map((chair, idx) => (
-        <div key={idx} className="bg-slate-50 p-4 rounded-2xl border border-slate-100">
-          <div className="flex justify-between items-start mb-2 gap-4">
-            <h4 className="font-bold text-sm text-slate-800 leading-tight flex-1">
-              {chair.name}
-              {chair.date && <span className="text-xs font-medium text-slate-500 ml-2 bg-slate-200 px-2 py-0.5 rounded-full">{chair.date}</span>}
-            </h4>
-            <span className="text-sm font-black text-indigo-600 shrink-0">{chair.completed} / {chair.total}</span>
-          </div>
-          
-          <div className="w-full bg-slate-100 rounded-full h-2.5 mb-2 overflow-hidden flex">
-            <div 
-              className="bg-emerald-500 h-2.5 transition-all duration-1000 ease-out" 
-              style={{ width: `${chair.total > 0 ? (chair.evaluatedPapers.length / chair.total) * 100 : 0}%` }}
-              title="Evaluated"
-            ></div>
-            <div 
-              className="bg-rose-500 h-2.5 transition-all duration-1000 ease-out" 
-              style={{ width: `${chair.total > 0 ? (chair.absentPapers.length / chair.total) * 100 : 0}%` }}
-              title="Absent"
-            ></div>
-            <div 
-              className="bg-amber-400 h-2.5 transition-all duration-1000 ease-out" 
-              style={{ width: `${chair.total > 0 ? (chair.pendingPapers.length / chair.total) * 100 : 0}%` }}
-              title="Pending"
-            ></div>
-          </div>
-          <div className="flex justify-between items-start">
-            <details className="text-[11px] text-slate-500 cursor-pointer group">
-              <summary className="hover:text-indigo-600 transition-colors font-medium outline-none">
-                View Paper IDs
-              </summary>
-              <div className="mt-2 space-y-1.5 bg-white p-3 rounded-lg border border-slate-200 shadow-sm leading-relaxed max-w-lg">
-                <div>
-                  <span className="font-semibold text-emerald-600 uppercase tracking-wider text-[10px]">Evaluated:</span>{" "}
-                  {chair.evaluatedPapers.length > 0 ? chair.evaluatedPapers.join(", ") : "None"}
-                </div>
-                <div>
-                  <span className="font-semibold text-rose-600 uppercase tracking-wider text-[10px]">Absent:</span>{" "}
-                  {chair.absentPapers.length > 0 ? chair.absentPapers.join(", ") : "None"}
-                </div>
-                <div>
-                  <span className="font-semibold text-amber-600 uppercase tracking-wider text-[10px]">Pending:</span>{" "}
-                  {chair.pendingPapers.length > 0 ? chair.pendingPapers.join(", ") : "None"}
-                </div>
-              </div>
-            </details>
-            <div className="text-[10px] font-bold text-slate-400 text-right mt-1">{chair.percentage}% Completed</div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
+  return <ChairProgressClient initialChairs={chairStats} />;
 }
 
 export default async function AdminDashboardPage() {
