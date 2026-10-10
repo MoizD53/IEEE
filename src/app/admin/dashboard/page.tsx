@@ -71,10 +71,16 @@ async function ChairProgressBars() {
             <span className="text-sm font-black text-indigo-600 shrink-0">{chair.completed} / {chair.total}</span>
           </div>
           
-          <div className="w-full bg-slate-200 rounded-full h-2.5 mb-2 overflow-hidden">
+          <div className="w-full bg-slate-200 rounded-full h-2.5 mb-2 overflow-hidden flex">
             <div 
-              className="bg-gradient-to-r from-indigo-500 to-violet-500 h-2.5 rounded-full transition-all duration-1000 ease-out" 
-              style={{ width: `${chair.percentage}%` }}
+              className="bg-emerald-500 h-2.5 transition-all duration-1000 ease-out" 
+              style={{ width: `${chair.total > 0 ? (chair.evaluatedPapers.length / chair.total) * 100 : 0}%` }}
+              title="Evaluated"
+            ></div>
+            <div 
+              className="bg-rose-500 h-2.5 transition-all duration-1000 ease-out" 
+              style={{ width: `${chair.total > 0 ? (chair.absentPapers.length / chair.total) * 100 : 0}%` }}
+              title="Absent"
             ></div>
           </div>
           <div className="flex justify-between items-start">
