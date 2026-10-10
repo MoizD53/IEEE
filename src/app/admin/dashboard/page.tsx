@@ -21,11 +21,15 @@ async function ChairProgressBars() {
         .filter(a => ['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(a.paper.status))
         .map(a => a.paper.paperId);
       
-      const pendingPapers = chair.assignments
-        .filter(a => !['EVALUATED', 'RECOMMENDED', 'FINALIZED'].includes(a.paper.status))
+      const absentPapers = chair.assignments
+        .filter(a => a.paper.status === 'ABSENT')
         .map(a => a.paper.paperId);
 
-      const completed = evaluatedPapers.length;
+      const pendingPapers = chair.assignments
+        .filter(a => !['EVALUATED', 'RECOMMENDED', 'FINALIZED', 'ABSENT'].includes(a.paper.status))
+        .map(a => a.paper.paperId);
+
+      const completed = evaluatedPapers.length + absentPapers.length;
 
       let date = "";
       if (chair.assignments.length > 0 && chair.assignments[0].paper.session) {
@@ -40,6 +44,7 @@ async function ChairProgressBars() {
         completed,
         percentage: total > 0 ? Math.round((completed / total) * 100) : 0,
         evaluatedPapers,
+        absentPapers,
         pendingPapers
       };
     })
@@ -83,6 +88,10 @@ async function ChairProgressBars() {
                   {chair.evaluatedPapers.length > 0 ? chair.evaluatedPapers.join(", ") : "None"}
                 </div>
                 <div>
+                  <span className="font-semibold text-rose-600 uppercase tracking-wider text-[10px]">Absent:</span>{" "}
+                  {chair.absentPapers.length > 0 ? chair.absentPapers.join(", ") : "None"}
+                </div>
+                <div>
                   <span className="font-semibold text-amber-600 uppercase tracking-wider text-[10px]">Pending:</span>{" "}
                   {chair.pendingPapers.length > 0 ? chair.pendingPapers.join(", ") : "None"}
                 </div>
@@ -103,12 +112,14 @@ export default async function AdminDashboardPage() {
     totalEvaluations,
     completedEvaluations,
     recommendedPapers,
+    absentPapersCount,
   ] = await Promise.all([
     prisma.paper.count(),
     prisma.user.count({ where: { role: "SESSION_CHAIR" } }),
     prisma.evaluation.count(),
     prisma.evaluation.count({ where: { status: "SUBMITTED" } }),
     prisma.evaluation.count({ where: { status: "SUBMITTED", recommended: true } }),
+    prisma.paper.count({ where: { status: "ABSENT" } }),
   ]);
 
   const pendingEvaluations = totalEvaluations - completedEvaluations;
@@ -159,7 +170,12 @@ export default async function AdminDashboardPage() {
         <Link href="/admin/papers" className="bg-white p-5 rounded-2xl shadow-[0_2px_10px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col justify-between group hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
           <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 shadow-sm"><CheckCircle size={20} strokeWidth={2.5} /></div>
           <div>
-            <div className="text-3xl font-black text-slate-800 tracking-tight">{completedEvaluations}</div>
+            <div className="text-3xl font-black text-slate-800 tracking-tight flex items-baseline gap-2">
+              {completedEvaluations}
+              {absentPapersCount > 0 && (
+                <span className="text-xs font-bold text-rose-500 bg-rose-50 px-1.5 py-0.5 rounded-md">+{absentPapersCount} Absent</span>
+              )}
+            </div>
             <div className="text-[11px] uppercase tracking-wider text-slate-400 font-bold mt-1">Evaluated Papers</div>
           </div>
         </Link>

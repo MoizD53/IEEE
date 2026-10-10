@@ -22,13 +22,15 @@ export default async function ReportsPage() {
     evalsCount,
     recommendedCount,
     chairsCount,
-    confCount
+    confCount,
+    absentCount
   ] = await Promise.all([
     prisma.paper.count(),
     prisma.evaluation.count({ where: { status: "SUBMITTED" } }),
     prisma.evaluation.count({ where: { status: "SUBMITTED", recommended: true } }),
     prisma.user.count({ where: { role: "SESSION_CHAIR" } }),
     prisma.conferenceFeedback.count({ where: { status: "SUBMITTED" } }),
+    prisma.paper.count({ where: { status: "ABSENT" } }),
   ]);
 
   const reportCards = [
@@ -106,6 +108,21 @@ export default async function ReportsPage() {
       badgeColor: "bg-blue-50 text-blue-700 border-blue-200",
       btnColor: "bg-blue-600 hover:bg-blue-700 text-white",
       fields: ["Paper ID", "Title", "Authors", "Track", "Session", "Review Status"],
+    },
+    {
+      id: "absent",
+      title: "Absent Papers Log",
+      category: "Exceptions",
+      description: "List of all papers where the presenter was marked absent. Useful for tracking no-shows and finalizing non-evaluated submissions.",
+      count: absentCount,
+      countLabel: "Absent Papers",
+      href: "/api/export/absent",
+      filename: "absent_papers.csv",
+      icon: Layers,
+      accentColor: "border-rose-500",
+      badgeColor: "bg-rose-50 text-rose-700 border-rose-200",
+      btnColor: "bg-rose-600 hover:bg-rose-700 text-white",
+      fields: ["Paper ID", "Title", "Authors", "Track", "Session", "Assigned Chair"],
     },
   ];
 
