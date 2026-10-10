@@ -86,6 +86,7 @@ export default function PaperList({ papers }: { papers: Paper[] }) {
                       ${paper.status === 'EVALUATED' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : ''}
                       ${paper.status === 'RECOMMENDED' ? 'bg-purple-50 text-purple-700 border-purple-200' : ''}
                       ${paper.status === 'FINALIZED' ? 'bg-slate-100 text-slate-800 border-slate-300' : ''}
+                      ${paper.status === 'ABSENT' ? 'bg-rose-50 text-rose-700 border-rose-200' : ''}
                     `}>
                       {paper.status.replace("_", " ")}
                     </span>
